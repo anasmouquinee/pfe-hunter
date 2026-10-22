@@ -14,7 +14,8 @@ def test_clean_url_removes_tracking_and_fragments():
 def test_extract_emails_ignores_media_assets():
     text = (
         "Envoyez vos CVs à stages@techcorp.ma ou rh.recrutement@societe.com. "
-        "Logo téléchargeable sur image@logo.png ou banner@hero.jpg. Contact direct: anas@emsi.ma."
+        "Logo téléchargeable sur image@logo.png ou banner@hero.jpg. Contact direct: anas@emsi.ma. "
+        "Pour réclamations écrivez à contact@joblia.ma ou support@dreamjob.ma."
     )
     emails = extract_emails(text)
     assert "stages@techcorp.ma" in emails
@@ -22,6 +23,9 @@ def test_extract_emails_ignores_media_assets():
     assert "anas@emsi.ma" in emails
     assert "image@logo.png" not in emails
     assert "banner@hero.jpg" not in emails
+    assert "contact@joblia.ma" not in emails
+    assert "support@dreamjob.ma" not in emails
+
 
 
 def test_extract_recruiter_profile():

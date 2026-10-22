@@ -18,12 +18,14 @@ from src.scrapers.linkedin_guest_scraper import LinkedInGuestScraper
 from src.scrapers.dreamjob_scraper import DreamJobScraper
 from src.scrapers.marocannonces_scraper import MarocAnnoncesScraper
 from src.scrapers.talent_scraper import TalentScraper
+from src.scrapers.joblia_scraper import JobliaScraper
 from src.matcher.evaluator import OfferEvaluator
 from src.storage.state_manager import StateManager
 from src.mailer.email_sender import EmailSender
 from src.notifier.telegram_notifier import TelegramNotifier
 from src.notifier.discord_notifier import DiscordNotifier
 from src.utils.logger import logger
+from src.utils.date_parser import parse_offer_age_days
 
 
 def test_notifications() -> int:
@@ -106,6 +108,7 @@ def run_agent(
 
     scrapers = [
         DreamJobScraper(),
+        JobliaScraper(),
         LinkedInGuestScraper(),
         ReKruteScraper(),
         TalentScraper(),
@@ -132,18 +135,28 @@ def run_agent(
                 logger.warning("Erreur scraper %s sur '%s': %s", scraper.name, kw, e)
         print(f"   -> {len(all_raw_offers)} offres cumulées uniques.")
 
-    # 3. Evaluate & Filter strictly for AI PFE
-    print(f"\n🧠 Évaluation et filtrage IA de {len(all_raw_offers)} offres...")
+    # 3. Evaluate & Filter strictly for AI PFE & Recency
+    print(f"\n🧠 Évaluation, filtrage IA et contrôle de fraîcheur de {len(all_raw_offers)} offres...")
     qualified_offers: List[JobOffer] = []
 
     for offer in all_raw_offers:
         evaluated = evaluator.evaluate(offer)
-        # Strictly require genuine AI domain and student PFE internship
-        if evaluator.is_pfe_offer(evaluated) and evaluator.is_ai_offer(evaluated) and evaluated.score >= 50:
+        # Strictly require genuine AI domain, student PFE internship, and recent publication
+        if (evaluator.is_pfe_offer(evaluated) and 
+            evaluator.is_ai_offer(evaluated) and 
+            evaluator.is_recent_enough(evaluated) and 
+            evaluated.score >= 50):
             qualified_offers.append(evaluated)
 
-    # Sort: highest score and remunerated first
-    qualified_offers.sort(key=lambda o: (o.is_remunerated or False, o.score), reverse=True)
+    # Sort: 1) Freshness (newest first), 2) Remuneration, 3) Match score
+    qualified_offers.sort(
+        key=lambda o: (
+            -parse_offer_age_days(o.posted_date),
+            o.is_remunerated or False,
+            o.score
+        ),
+        reverse=True
+    )
     if limit:
         qualified_offers = qualified_offers[:limit]
     print(f"   -> {len(qualified_offers)} offres PFE IA qualifiées retenues.")

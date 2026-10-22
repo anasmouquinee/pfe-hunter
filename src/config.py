@@ -68,6 +68,7 @@ class AgentConfig(BaseModel):
     gmail_user: str = Field(default_factory=lambda: os.getenv("GMAIL_USER", "anasmouqine@gmail.com"))
     gmail_app_password: str = Field(default_factory=lambda: os.getenv("GMAIL_APP_PASSWORD", ""))
     max_emails_per_run: int = Field(default_factory=lambda: int(os.getenv("MAX_EMAILS_PER_RUN", "5")))
+    max_offer_age_days: int = Field(default_factory=lambda: int(os.getenv("MAX_OFFER_AGE_DAYS", "14")))
 
     # Notification Webhooks
     telegram_bot_token: str = Field(default_factory=lambda: os.getenv("TELEGRAM_BOT_TOKEN", ""))

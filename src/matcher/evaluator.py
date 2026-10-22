@@ -1,10 +1,11 @@
 """Scoring and filtering engine strictly tailored for Anas Mouqine's AI & Data PFE profile."""
 
 import re
-from typing import List
+from typing import List, Optional
 from src.config import config
 from src.models.offer import JobOffer
 from src.utils.logger import logger
+from src.utils.date_parser import is_recent_offer, parse_offer_age_days
 
 
 class OfferEvaluator:
@@ -204,6 +205,11 @@ class OfferEvaluator:
             if re.search(pattern, text):
                 return True
         return False
+
+    def is_recent_enough(self, offer: JobOffer, max_days: Optional[int] = None) -> bool:
+        """Checks if the offer was published recently (within max_days)."""
+        limit_days = max_days if max_days is not None else config.max_offer_age_days
+        return is_recent_offer(offer.posted_date, max_days=limit_days)
 
     def evaluate(self, offer: JobOffer) -> JobOffer:
         """Enriches the offer with match score, remuneration flag, and matched skill tags."""

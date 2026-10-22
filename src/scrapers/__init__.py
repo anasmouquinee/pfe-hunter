@@ -5,6 +5,7 @@ from .linkedin_guest_scraper import LinkedInGuestScraper
 from .dreamjob_scraper import DreamJobScraper
 from .marocannonces_scraper import MarocAnnoncesScraper
 from .talent_scraper import TalentScraper
+from .joblia_scraper import JobliaScraper
 
 __all__ = [
     "BaseScraper",
@@ -14,4 +15,6 @@ __all__ = [
     "DreamJobScraper",
     "MarocAnnoncesScraper",
     "TalentScraper",
+    "JobliaScraper",
 ]
+

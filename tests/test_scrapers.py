@@ -208,3 +208,31 @@ def test_talent_parsing():
     assert "Voir plus" not in offer.description
 
 
+MOCK_JOBLIA_HTML = """
+<div class="ast-row">
+    <article class="post">
+        <h2 class="entry-title">
+            <a href="https://joblia.ma/offres-emploi/artefact-recrute-des-consultants-data-a-casablanca/">Artefact recrute des data engineers et consultants IA à Casablanca</a>
+        </h2>
+        <time class="entry-date published" datetime="2026-10-22T15:37:18+00:00">22 octobre 2026</time>
+        <div class="entry-content">
+            Artefact recrute à Casablanca des stagiaires PFE Data & Machine Learning.
+        </div>
+    </article>
+</div>
+"""
+
+
+def test_joblia_parsing():
+    from src.scrapers.joblia_scraper import JobliaScraper
+    scraper = JobliaScraper()
+    soup = BeautifulSoup(MOCK_JOBLIA_HTML, "html.parser")
+
+    offers = scraper.parse_html(soup)
+    assert len(offers) == 1
+    offer = offers[0]
+    assert "Artefact recrute" in offer.title
+    assert offer.company == "Artefact"
+    assert "joblia.ma/offres-emploi/artefact" in offer.url
+    assert offer.source == "joblia"
+    assert offer.posted_date == "22 octobre 2026"

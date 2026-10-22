@@ -46,13 +46,21 @@ def extract_emails(text: str) -> List[str]:
         ".pdf", ".css", ".js", ".html"
     )
 
+    ignored_domains = (
+        "@joblia.ma", "@dreamjob.ma", "@emploima.ma", "@rekrute.com",
+        "@marocannonces.com", "@talent.com", "@linkedin.com", "@github.com",
+        "@sentry.io", "@w3.org", "@example.com"
+    )
+
     for candidate in matches:
         cleaned = candidate.rstrip('.,;!?:()[]"\'').lower()
         if not cleaned.endswith(ignored_extensions):
-            if cleaned not in valid_emails:
-                valid_emails.append(cleaned)
+            if not any(cleaned.endswith(dom) for dom in ignored_domains):
+                if cleaned not in valid_emails:
+                    valid_emails.append(cleaned)
 
     return valid_emails
+
 
 
 def extract_linkedin_urls(text: str) -> List[str]:

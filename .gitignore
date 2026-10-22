@@ -27,4 +27,5 @@ Desktop.ini
 *.jpeg
 *.zip
 !docs/assets/*.png
+!cv_ats_pfe.pdf
 
