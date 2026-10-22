@@ -60,3 +60,46 @@ def test_cover_letter_html_generation():
     assert "SEWS-CABINET" in html_body
     assert "Enterprise Media Lakehouse" in html_body
     assert "anasmouqine@gmail.com" in html_body
+
+
+def test_formal_cover_letter_coface_datalab(tmp_path):
+    offer = JobOffer(
+        title="Stages PFE 2026/2027 - DataLab (Pré-Embauche)",
+        company="Coface",
+        location="Casablanca, Maroc",
+        url="https://example.com/coface-pfe-datalab",
+        source="rekrute",
+        description="Stages PFE 2026/2027 - DataLab (Pré-Embauche) à Casablanca. Modélisation prédictive, scoring et big data.",
+        matched_skills=["Python", "Machine Learning", "Data Engineering", "SQL"]
+    )
+
+    text_letter = CoverLetterGenerator.generate_formal_letter_text(offer)
+    html_letter = CoverLetterGenerator.generate_formal_letter_html(offer)
+
+    # Assert key personalization for Coface DataLab & Pre-embauche
+    assert "Anas Mouqine" in text_letter or "Anas MOUQINE" in text_letter
+    assert "Coface" in text_letter
+    assert "DataLab" in text_letter
+    assert "Pré-Embauche" in text_letter or "pré-embauche" in text_letter
+    assert "EMSI Casablanca" in text_letter
+    assert "COSUMAR" in text_letter
+    assert "SEWS-CABINET" in text_letter
+    assert "Enterprise Media Lakehouse" in text_letter
+
+    assert "<!DOCTYPE html>" in html_letter
+    assert "Coface" in html_letter
+    assert "DataLab" in html_letter
+    assert "window.print()" in html_letter
+    assert "copyLetterText()" in html_letter
+
+    # Test saving to disk
+    paths = CoverLetterGenerator.save_letter_for_offer(
+        offer,
+        output_dir=tmp_path,
+        custom_slug="Lettre_Motivation_Coface_DataLab_Anas_Mouqine"
+    )
+    assert paths["html"].exists()
+    assert paths["txt"].exists()
+    assert paths["html"].stat().st_size > 500
+    assert paths["txt"].stat().st_size > 500
+

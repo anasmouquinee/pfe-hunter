@@ -22,10 +22,12 @@ from src.scrapers.joblia_scraper import JobliaScraper
 from src.matcher.evaluator import OfferEvaluator
 from src.storage.state_manager import StateManager
 from src.mailer.email_sender import EmailSender
+from src.mailer.cover_letter_generator import CoverLetterGenerator
 from src.notifier.telegram_notifier import TelegramNotifier
 from src.notifier.discord_notifier import DiscordNotifier
 from src.utils.logger import logger
 from src.utils.date_parser import parse_offer_age_days
+
 
 
 def test_notifications() -> int:
@@ -76,6 +78,70 @@ def display_stats() -> int:
         print(f"   - {src.upper():<16} : {count} offre(s)")
     print(f"Dernière mise à jour        : {stats['last_updated'] or 'Aucune'}")
     print("=" * 60 + "\n")
+    return 0
+
+
+def generate_all_letters(limit: Optional[int] = None) -> int:
+    """Generates ready-to-download formal cover letters (HTML & TXT) for all tracked offers."""
+    state_manager = StateManager()
+    offers_dict = state_manager.data.get("offers", {})
+    if not offers_dict:
+        print("⚠️ Aucune offre trouvée dans la base de données locale (data/applied_offers.json).")
+        return 0
+
+    print("\n" + "=" * 70)
+    print("📄 GÉNÉRATION DES LETTRES DE MOTIVATION (HTML A4 & TEXTE BRUT)")
+    print("=" * 70)
+    count = 0
+    letters_dir = config.BASE_DIR / "letters"
+
+    for offer_id, data in offers_dict.items():
+        offer = JobOffer(
+            id=offer_id,
+            title=data.get("title", "Stage PFE"),
+            company=data.get("company", "Entreprise"),
+            location=data.get("location", "Casablanca, Maroc"),
+            url=data.get("url", ""),
+            source=data.get("source", "saved"),
+            description=data.get("description", ""),
+            contact_email=data.get("contact_email"),
+            linkedin_url=data.get("linkedin_url"),
+            hr_name=data.get("hr_name"),
+            hr_linkedin_url=data.get("hr_linkedin_url"),
+            matched_skills=data.get("matched_skills", []),
+        )
+        saved = CoverLetterGenerator.save_letter_for_offer(offer, output_dir=letters_dir)
+        count += 1
+        print(f"   [{count:02d}] {offer.company} - {offer.title[:38]} -> {saved['html'].name}")
+        if limit and count >= limit:
+            break
+
+    print("-" * 70)
+    print(f"✅ {count} lettre(s) de motivation générées dans : {letters_dir}")
+    print("💡 Ouvrez les fichiers .html dans votre navigateur et faites Ctrl+P pour exporter en PDF A4.")
+    print("=" * 70 + "\n")
+    return 0
+
+
+def generate_custom_letter(company: str, role: str, description: str = "") -> int:
+    """Generates a dedicated formal cover letter for a specific target company and role."""
+    offer = JobOffer(
+        title=role,
+        company=company,
+        location="Casablanca, Maroc",
+        url="",
+        source="custom",
+        description=description or f"Stage PFE chez {company} au sein du département Data/IA avec perspective de pré-embauche.",
+        matched_skills=["Intelligence Artificielle", "Machine Learning", "Data Engineering", "Python", "SQL"]
+    )
+    letters_dir = config.BASE_DIR / "letters"
+    saved = CoverLetterGenerator.save_letter_for_offer(offer, output_dir=letters_dir)
+    print("\n" + "=" * 70)
+    print(f"📄 LETTRE DE MOTIVATION SUR-MESURE GÉNÉRÉE POUR : {company}")
+    print("=" * 70)
+    print(f"   - Fichier HTML (A4 1-Clic PDF) : {saved['html']}")
+    print(f"   - Fichier TXT  (Texte brut)    : {saved['txt']}")
+    print("=" * 70 + "\n")
     return 0
 
 
@@ -184,7 +250,11 @@ def run_agent(
         print(f"\n✨ NOUVELLE OPPORTUNITÉ : {offer.title} @ {offer.company} (Score: {offer.score}%)")
         print(f"   📍 Lieu : {offer.location} | Rémunéré : {'OUI' if offer.is_remunerated else 'Non spécifié'}")
 
-        # A. Automated Email if Recruiter / HR email is found
+        # A. Always generate a ready-to-download formal cover letter (HTML & TXT) in letters/
+        saved_letter = CoverLetterGenerator.save_letter_for_offer(offer)
+        print(f"   📄 Lettre de motivation prête : {saved_letter['html'].name}")
+
+        # B. Automated Email if Recruiter / HR email is found
         email_sent = False
         if offer.contact_email:
             print(f"   ✉️ Contact RH identifié : {offer.contact_email}")
@@ -200,20 +270,20 @@ def run_agent(
                 mailer.send_application(offer)
                 email_sent = False
         else:
-            print("   ℹ️ Aucun email RH public dans la description -> Postulation manuelle requise.")
+            print("   ℹ️ Aucun email RH public dans la description -> Postulation manuelle requise avec la lettre générée.")
 
-        # B. LinkedIn Links for Anas to apply/connect manually
+        # C. LinkedIn Links for Anas to apply/connect manually
         if offer.hr_linkedin_url:
             print(f"   👤 Recruteur RH LinkedIn : {offer.hr_linkedin_url}")
         if offer.linkedin_url:
             print(f"   🔗 Lien LinkedIn pour postuler manuellement : {offer.linkedin_url}")
 
-        # C. Webhook Dispatch (Telegram / Discord) - notify if not already notified
+        # D. Webhook Dispatch (Telegram / Discord) - notify if not already notified
         if not already_notified or email_sent:
             telegram.send_alert(offer, email_sent=email_sent)
             discord.send_alert(offer, email_sent=email_sent)
 
-        # D. Save State - explicitly marking simulated vs real application
+        # E. Save State - explicitly marking simulated vs real application
         state_manager.record_offer(
             offer,
             applied=email_sent,
@@ -239,6 +309,9 @@ if __name__ == "__main__":
     parser.add_argument("--dry-run", action="store_true", help="Run in simulation mode (default)")
     parser.add_argument("--test-notifications", action="store_true", help="Send a test notification card to Telegram and Discord")
     parser.add_argument("--stats", action="store_true", help="Display statistics of tracked offers")
+    parser.add_argument("--generate-letters", action="store_true", help="Generate ready-to-download cover letters (HTML & TXT) for all tracked offers")
+    parser.add_argument("--letter-company", type=str, help="Generate a customized cover letter for a specific company name")
+    parser.add_argument("--letter-role", type=str, default="Stages PFE 2026/2027 - DataLab (Pré-Embauche)", help="Role title for customized letter")
     parser.add_argument("--keyword", type=str, help="Search for a specific keyword instead of default AI keywords")
     parser.add_argument("--location", type=str, default="Casablanca", help="Search location (default: Casablanca)")
     parser.add_argument("--limit", type=int, help="Limit maximum offers processed")
@@ -250,7 +323,14 @@ if __name__ == "__main__":
     if args.stats:
         sys.exit(display_stats())
 
+    if args.generate_letters:
+        sys.exit(generate_all_letters(limit=args.limit))
+
+    if args.letter_company:
+        sys.exit(generate_custom_letter(company=args.letter_company, role=args.letter_role))
+
     is_live = args.live and not args.dry_run
     custom_kws = [args.keyword] if args.keyword else None
 
     sys.exit(run_agent(dry_run=not is_live, custom_keywords=custom_kws, location=args.location, limit=args.limit))
+

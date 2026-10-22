@@ -78,10 +78,17 @@ class AgentConfig(BaseModel):
     # AI / LLM Evaluation (Optional)
     gemini_api_key: str = Field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
 
-    # Data Persistence
+    # Data Persistence & Outputs
+    base_dir: Path = BASE_DIR
+    letters_dir: Path = BASE_DIR / "letters"
     data_dir: Path = BASE_DIR / "data"
     state_file: Path = BASE_DIR / "data" / "applied_offers.json"
+
+    @property
+    def BASE_DIR(self) -> Path:
+        return self.base_dir
 
 
 # Singleton instance
 config = AgentConfig()
+

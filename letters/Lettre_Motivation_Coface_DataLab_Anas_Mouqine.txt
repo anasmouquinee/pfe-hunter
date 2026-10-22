@@ -1,0 +1,39 @@
+Anas Mouqine
+Élève-Ingénieur en 5ème Année – Intelligence Artificielle (IA) & Data Engineering
+École Marocaine des Sciences de l'Ingénieur (EMSI Casablanca)
+Casablanca, Maroc
+Tél : +212 672-104126 | Email : anasmouqine@gmail.com
+LinkedIn : https://www.linkedin.com/in/anas-mouqine-329207304/ | Portfolio : https://anasmouquinee.github.io/port/
+
+À l'attention de l'Équipe Recrutement & de la Direction du DataLab
+Coface Maroc / DataLab
+Casablanca Finance City (CFC), Casablanca, Maroc
+
+Fait à Casablanca, le 22 octobre 2026
+
+Objet : Candidature au Stage PFE 2026/2027 - DataLab (Pré-Embauche)
+
+Madame, Monsieur,
+
+Actuellement élève-ingénieur en 5ème année à l'École Marocaine des Sciences de l'Ingénieur (EMSI Casablanca), spécialisé en Intelligence Artificielle (IA) & Data Engineering, je vous adresse avec un vif enthousiasme ma candidature pour l'opportunité de Stage PFE 2026/2027 – DataLab (Pré-Embauche) au sein de Coface.
+
+Leader mondial de l'assurance-crédit et acteur de premier plan dans l'intelligence économique et la gestion des risques d'entreprise, Coface place la valorisation de la donnée au cœur de sa stratégie décisionnelle. Les chantiers d'envergure portés par votre DataLab — modélisation prédictive du risque de défaillance, scoring financier d'entreprises et automatisation de pipelines analytiques massifs — correspondent très exactement au domaine d'excellence dans lequel je souhaite m'investir et apporter une valeur ajoutée concrète et mesurable.
+
+
+Mon cursus académique d'excellence et mes réalisations d'ingénierie m'ont permis de développer une double compétence pointue en Data Engineering et en Intelligence Artificielle :
+- Data Engineering & Streaming : Conception et déploiement d'une plateforme Enterprise Media Lakehouse (architecture Medallion Bronze/Silver/Gold) orchestrant plus de 100 000 flux de données quotidiens via des DAGs Apache Airflow, Apache Kafka et conteneurisation Docker.
+- IA Avancée & Systèmes Intelligents : Conception d'un framework d'agents autonomes (Multi-Agent Orchestrator), intégration de pipelines RAG (Retrieval-Augmented Generation) avec recherche vectorielle sémantique et moteurs de graphes de connaissances (Neo4j / LLM).
+
+Cette expertise théorique est renforcée par des expériences industrielles probantes :
+- Chez COSUMAR (Stage Ingénieur Data) : Conception et automatisation de pipelines ETL en Python et SQL pour plus de 20 KPIs opérationnels, réduisant le temps de génération des rapports d'activité de 75% et le temps de diagnostic des anomalies opérationnelles de 30%.
+- Chez SEWS-CABINET (Sumitomo Electric Group) : Développement d'applications industrielles collaboratives avec modules temps réel et architectures offline-first résilientes.
+
+La perspective de pré-embauche stipulée dans votre offre répond parfaitement à mon projet professionnel : mon ambition est de m'investir sur le long terme au sein de vos équipes, de monter rapidement en compétence sur vos métiers et de pérenniser ma contribution à vos succès au-delà du stage de fin d'études.
+
+Disponible dès le début de l'année 2026 pour une durée de 4 à 6 mois, je serais honoré d'échanger avec vous lors d'un entretien afin de vous exposer de vive voix la pertinence de mon profil et ma motivation à rejoindre Coface.
+
+Vous remerciant par avance de l'attention que vous porterez à ma candidature, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+
+Anas Mouqine
+Élève-Ingénieur en 5ème Année – Intelligence Artificielle (IA) & Data Engineering
+École Marocaine des Sciences de l'Ingénieur (EMSI Casablanca)

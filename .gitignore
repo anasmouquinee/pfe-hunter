@@ -29,3 +29,10 @@ Desktop.ini
 !docs/assets/*.png
 !cv_ats_pfe.pdf
 
+# Generated application letters (keep directory & canonical Coface sample)
+letters/*.html
+letters/*.txt
+!letters/.gitkeep
+!letters/Lettre_Motivation_Coface_DataLab_Anas_Mouqine.*
+
+
