@@ -103,3 +103,50 @@ def test_formal_cover_letter_coface_datalab(tmp_path):
     assert paths["html"].stat().st_size > 500
     assert paths["txt"].stat().st_size > 500
 
+
+def test_formal_cover_letter_natixis_cib_ml_research(tmp_path):
+    offer = JobOffer(
+        title="Stage de 6 mois à Natixis CIB : ML Research",
+        company="Natixis CIB",
+        location="Paris / Casablanca",
+        url="mailto:baptiste.grivot-ext@natixis.com",
+        source="direct_email",
+        contact_email="baptiste.grivot-ext@natixis.com",
+        hr_name="Baptiste Grivot",
+        description="Stage de 6 mois à Natixis CIB : ML Research pour commencer début/mi janvier 2027.",
+        matched_skills=["Machine Learning", "Python", "Deep Learning", "PyTorch"]
+    )
+
+    # Test email body
+    email_body = CoverLetterGenerator.generate_body(offer)
+    assert "Bonjour Monsieur Grivot," in email_body
+    assert "début / mi-janvier 2027" in email_body
+    assert "Natixis CIB" in email_body
+
+    # Test formal letters (text & HTML)
+    text_letter = CoverLetterGenerator.generate_formal_letter_text(offer)
+    html_letter = CoverLetterGenerator.generate_formal_letter_html(offer)
+
+    assert "Baptiste GRIVOT" in text_letter
+    assert "ML Research" in text_letter
+    assert "janvier 2027" in text_letter
+    assert "Monsieur GRIVOT, Madame, Monsieur," in text_letter
+    assert "PyTorch" in text_letter
+
+    assert "<!DOCTYPE html>" in html_letter
+    assert "Baptiste GRIVOT" in html_letter
+    assert "ML Research" in html_letter
+    assert "janvier 2027" in html_letter
+    assert "window.print()" in html_letter
+
+    # Test saving to disk
+    paths = CoverLetterGenerator.save_letter_for_offer(
+        offer,
+        output_dir=tmp_path,
+        custom_slug="Lettre_Motivation_Natixis_CIB_ML_Research_Anas_Mouqine"
+    )
+    assert paths["html"].exists()
+    assert paths["txt"].exists()
+    assert paths["html"].stat().st_size > 500
+    assert paths["txt"].stat().st_size > 500
+

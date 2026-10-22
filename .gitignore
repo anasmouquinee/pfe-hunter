@@ -34,5 +34,6 @@ letters/*.html
 letters/*.txt
 !letters/.gitkeep
 !letters/Lettre_Motivation_Coface_DataLab_Anas_Mouqine.*
+!letters/Lettre_Motivation_Natixis_CIB_ML_Research_Anas_Mouqine.*
 
 

@@ -33,7 +33,14 @@ class CoverLetterGenerator:
     @staticmethod
     def generate_subject(offer: JobOffer) -> str:
         """Standardized professional email subject line."""
-        role_label = offer.title if "pfe" in offer.title.lower() else f"Stage PFE -- {offer.title}"
+        clean_title = re.sub(r"^\[.*?\]\s*", "", offer.title).strip()
+        combined_text = f"{offer.company} {offer.title} {offer.description}".lower()
+        if "natixis" in combined_text:
+            role_label = "Stage PFE -- ML Research (Janvier 2027)"
+        elif "pfe" in clean_title.lower():
+            role_label = clean_title
+        else:
+            role_label = f"Stage PFE -- {clean_title}"
         return f"Candidature {role_label} -- {config.candidate.full_name}"
 
     @staticmethod
@@ -75,7 +82,7 @@ class CoverLetterGenerator:
     def generate_body(cls, offer: JobOffer) -> str:
         """Generates dynamic French plain-text email body tailored to the company and role."""
         company = offer.company if offer.company else "votre entreprise"
-        title = offer.title if offer.title else "Stage PFE"
+        raw_title = offer.title if offer.title else "Stage PFE"
         cand = config.candidate
 
         skills_text = ""
@@ -83,14 +90,34 @@ class CoverLetterGenerator:
             top_skills = ", ".join(offer.matched_skills[:4])
             skills_text = f"notamment autour de technologies telles que {top_skills}, "
 
+        combined_text = f"{offer.company} {offer.title} {offer.description}".lower()
+        is_natixis = "natixis" in combined_text
+
+        clean_title = re.sub(r"^\[.*?\]\s*", "", raw_title).strip()
+        if is_natixis:
+            role_name = "Stage PFE (6 mois) en ML Research"
+        else:
+            role_name = clean_title
+
+        if is_natixis or (offer.hr_name and "grivot" in offer.hr_name.lower()):
+            greeting = "Bonjour Monsieur Grivot,"
+            availability_str = "disponible dès début / mi-janvier 2027 pour une durée de 6 mois"
+        elif offer.hr_name:
+            last = offer.hr_name.strip().split()[-1]
+            greeting = f"Bonjour Monsieur {last}," if "monsieur" not in offer.hr_name.lower() else f"Bonjour {offer.hr_name},"
+            availability_str = "disponible pour l'année 2026/2027 à Casablanca (ou en mode hybride/remote)"
+        else:
+            greeting = "Bonjour,"
+            availability_str = "disponible pour l'année 2026/2027 à Casablanca (ou en mode hybride/remote)"
+
         projects = cls._select_highlighted_projects(offer)
         projects_str = "\n".join(f"- **{name}** : {desc}" for name, desc in projects)
 
-        body = f"""Bonjour,
+        body = f"""{greeting}
 
-Je vous contacte afin de vous soumettre ma candidature pour l'opportunité de **{title}** au sein de **{company}**.
+Je vous contacte afin de vous soumettre ma candidature pour l'opportunité de **{role_name}** au sein de **{company}**.
 
-Actuellement élève-ingénieur en 5ème année à l'{cand.school}, spécialisé en **{cand.specialization}**, je suis activement à la recherche d'un **Stage de Projet de Fin d'Études (PFE) de 4 à 6 mois** disponible pour l'année 2026 à Casablanca (ou en mode hybride/remote).
+Actuellement élève-ingénieur en 5ème année à l'{cand.school}, spécialisé en **{cand.specialization}**, je suis activement à la recherche d'un **Stage de Projet de Fin d'Études (PFE) de 6 mois** {availability_str}.
 
 Mon parcours m'a permis de développer une solide expertise pratique {skills_text}consolidée par mes réalisations et projets d'ingénierie :
 {projects_str}
@@ -100,6 +127,7 @@ Intégrer {company} représente pour moi l'opportunité idéale d'apporter ma ri
 Vous trouverez ci-joint mon Curriculum Vitae détaillé pour complément d'information. Je serais ravi d'échanger avec vous lors d'un entretien à votre convenance.
 
 Dans l'attente de votre retour, je vous prie d'agréer mes salutations les plus respectueuses.
+
 
 Cordialement,
 
@@ -116,13 +144,33 @@ Portfolio : {cand.portfolio_url}
     def generate_html_body(cls, offer: JobOffer) -> str:
         """Generates a beautifully styled, mobile-responsive HTML email body."""
         company = html.escape(offer.company if offer.company else "votre entreprise")
-        title = html.escape(offer.title if offer.title else "Stage PFE")
+        raw_title = offer.title if offer.title else "Stage PFE"
         cand = config.candidate
 
         skills_text = ""
         if offer.matched_skills:
             top_skills = ", ".join(offer.matched_skills[:4])
             skills_text = f"notamment autour de technologies clés telles que <strong>{html.escape(top_skills)}</strong>, "
+
+        combined_text = f"{offer.company} {offer.title} {offer.description}".lower()
+        is_natixis = "natixis" in combined_text
+
+        clean_title = re.sub(r"^\[.*?\]\s*", "", raw_title).strip()
+        if is_natixis:
+            role_title_html = "Stage PFE (6 mois) en ML Research"
+        else:
+            role_title_html = clean_title
+
+        if is_natixis or (offer.hr_name and "grivot" in offer.hr_name.lower()):
+            greeting_html = "Bonjour Monsieur Grivot,"
+            availability_html_text = "disponible dès début / mi-janvier 2027 pour une durée de 6 mois"
+        elif offer.hr_name:
+            last = offer.hr_name.strip().split()[-1]
+            greeting_html = f"Bonjour Monsieur {html.escape(last)}," if "monsieur" not in offer.hr_name.lower() else f"Bonjour {html.escape(offer.hr_name)},"
+            availability_html_text = "disponible pour l'année 2026/2027 à Casablanca (ou en mode hybride/remote)"
+        else:
+            greeting_html = "Bonjour,"
+            availability_html_text = "disponible pour l'année 2026/2027 à Casablanca (ou en mode hybride/remote)"
 
         projects = cls._select_highlighted_projects(offer)
         projects_li = "\n".join(
@@ -136,11 +184,11 @@ Portfolio : {cand.portfolio_url}
 <meta charset="utf-8">
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1f2937; background-color: #ffffff; padding: 20px;">
-  <p>Bonjour,</p>
+  <p>{greeting_html}</p>
 
-  <p>Je vous contacte afin de vous soumettre ma candidature pour l'opportunité de <strong>{title}</strong> au sein de <strong>{company}</strong>.</p>
+  <p>Je vous contacte afin de vous soumettre ma candidature pour l'opportunité de <strong>{html.escape(role_title_html)}</strong> au sein de <strong>{company}</strong>.</p>
 
-  <p>Actuellement élève-ingénieur en 5ème année à l'<strong>{html.escape(cand.school)}</strong>, spécialisé en <strong>{html.escape(cand.specialization)}</strong>, je suis activement à la recherche d'un <strong>Stage de Projet de Fin d'Études (PFE) de 4 à 6 mois</strong> disponible pour l'année 2026 à Casablanca (ou en mode hybride/remote).</p>
+  <p>Actuellement élève-ingénieur en 5ème année à l'<strong>{html.escape(cand.school)}</strong>, spécialisé en <strong>{html.escape(cand.specialization)}</strong>, je suis activement à la recherche d'un <strong>Stage de Projet de Fin d'Études (PFE) de 6 mois</strong> {availability_html_text}.</p>
 
   <p>Mon parcours m'a permis de développer une solide expertise pratique {skills_text}consolidée par des réalisations concrètes :</p>
 
@@ -186,9 +234,17 @@ Portfolio : {cand.portfolio_url}
         is_pre_embauche = any(k in combined_text for k in ("pré-embauche", "pre-embauche", "pré embauche", "pre embauche"))
         is_coface = "coface" in combined_text
         is_datalab = "datalab" in combined_text
+        is_natixis = "natixis" in combined_text
 
         # Recipient block
-        if is_coface and is_datalab:
+        if is_natixis:
+            recipient_lines = (
+                "À l'attention de Monsieur Baptiste GRIVOT\n"
+                "Équipe ML Research – Quantitative Research\n"
+                "Natixis Corporate & Investment Banking (CIB)\n"
+                "Groupe BPCE"
+            )
+        elif is_coface and is_datalab:
             recipient_lines = (
                 "À l'attention de l'Équipe Recrutement & de la Direction du DataLab\n"
                 "Coface Maroc / DataLab\n"
@@ -207,9 +263,10 @@ Portfolio : {cand.portfolio_url}
                 f"{offer.location or 'Casablanca, Maroc'}"
             )
         # Subject line formatted without duplicate prefixes or suffixes
-
-        clean_title = title.strip()
-        if clean_title.lower().startswith("stages pfe"):
+        clean_title = re.sub(r"^\[.*?\]\s*", "", title).strip()
+        if is_natixis:
+            clean_title = "Stage PFE (6 mois) – ML Research"
+        elif clean_title.lower().startswith("stages pfe"):
             clean_title = "Stage PFE" + clean_title[10:]
         has_pre_in_title = any(p in clean_title.lower() for p in ("pré-embauche", "pre-embauche", "pré embauche", "pre embauche"))
         pre_suffix = " (Perspective de Pré-Embauche)" if (is_pre_embauche and not has_pre_in_title) else ""
@@ -219,12 +276,23 @@ Portfolio : {cand.portfolio_url}
         else:
             objet = f"Objet : Candidature au Stage PFE 2026/2027 – {clean_title}{pre_suffix}"
 
-        intro_role = "Stage PFE 2026/2027 – DataLab (Pré-Embauche)" if (is_coface and is_datalab) else clean_title
-
-
+        if is_coface and is_datalab:
+            intro_role = "Stage PFE 2026/2027 – DataLab (Pré-Embauche)"
+        elif is_natixis:
+            intro_role = "Stage PFE (6 mois) – ML Research"
+        else:
+            intro_role = clean_title
 
         # Company-specific motivation paragraph
-        if is_coface and is_datalab:
+        if is_natixis:
+            company_section = (
+                "Banque de grande clientèle et pôle de financement, d'investissement et de services financiers de premier plan au sein du Groupe BPCE, "
+                "Natixis CIB bénéficie d'une réputation d'excellence quantitative mondialement reconnue. Les travaux de recherche menés au sein de votre "
+                "équipe ML Research — modélisation probabiliste et statistique de pointe, apprentissage profond sur données financières, exploration "
+                "d'architectures d'apprentissage et optimisation algorithmique — correspondent très exactement à mes aspirations de recherche appliquée "
+                "et à mon goût prononcé pour la modélisation mathématique et algorithmique à haute valeur ajoutée."
+            )
+        elif is_coface and is_datalab:
             company_section = (
                 "Leader mondial de l'assurance-crédit et acteur de premier plan dans l'intelligence économique "
                 "et la gestion des risques d'entreprise, Coface place la valorisation de la donnée au cœur de sa "
@@ -250,6 +318,7 @@ Portfolio : {cand.portfolio_url}
                 f"duquel je souhaite mettre à profit mes compétences techniques{skills_hint} et ma capacité d'innovation."
             )
 
+
         # Pre-embauche commitment paragraph
         if is_pre_embauche:
             commitment_text = (
@@ -261,6 +330,29 @@ Portfolio : {cand.portfolio_url}
             commitment_text = (
                 "Rigoureux, autonome et force de proposition, je suis animé par la volonté de m'investir pleinement sur vos "
                 "projets et de collaborer efficacement avec l'ensemble des parties prenantes techniques et métiers."
+            )
+
+        salutation = "Monsieur GRIVOT, Madame, Monsieur," if is_natixis else "Madame, Monsieur,"
+        availability_text = "Disponible dès le début / mi-janvier 2027 pour une durée de 6 mois" if is_natixis else "Disponible dès le début de l'année 2026 pour une durée de 4 à 6 mois"
+
+        if is_natixis:
+            competence_intro = (
+                "Mon cursus académique d'ingénieur d'État et mes réalisations m'ont permis de développer "
+                "une solide maîtrise en modélisation mathématique, Machine Learning et apprentissage profond :"
+            )
+            competence_bullets = (
+                "- Recherche en IA & Modélisation Avancée : Conception d'architectures multi-agents autonomes, pipelines RAG vectoriels, "
+                "représentations sémantiques et bancs d'évaluation empirique avec validation rigoureuse de robustesse.\n"
+                "- Algorithmique & Code Haute Performance : Maîtrise avancée de Python (PyTorch, NumPy, Scikit-learn, Pandas) et de C/C++ "
+                "pour la complexité et l'optimisation mémoire (certifications EPFL & HKUST), conteneurisation Docker et streaming distribué."
+            )
+        else:
+            competence_intro = (
+                "Mon cursus académique d'excellence et mes réalisations d'ingénierie m'ont permis de développer une double compétence pointue en Data Engineering et en Intelligence Artificielle :"
+            )
+            competence_bullets = (
+                "- Data Engineering & Streaming : Conception et déploiement d'une plateforme Enterprise Media Lakehouse (architecture Medallion Bronze/Silver/Gold) orchestrant plus de 100 000 flux de données quotidiens via des DAGs Apache Airflow, Apache Kafka et conteneurisation Docker.\n"
+                "- IA Avancée & Systèmes Intelligents : Conception d'un framework d'agents autonomes (Multi-Agent Orchestrator), intégration de pipelines RAG (Retrieval-Augmented Generation) avec recherche vectorielle sémantique et moteurs de graphes de connaissances (Neo4j / LLM)."
             )
 
         letter = f"""{cand.full_name}
@@ -276,16 +368,14 @@ Fait à Casablanca, le {date_str}
 
 {objet}
 
-Madame, Monsieur,
+{salutation}
 
 Actuellement élève-ingénieur en 5ème année à l'{cand.school}, spécialisé en {cand.specialization}, je vous adresse avec un vif enthousiasme ma candidature pour l'opportunité de {intro_role} au sein de {company}.
 
 {company_section}
 
-
-Mon cursus académique d'excellence et mes réalisations d'ingénierie m'ont permis de développer une double compétence pointue en Data Engineering et en Intelligence Artificielle :
-- Data Engineering & Streaming : Conception et déploiement d'une plateforme Enterprise Media Lakehouse (architecture Medallion Bronze/Silver/Gold) orchestrant plus de 100 000 flux de données quotidiens via des DAGs Apache Airflow, Apache Kafka et conteneurisation Docker.
-- IA Avancée & Systèmes Intelligents : Conception d'un framework d'agents autonomes (Multi-Agent Orchestrator), intégration de pipelines RAG (Retrieval-Augmented Generation) avec recherche vectorielle sémantique et moteurs de graphes de connaissances (Neo4j / LLM).
+{competence_intro}
+{competence_bullets}
 
 Cette expertise théorique est renforcée par des expériences industrielles probantes :
 - Chez COSUMAR (Stage Ingénieur Data) : Conception et automatisation de pipelines ETL en Python et SQL pour plus de 20 KPIs opérationnels, réduisant le temps de génération des rapports d'activité de 75% et le temps de diagnostic des anomalies opérationnelles de 30%.
@@ -293,14 +383,15 @@ Cette expertise théorique est renforcée par des expériences industrielles pro
 
 {commitment_text}
 
-Disponible dès le début de l'année 2026 pour une durée de 4 à 6 mois, je serais honoré d'échanger avec vous lors d'un entretien afin de vous exposer de vive voix la pertinence de mon profil et ma motivation à rejoindre {company}.
+{availability_text}, je serais honoré d'échanger avec vous lors d'un entretien afin de vous exposer de vive voix la pertinence de mon profil et ma motivation à rejoindre {company}.
 
-Vous remerciant par avance de l'attention que vous porterez à ma candidature, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+Vous remerciant par avance de l'attention que vous porterez à ma candidature, je vous prie d'agréer, {salutation} l'expression de mes salutations les plus distinguées.
 
 {cand.full_name}
 Élève-Ingénieur en 5ème Année – {cand.specialization}
 {cand.school}
 """
+
         return letter
 
     @classmethod
@@ -318,9 +409,17 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
         is_pre_embauche = any(k in combined_text for k in ("pré-embauche", "pre-embauche", "pré embauche", "pre embauche"))
         is_coface = "coface" in combined_text
         is_datalab = "datalab" in combined_text
+        is_natixis = "natixis" in combined_text
 
         # Recipient HTML
-        if is_coface and is_datalab:
+        if is_natixis:
+            recipient_html = """
+              <strong>À l'attention de Monsieur Baptiste GRIVOT</strong><br>
+              <span style="color: #1e3a8a; font-weight: 600;">Équipe ML Research – Quantitative Research</span><br>
+              Natixis Corporate & Investment Banking (CIB)<br>
+              Groupe BPCE
+            """
+        elif is_coface and is_datalab:
             recipient_html = """
               <strong>À l'attention de l'Équipe Recrutement & de la Direction du DataLab</strong><br>
               <span style="color: #1e3a8a; font-weight: 600;">Coface Maroc / DataLab</span><br>
@@ -342,8 +441,10 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
             """
 
         # Subject line and role formatting without duplicate prefixes
-        clean_title = title.strip()
-        if clean_title.lower().startswith("stages pfe"):
+        clean_title = re.sub(r"^\[.*?\]\s*", "", title).strip()
+        if is_natixis:
+            clean_title = "Stage PFE (6 mois) – ML Research"
+        elif clean_title.lower().startswith("stages pfe"):
             clean_title = "Stage PFE" + clean_title[10:]
         has_pre_in_title = any(p in clean_title.lower() for p in ("pré-embauche", "pre-embauche", "pré embauche", "pre embauche"))
         pre_suffix = " (Perspective de Pré-Embauche)" if (is_pre_embauche and not has_pre_in_title) else ""
@@ -353,15 +454,27 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
         else:
             objet_title = f"Stage PFE 2026/2027 – {clean_title}{pre_suffix}"
 
-        intro_role = "Stage PFE 2026/2027 – DataLab (Pré-Embauche)" if (is_coface and is_datalab) else clean_title
-
+        if is_coface and is_datalab:
+            intro_role = "Stage PFE 2026/2027 – DataLab (Pré-Embauche)"
+        elif is_natixis:
+            intro_role = "Stage PFE (6 mois) – ML Research"
+        else:
+            intro_role = clean_title
 
         # Pre-embauche badge
         pre_badge = '<span class="badge badge-accent">Perspective de Pré-Embauche</span>' if is_pre_embauche else ""
 
-
         # Company paragraph
-        if is_coface and is_datalab:
+        if is_natixis:
+            company_p = (
+                "Banque de grande clientèle et pôle de financement, d'investissement et de services financiers de premier plan au sein du Groupe BPCE, "
+                "Natixis CIB bénéficie d'une réputation d'excellence quantitative mondialement reconnue. Les travaux de recherche menés au sein de votre "
+                "équipe <strong>ML Research</strong> — <strong>modélisation probabiliste et statistique de pointe</strong>, "
+                "<strong>apprentissage profond sur données financières</strong>, exploration d'architectures d'apprentissage et "
+                "<strong>optimisation algorithmique</strong> — correspondent très exactement à mes aspirations de recherche appliquée "
+                "et à mon goût prononcé pour la modélisation mathématique et algorithmique à haute valeur ajoutée."
+            )
+        elif is_coface and is_datalab:
             company_p = (
                 "Leader mondial de l'assurance-crédit et acteur de premier plan dans l'intelligence économique "
                 "et la gestion des risques d'entreprise, Coface place la valorisation de la donnée au cœur de sa "
@@ -377,6 +490,7 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
                 "représente pour moi l'opportunité idéale de mettre mes compétences en ingénierie de données et en modélisation "
                 "au service de vos enjeux stratégiques."
             )
+
         else:
             skills_hint = ""
             if offer.matched_skills:
@@ -399,6 +513,30 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
                 "Rigoureux, autonome et force de proposition, je suis animé par la volonté de m'investir pleinement sur vos projets "
                 "et de collaborer efficacement avec l'ensemble des parties prenantes techniques et métiers."
             )
+
+        salutation_html = "Monsieur GRIVOT, Madame, Monsieur," if is_natixis else "Madame, Monsieur,"
+        availability_html = "Disponible dès le <strong>début / mi-janvier 2027 pour une période de 6 mois</strong>" if is_natixis else "Disponible dès le <strong>début de l'année 2026 pour une période de 4 à 6 mois</strong>"
+
+        if is_natixis:
+            competence_intro_html = "Mon cursus académique d'ingénieur d'État et mes travaux m'ont permis de développer une solide maîtrise en <strong>modélisation mathématique</strong>, <strong>Machine Learning</strong> et <strong>apprentissage profond</strong> :"
+            project_li_1 = """
+        <li>
+          <strong>Recherche en IA & Modélisation Avancée :</strong> Conception d'architectures multi-agents autonomes (<em>AI Multi-Agent Orchestrator</em>), intégration de pipelines RAG vectoriels, représentations sémantiques et bancs d'évaluation empirique avec validation rigoureuse de robustesse.
+        </li>
+        <li>
+          <strong>Algorithmique & Code Haute Performance :</strong> Maîtrise approfondie de Python (PyTorch, NumPy, Scikit-learn, Pandas) et de C/C++ pour l'efficience algorithmique et mémoire (certifications EPFL & HKUST), complétée par une forte culture de conteneurisation et de streaming distribué.
+        </li>
+            """
+        else:
+            competence_intro_html = "Mon cursus d'ingénieur d'État et mes réalisations concrètes m'ont permis de développer une double compétence opérationnelle en <strong>Data Engineering</strong> et en <strong>Intelligence Artificielle</strong> :"
+            project_li_1 = """
+        <li>
+          <strong>Data Engineering & Streaming :</strong> Conception et déploiement d'une plateforme <em>Enterprise Media Lakehouse</em> (architecture Medallion Bronze/Silver/Gold) orchestrant plus de 100 000 flux de données quotidiens via des DAGs Apache Airflow, Apache Kafka et conteneurisation Docker multi-services.
+        </li>
+        <li>
+          <strong>IA Avancée & Systèmes Intelligents :</strong> Conception d'un framework d'agents autonomes (<em>AI Multi-Agent Orchestrator</em>), intégration de pipelines RAG (Retrieval-Augmented Generation) avec recherche vectorielle sémantique et moteurs hybrides de graphes de connaissances (Neo4j / LLM).
+        </li>
+            """
 
         raw_text_for_copy = cls.generate_formal_letter_text(offer).replace("\\", "\\\\").replace("`", "\\`").replace("$", "\\$")
 
@@ -743,13 +881,13 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
         Objet : Candidature au {html.escape(objet_title)}
       </div>
       <div>
-        <span class="badge">Stage PFE 4-6 mois</span>
+        <span class="badge">Stage PFE 6 mois</span>
         {pre_badge}
       </div>
     </div>
 
     <section class="letter-body">
-      <p>Madame, Monsieur,</p>
+      <p>{salutation_html}</p>
 
       <p>
         Actuellement élève-ingénieur en 5ème année à l'<strong>{html.escape(cand.school)}</strong>,
@@ -757,22 +895,16 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
         ma candidature pour l'opportunité de <strong>{html.escape(intro_role)}</strong> au sein de <strong>{html.escape(company)}</strong>.
       </p>
 
-
       <p>
         {company_p}
       </p>
 
       <p>
-        Mon cursus d'ingénieur d'État et mes réalisations concrètes m'ont permis de développer une double compétence opérationnelle en <strong>Data Engineering</strong> et en <strong>Intelligence Artificielle</strong> :
+        {competence_intro_html}
       </p>
 
       <ul class="project-list">
-        <li>
-          <strong>Data Engineering & Streaming :</strong> Conception et déploiement d'une plateforme <em>Enterprise Media Lakehouse</em> (architecture Medallion Bronze/Silver/Gold) orchestrant plus de 100 000 flux de données quotidiens via des DAGs Apache Airflow, Apache Kafka et conteneurisation Docker multi-services.
-        </li>
-        <li>
-          <strong>IA Avancée & Systèmes Intelligents :</strong> Conception d'un framework d'agents autonomes (<em>AI Multi-Agent Orchestrator</em>), intégration de pipelines RAG (Retrieval-Augmented Generation) avec recherche vectorielle sémantique et moteurs hybrides de graphes de connaissances (Neo4j / LLM).
-        </li>
+        {project_li_1}
       </ul>
 
       <p>
@@ -793,11 +925,11 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
       </p>
 
       <p>
-        Disponible dès le <strong>début de l'année 2026 pour une période de 4 à 6 mois</strong>, je serais honoré d'échanger avec vous lors d'un entretien afin de vous exposer de vive voix la pertinence de mon profil et mon profond engagement à contribuer à la réussite de <strong>{html.escape(company)}</strong>.
+        {availability_html}, je serais honoré d'échanger avec vous lors d'un entretien afin de vous exposer de vive voix la pertinence de mon profil et mon profond engagement à contribuer à la réussite de <strong>{html.escape(company)}</strong>.
       </p>
 
       <p>
-        Vous remerciant par avance de l'attention bienveillante que vous porterez à ma candidature, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations les plus distinguées.
+        Vous remerciant par avance de l'attention bienveillante que vous porterez à ma candidature, je vous prie d'agréer, {salutation_html} l'expression de mes salutations les plus distinguées.
       </p>
 
       <div class="sign-block">
@@ -809,6 +941,7 @@ Vous remerciant par avance de l'attention que vous porterez à ma candidature, j
       </div>
     </section>
   </div>
+
 
   <script>
     function copyLetterText() {{
