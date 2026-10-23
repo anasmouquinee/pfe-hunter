@@ -1,7 +1,7 @@
 """Headless browser automation for LinkedIn Easy Apply submissions."""
 
+import re
 import time
-from pathlib import Path
 from typing import Any, Dict, Optional
 
 from src.config import config
@@ -23,7 +23,7 @@ class LinkedInApplier:
     """
     Automates LinkedIn Easy Apply applications using Playwright headless browser
     and authenticated session cookie injection (li_at).
-    Runs seamlessly both in Cloud environments (GitHub Actions) and locally.
+    Supports multi-step application wizards (Contact -> CV -> Screening -> Review -> Submit).
     """
 
     def __init__(self, li_at_cookie: Optional[str] = None):
@@ -38,19 +38,22 @@ class LinkedInApplier:
     def apply(self, offer: JobOffer) -> Dict[str, Any]:
         """
         Executes or simulates automated Easy Apply for a LinkedIn offer.
-        Returns a dictionary with execution status and details.
+        Navigates through the multi-step application wizard to completion.
         """
         if not PLAYWRIGHT_INSTALLED:
-            logger.debug("Playwright not installed; skipping browser auto-apply.")
+            logger.debug("Playwright not installed; skipping LinkedIn browser auto-apply.")
             return {"status": "skipped", "applied": False, "reason": "playwright_not_installed"}
 
         if not self.li_at:
-            logger.debug("LINKEDIN_LI_AT cookie not configured; skipping browser auto-apply.")
+            logger.debug("LINKEDIN_LI_AT cookie not configured; skipping LinkedIn browser auto-apply.")
             return {"status": "skipped", "applied": False, "reason": "cookie_not_configured"}
 
-        target_url = offer.linkedin_url or offer.url
-        if not target_url or "linkedin.com" not in target_url:
+        raw_url = offer.linkedin_url or offer.url or ""
+        if not raw_url or "linkedin.com" not in raw_url:
             return {"status": "skipped", "applied": False, "reason": "not_linkedin_url"}
+
+        # Normalize country subdomains (ma.linkedin.com, fr.linkedin.com) to canonical www.linkedin.com
+        target_url = re.sub(r"https://[a-z]{2}\.linkedin\.com/", "https://www.linkedin.com/", raw_url)
 
         logger.info("Initializing headless browser for LinkedIn: %s (%s)", offer.company, offer.title)
 
@@ -75,8 +78,17 @@ class LinkedInApplier:
                     viewport={"width": 1280, "height": 800},
                 )
 
-                # Inject authenticated session cookie
+                # Inject authenticated session cookie across all LinkedIn subdomains
                 context.add_cookies([
+                    {
+                        "name": "li_at",
+                        "value": self.li_at.strip(),
+                        "domain": ".linkedin.com",
+                        "path": "/",
+                        "httpOnly": True,
+                        "secure": True,
+                        "sameSite": "None",
+                    },
                     {
                         "name": "li_at",
                         "value": self.li_at.strip(),
@@ -84,20 +96,23 @@ class LinkedInApplier:
                         "path": "/",
                         "httpOnly": True,
                         "secure": True,
-                    }
+                        "sameSite": "None",
+                    },
                 ])
 
                 page = context.new_page()
-                page.goto(target_url, timeout=30000, wait_until="domcontentloaded")
+                page.goto(target_url, timeout=35000, wait_until="domcontentloaded")
                 time.sleep(2)
 
-                # Detect Easy Apply button (French & English labels)
+                # Detect Easy Apply button (French & English labels, desktop & top-card variations)
                 easy_apply_selectors = [
                     "button.jobs-apply-button",
                     "button[aria-label*='Candidature simplifiée']",
                     "button[aria-label*='Easy Apply']",
-                    "button[aria-label*='Postuler']",
+                    "button:has-text('Candidature simplifiée')",
+                    "button:has-text('Easy Apply')",
                     ".jobs-s-apply button",
+                    "div.jobs-apply-button--top-card button",
                 ]
 
                 apply_btn = None
@@ -108,12 +123,12 @@ class LinkedInApplier:
                         break
 
                 if not apply_btn:
-                    logger.info("No Easy Apply button detected on %s (External portal required)", target_url)
+                    logger.info("No Easy Apply button detected on %s (External portal or non-Easy Apply)", target_url)
                     browser.close()
                     return {"status": "external_apply", "applied": False, "reason": "no_easy_apply_button"}
 
                 btn_text = apply_btn.inner_text().strip()
-                logger.info("Easy Apply button detected: '%s' on %s", btn_text, offer.title)
+                logger.info("Easy Apply button confirmed: '%s' on %s", btn_text, offer.title)
 
                 # Simulation Mode
                 if self.dry_run:
@@ -125,58 +140,124 @@ class LinkedInApplier:
                     browser.close()
                     return {"status": "simulated", "applied": False, "easy_apply_available": True}
 
-                # LIVE Execution
+                # LIVE Execution: Open the Easy Apply modal
                 apply_btn.click()
                 time.sleep(2)
 
-                # 1. Fill phone number if empty
-                phone_input = page.query_selector("input[id*='phoneNumber'], input[name*='phoneNumber']")
-                if phone_input and not phone_input.input_value():
-                    phone_input.fill(config.candidate.phone)
-
-                # 2. Upload CV PDF if upload field exists
-                file_input = page.query_selector("input[type='file']")
-                if file_input and self.cv_path.exists():
-                    file_input.set_input_files(str(self.cv_path.resolve()))
-                    logger.info("Attached CV PDF %s to LinkedIn Easy Apply modal", self.cv_path.name)
-                    time.sleep(1)
-
-                # 3. Check for Next / Review / Submit buttons
-                submit_selectors = [
-                    "button[aria-label*='Soumettre la candidature']",
-                    "button[aria-label*='Submit application']",
-                    "button:has-text('Soumettre la candidature')",
-                    "button:has-text('Submit application')",
-                ]
-
+                # Navigate through the multi-step application wizard
+                max_wizard_steps = 7
+                current_step = 0
                 submitted = False
-                for s_sel in submit_selectors:
-                    s_btn = page.query_selector(s_sel)
-                    if s_btn and s_btn.is_visible():
-                        s_btn.click()
+
+                while current_step < max_wizard_steps:
+                    current_step += 1
+                    time.sleep(1.5)
+
+                    # 1. Check if final Submit button is present
+                    submit_selectors = [
+                        "button[aria-label*='Soumettre la candidature']",
+                        "button[aria-label*='Submit application']",
+                        "button:has-text('Soumettre la candidature')",
+                        "button:has-text('Submit application')",
+                        "button:has-text('Soumettre')",
+                        "button:has-text('Submit')",
+                    ]
+                    submit_btn = None
+                    for s_sel in submit_selectors:
+                        s_elem = page.query_selector(s_sel)
+                        if s_elem and s_elem.is_visible():
+                            submit_btn = s_elem
+                            break
+
+                    if submit_btn:
+                        logger.info("Final Submit button found on step %d for %s; submitting!", current_step, offer.title)
+                        submit_btn.click()
+                        time.sleep(3)
+                        # Dismiss confirmation modal if present
+                        dismiss_btn = page.query_selector(
+                            "button[aria-label*='Ignorer'], button[aria-label*='Dismiss'], "
+                            "button:has-text('Terminé'), button:has-text('Done')"
+                        )
+                        if dismiss_btn and dismiss_btn.is_visible():
+                            dismiss_btn.click()
                         submitted = True
-                        time.sleep(2)
                         break
 
+                    # 2. Fill Phone number if empty
+                    phone_input = page.query_selector("input[id*='phoneNumber'], input[name*='phoneNumber'], input[type='tel']")
+                    if phone_input and phone_input.is_visible() and not phone_input.input_value():
+                        phone_input.fill(config.candidate.phone)
+
+                    # 3. Handle CV upload or resume selection
+                    file_input = page.query_selector("input[type='file']")
+                    if file_input and self.cv_path.exists():
+                        try:
+                            file_input.set_input_files(str(self.cv_path.resolve()))
+                            logger.info("Uploaded CV PDF %s on step %d", self.cv_path.name, current_step)
+                            time.sleep(1)
+                        except Exception as e:
+                            logger.debug("CV file upload step skipped: %s", e)
+
+                    resume_radio = page.query_selector("input[type='radio'][id*='resume'], .jobs-document-upload__title input[type='radio']")
+                    if resume_radio and not resume_radio.is_checked():
+                        try:
+                            resume_radio.check()
+                        except Exception:
+                            pass
+
+                    # 4. Handle common screening questions
+                    yes_labels = page.query_selector_all("label:has-text('Oui'), label:has-text('Yes')")
+                    for yl in yes_labels:
+                        try:
+                            if yl.is_visible():
+                                yl.click()
+                        except Exception:
+                            pass
+
+                    numeric_inputs = page.query_selector_all("input[type='text'][id*='numeric'], input[type='number']")
+                    for num_inp in numeric_inputs:
+                        try:
+                            if num_inp.is_visible() and not num_inp.input_value():
+                                num_inp.fill("1")
+                        except Exception:
+                            pass
+
+                    # 5. Look for Review button
+                    review_btn = page.query_selector(
+                        "button[aria-label*='Vérifier'], button[aria-label*='Review'], "
+                        "button:has-text('Vérifier'), button:has-text('Review')"
+                    )
+                    if review_btn and review_btn.is_visible():
+                        review_btn.click()
+                        continue
+
+                    # 6. Look for Next (Suivant) button
+                    next_btn = page.query_selector(
+                        "button[aria-label*='Suivant'], button[aria-label*='Next'], "
+                        "button:has-text('Suivant'), button:has-text('Next')"
+                    )
+                    if next_btn and next_btn.is_visible():
+                        next_btn.click()
+                        continue
+
+                    # If no forward button exists
+                    logger.info("No forward progression button found on step %d for %s", current_step, offer.title)
+                    break
+
                 if submitted:
-                    logger.info("Successfully submitted Easy Apply application for %s!", offer.title)
+                    logger.info("Successfully completed LinkedIn Easy Apply for %s!", offer.title)
                     browser.close()
                     return {"status": "applied", "applied": True}
 
-                # Check if multi-step form has Next button
-                next_btn = page.query_selector("button[aria-label*='Suivant'], button[aria-label*='Next'], button:has-text('Suivant')")
-                if next_btn and next_btn.is_visible():
-                    logger.info("Multi-step questionnaire detected on %s; requires candidate answers", offer.title)
-                    browser.close()
-                    return {
-                        "status": "manual_review_needed",
-                        "applied": False,
-                        "reason": "multi_step_custom_questions",
-                        "easy_apply_available": True,
-                    }
-
+                # If wizard couldn't finish automatically due to complex questions
+                logger.info("Multi-step wizard requires specific recruiter answers for %s", offer.title)
                 browser.close()
-                return {"status": "unresolved_modal", "applied": False}
+                return {
+                    "status": "manual_review_needed",
+                    "applied": False,
+                    "reason": "complex_screening_questions",
+                    "easy_apply_available": True,
+                }
 
         except Exception as e:
             logger.error("Error during LinkedIn browser application for %s: %s", offer.title, e)

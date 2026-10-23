@@ -86,12 +86,22 @@ class AgentConfig(BaseModel):
     resend_api_key: str = Field(default_factory=lambda: os.getenv("RESEND_API_KEY", ""))
     resend_from_email: str = Field(default_factory=lambda: os.getenv("RESEND_FROM_EMAIL", "onboarding@resend.dev"))
     linkedin_li_at: str = Field(default_factory=lambda: os.getenv("LINKEDIN_LI_AT", ""))
-    auto_easy_apply: bool = Field(default_factory=lambda: os.getenv("AUTO_EASY_APPLY", "false").lower() in ("true", "1", "yes"))
+    auto_easy_apply: bool = Field(
+        default_factory=lambda: os.getenv(
+            "AUTO_EASY_APPLY",
+            "true" if os.getenv("LINKEDIN_LI_AT") else "false",
+        ).lower() in ("true", "1", "yes")
+    )
     
     # Platform Accounts & Multi-Site Auto-Apply
     rekrute_email: str = Field(default_factory=lambda: os.getenv("REKRUTE_EMAIL", os.getenv("GMAIL_USER", "anasmouqine@gmail.com")))
     rekrute_password: str = Field(default_factory=lambda: os.getenv("REKRUTE_PASSWORD", ""))
-    auto_platform_apply: bool = Field(default_factory=lambda: os.getenv("AUTO_PLATFORM_APPLY", os.getenv("AUTO_EASY_APPLY", "false")).lower() in ("true", "1", "yes"))
+    auto_platform_apply: bool = Field(
+        default_factory=lambda: os.getenv(
+            "AUTO_PLATFORM_APPLY",
+            "true" if (os.getenv("LINKEDIN_LI_AT") or os.getenv("REKRUTE_PASSWORD")) else "false",
+        ).lower() in ("true", "1", "yes")
+    )
 
     max_emails_per_run: int = Field(default_factory=lambda: int(os.getenv("MAX_EMAILS_PER_RUN", "5")))
     max_offer_age_days: int = Field(default_factory=lambda: int(os.getenv("MAX_OFFER_AGE_DAYS", "14")))
