@@ -518,7 +518,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.346164+00:00"
+      "notified_at": "2026-10-23T18:39:53.212910+00:00"
     },
     "49bd7060edd978ae": {
       "title": "Indatacore Propose des Stages en AI, DevOps, Fullstack et Plus",
@@ -574,7 +574,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.352194+00:00"
+      "notified_at": "2026-10-23T18:39:53.221124+00:00"
     },
     "8240925d3e7db16e": {
       "title": "Consulting Manager – Strategy & Transformation",
@@ -677,7 +677,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.349137+00:00"
+      "notified_at": "2026-10-23T18:39:53.216946+00:00"
     },
     "0b1a98dd3c3f5dd3": {
       "title": "Opportunités PFE 2026 à saisir chez Scalian",
@@ -725,7 +725,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.369597+00:00"
+      "notified_at": "2026-10-23T18:39:53.244896+00:00"
     },
     "a53fdbf309668dfc": {
       "title": "Stages PFE et Postes en Freelance chez NGBS: Candidature Ouverte",
@@ -797,7 +797,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.372470+00:00"
+      "notified_at": "2026-10-23T18:39:53.248876+00:00"
     },
     "034be4c5876abb2e": {
       "title": "Stages PFE à saisir chez EQDOM dans plusieurs filières",
@@ -820,7 +820,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.383945+00:00"
+      "notified_at": "2026-10-23T18:39:53.264801+00:00"
     },
     "d3f3ae5f1652019b": {
       "title": "Opportunités de stages informatiques chez Sothema",
@@ -982,7 +982,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.375355+00:00"
+      "notified_at": "2026-10-23T18:39:53.252891+00:00"
     },
     "341aa8fbc0571d11": {
       "title": "Nouvelle offre de stages PFE 2026 chez INVOLYS",
@@ -1070,7 +1070,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.409949+00:00"
+      "notified_at": "2026-10-23T18:39:53.302358+00:00"
     },
     "8140f0d862426627": {
       "title": "Stages PFE chez INVOLYS: Postulez Maintenant",
@@ -1136,7 +1136,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.412926+00:00"
+      "notified_at": "2026-10-23T18:39:53.306259+00:00"
     },
     "559ddd8fccd0b40d": {
       "title": "INVOLYS lance la campagne de recrutement des stages PFE 2022",
@@ -1460,7 +1460,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.278405+00:00"
+      "notified_at": "2026-10-23T18:39:53.122488+00:00"
     },
     "ac9a1fbfcfb77270": {
       "title": "Artificial Intelligence Engineer",
@@ -2079,7 +2079,7 @@
       "company": "Akkodis",
       "url": "https://ma.linkedin.com/jobs/view/devops-sysops-expert-at-akkodis-4482892832",
       "source": "linkedin_guest",
-      "contact_email": null,
+      "contact_email": "recrutement.maroc@akkodis.com",
       "linkedin_url": "https://ma.linkedin.com/jobs/view/devops-sysops-expert-at-akkodis-4482892832",
       "hr_name": null,
       "hr_linkedin_url": null,
@@ -2089,12 +2089,12 @@
         "DevOps"
       ],
       "first_seen": "2026-10-23T16:40:53.689885+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-23T18:39:29.756909+00:00",
       "simulated": true,
       "simulated_at": "2026-10-23T16:40:53.689885+00:00",
       "notified": true,
-      "notified_at": "2026-10-23T16:40:53.689885+00:00"
+      "notified_at": "2026-10-23T18:39:29.756909+00:00"
     },
     "0d87e37ec65e591d": {
       "title": "Stagiaire PFE en Audit IT F/H",
@@ -2385,12 +2385,12 @@
       "score": 50,
       "matched_skills": [],
       "first_seen": "2026-10-23T17:24:25.030868+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-23T18:39:40.648880+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:03.572477+00:00"
+      "notified_at": "2026-10-23T18:39:40.648880+00:00"
     },
     "0accd2ceeb3e7090": {
       "title": "STAGE PFE – INFORMATIQUE",
@@ -2427,12 +2427,12 @@
         "Python"
       ],
       "first_seen": "2026-10-23T17:24:28.556563+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-23T18:39:44.640219+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:03.575367+00:00"
+      "notified_at": "2026-10-23T18:39:44.640219+00:00"
     },
     "30bc8222079affcf": {
       "title": "Sofrecom Maroc recrute un(e) Stagiaire en Automatisation de Tests QA à Casablanca",
@@ -2449,12 +2449,12 @@
         "Python"
       ],
       "first_seen": "2026-10-23T17:24:29.005628+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-23T18:39:48.985745+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:03.578226+00:00"
+      "notified_at": "2026-10-23T18:39:48.985745+00:00"
     },
     "ac7e00cda191cfa4": {
       "title": "Backend PHP Developer",
@@ -2516,12 +2516,12 @@
         "DevOps"
       ],
       "first_seen": "2026-10-23T17:24:36.216596+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-23T18:39:53.114144+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T17:24:36.216596+00:00"
+      "notified_at": "2026-10-23T18:39:53.114144+00:00"
     },
     "ad09522a4b411389": {
       "title": "Cloud & SysOps / Automation Engineer",
@@ -2592,7 +2592,7 @@
       "company": "PwC",
       "url": "https://ma.linkedin.com/jobs/view/stage-consultant-en-cybers%C3%A9curit%C3%A9-at-pwc-4474841686",
       "source": "linkedin_guest",
-      "contact_email": null,
+      "contact_email": "recrutement@iam.ma",
       "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-consultant-en-cybers%C3%A9curit%C3%A9-at-pwc-4474841686",
       "hr_name": null,
       "hr_linkedin_url": null,
@@ -2605,7 +2605,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T17:24:49.683653+00:00"
+      "notified_at": "2026-10-23T18:39:53.118597+00:00"
     },
     "3c42921283bdf859": {
       "title": "Cegedim SRH lance sa campagne de recrutement de stagiaires 2022",
@@ -2630,7 +2630,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.281437+00:00"
+      "notified_at": "2026-10-23T18:39:53.126438+00:00"
     },
     "58c3e3fd62e43cd8": {
       "title": "Stage rémunéré à l’Agence de Développement du Digital: Postulez maintenant !",
@@ -2655,7 +2655,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.284455+00:00"
+      "notified_at": "2026-10-23T18:39:53.130352+00:00"
     },
     "765dd22a9fa9b6ba": {
       "title": "12 opportunités de stage rémunéré et pré-embauche à Casablanca, Tanger et Kenitra",
@@ -2679,7 +2679,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.287449+00:00"
+      "notified_at": "2026-10-23T18:39:53.134320+00:00"
     },
     "5aef5c683d376a7b": {
       "title": "28 Offres de Stages Rémunérés, Pré-Embauche et PFE",
@@ -2703,7 +2703,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.290565+00:00"
+      "notified_at": "2026-10-23T18:39:53.138450+00:00"
     },
     "e7856af357a5507a": {
       "title": "Campagne de Stages PFE 2024 chez Société Générale",
@@ -2727,7 +2727,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.293501+00:00"
+      "notified_at": "2026-10-23T18:39:53.142380+00:00"
     },
     "52a5491ddd0934ce": {
       "title": "Stages PFE Rémunérés avec Opportunité de CDI chez La Société Générale",
@@ -2751,7 +2751,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.296587+00:00"
+      "notified_at": "2026-10-23T18:39:53.146315+00:00"
     },
     "826334457021e2a8": {
       "title": "Campagne de Recrutement Stagiaires PFE 2023 Majjane",
@@ -2774,7 +2774,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.299485+00:00"
+      "notified_at": "2026-10-23T18:39:53.150191+00:00"
     },
     "722cd3d299a5772e": {
       "title": "Opportunités de Stage Rémunéré chez Sothema",
@@ -2797,7 +2797,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.302402+00:00"
+      "notified_at": "2026-10-23T18:39:53.154112+00:00"
     },
     "894b41e0bffa9ec7": {
       "title": "Stages ingénieurs à saisir chez BTechnologie Rabat",
@@ -2820,7 +2820,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.305310+00:00"
+      "notified_at": "2026-10-23T18:39:53.157999+00:00"
     },
     "4cab05f1dab54057": {
       "title": "Atos recrute des Stagiaires PFE à Casablanca",
@@ -2843,7 +2843,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.308229+00:00"
+      "notified_at": "2026-10-23T18:39:53.161873+00:00"
     },
     "9c6b88916a33164f": {
       "title": "Colas Digital Solutions propose des stages PFE rémunérés",
@@ -2866,7 +2866,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.311135+00:00"
+      "notified_at": "2026-10-23T18:39:53.165838+00:00"
     },
     "7ef773033ee14e6e": {
       "title": "MintHR recrute un(e) Chargé(e) Marketing Digital et un(e) Stagiaire PFE Business Development – Casablanca",
@@ -2910,7 +2910,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.313991+00:00"
+      "notified_at": "2026-10-23T18:39:53.169699+00:00"
     },
     "3a85a2fb488fc12f": {
       "title": "Akare Group recrute des stagiaires PFE en 100 % remote",
@@ -2932,7 +2932,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.316913+00:00"
+      "notified_at": "2026-10-23T18:39:53.173644+00:00"
     },
     "64698997698a8c85": {
       "title": "AXURYS recherche des Stagiaires PFE RH à Casablanca",
@@ -2954,7 +2954,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.319791+00:00"
+      "notified_at": "2026-10-23T18:39:53.177584+00:00"
     },
     "0ddcef8d2a60fa23": {
       "title": "xPage lance un recrutement massif de stagiaires marketing à distance",
@@ -2976,7 +2976,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.322702+00:00"
+      "notified_at": "2026-10-23T18:39:53.181450+00:00"
     },
     "7b2a91f3f308449b": {
       "title": "Stage Développeurs NextJ NestJS 100% Remote | Pré-Embauche chez Flow",
@@ -3018,7 +3018,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.325568+00:00"
+      "notified_at": "2026-10-23T18:39:53.185330+00:00"
     },
     "75fb16e7c388adef": {
       "title": "Étudiants UX/UI: opportunités PFE et stages pré-embauche chez Netopia",
@@ -3058,7 +3058,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.328450+00:00"
+      "notified_at": "2026-10-23T18:39:53.189360+00:00"
     },
     "89681b96fb530608": {
       "title": "Akdital ouvre un recrutement de stagiaires à Casablanca",
@@ -3098,7 +3098,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.331399+00:00"
+      "notified_at": "2026-10-23T18:39:53.193372+00:00"
     },
     "4e9ad027a91274d3": {
       "title": "Speedaf recrute 6 stagiaires en service client à Casablanca",
@@ -3118,7 +3118,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.334229+00:00"
+      "notified_at": "2026-10-23T18:39:53.197284+00:00"
     },
     "bdbe1d34cb23776e": {
       "title": "SEWS ouvre des stages en informatique sur deux sites",
@@ -3138,7 +3138,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.337342+00:00"
+      "notified_at": "2026-10-23T18:39:53.201185+00:00"
     },
     "cecc649b4dee0d3f": {
       "title": "SEWS ouvre des stages en informatique à Aïn Aouda et Skhirat",
@@ -3158,7 +3158,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.340314+00:00"
+      "notified_at": "2026-10-23T18:39:53.205062+00:00"
     },
     "2f38c9157f3885cc": {
       "title": "Stage rémunéré à Casablanca, Label’Vie cherche de jeunes talents en informatique",
@@ -3178,7 +3178,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.343229+00:00"
+      "notified_at": "2026-10-23T18:39:53.208948+00:00"
     },
     "82026ce77901d99d": {
       "title": "Iwaco recrute des développeurs juniors pour des stages pré-embauche",
@@ -3204,7 +3204,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.355047+00:00"
+      "notified_at": "2026-10-23T18:39:53.225029+00:00"
     },
     "fec9084c1a1cee2f": {
       "title": "Orange – Campagne de Recrutement de Stagiaires 2025",
@@ -3230,7 +3230,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.357974+00:00"
+      "notified_at": "2026-10-23T18:39:53.228969+00:00"
     },
     "1f717de5b430eedb": {
       "title": "NOVOPHARMA recrute des stagiaires tech: rejoignez un laboratoire innovant",
@@ -3260,7 +3260,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.360795+00:00"
+      "notified_at": "2026-10-23T18:39:53.232916+00:00"
     },
     "5f99ac70bf64285a": {
       "title": "(11) Opportunités de Stage et d’Emploi à Saisir chez Devti Technologie",
@@ -3310,7 +3310,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.363761+00:00"
+      "notified_at": "2026-10-23T18:39:53.236887+00:00"
     },
     "8d31572b7df9a5d8": {
       "title": "Emplois et stages chez Managis Consulting: marketing, IA, commerce, maintenance",
@@ -3335,7 +3335,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.366655+00:00"
+      "notified_at": "2026-10-23T18:39:53.240819+00:00"
     },
     "4efe89c699c7ef58": {
       "title": "Groupe Renault Maroc propose des stages PFE pour étudiants Bac+3/+5",
@@ -3383,7 +3383,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.378229+00:00"
+      "notified_at": "2026-10-23T18:39:53.256887+00:00"
     },
     "bc0f496928931f03": {
       "title": "Infotel Recherche des Stagiaires Développeurs",
@@ -3407,7 +3407,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.381056+00:00"
+      "notified_at": "2026-10-23T18:39:53.260781+00:00"
     },
     "fb20cf07a2691c69": {
       "title": "Bosch lance un recrutement en stage et en CDD",
@@ -3453,7 +3453,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.386846+00:00"
+      "notified_at": "2026-10-23T18:39:53.268832+00:00"
     },
     "38e7bbe04e5b755d": {
       "title": "Demande de Stage au Maroc: Exemples Word et PDF",
@@ -3522,7 +3522,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.389758+00:00"
+      "notified_at": "2026-10-23T18:39:53.272777+00:00"
     },
     "42884d62c8486d45": {
       "title": "Banque Populaire recrute des Stagiaires en Informatique",
@@ -3545,7 +3545,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.392596+00:00"
+      "notified_at": "2026-10-23T18:39:53.276737+00:00"
     },
     "ee42be7b3dd84353": {
       "title": "Capgemini TS: Plus de 150 Stages Pré-Embauche à Pourvoir en 2024",
@@ -3568,7 +3568,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.395429+00:00"
+      "notified_at": "2026-10-23T18:39:53.280662+00:00"
     },
     "76628fc5e2b4772f": {
       "title": "Capgemini Engineering recrute des Ingénieurs Supply Chain",
@@ -3591,7 +3591,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.398313+00:00"
+      "notified_at": "2026-10-23T18:39:53.286695+00:00"
     },
     "4570c66df18a8f5f": {
       "title": "Amazon Recrute des Stagiaires en Informatique",
@@ -3636,7 +3636,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.401160+00:00"
+      "notified_at": "2026-10-23T18:39:53.290588+00:00"
     },
     "88fc5eb529798302": {
       "title": "Stages PFE à saisir chez IZEMX en développement, marketing et sales",
@@ -3658,7 +3658,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.403962+00:00"
+      "notified_at": "2026-10-23T18:39:53.294517+00:00"
     },
     "3d335da6d16480bd": {
       "title": "Stages PFE chez Orange Business: Postes en Marketing, IT, RH et Plus",
@@ -3680,7 +3680,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.407039+00:00"
+      "notified_at": "2026-10-23T18:39:53.298422+00:00"
     },
     "c2f810d4ce6d2fff": {
       "title": "Carrières chez Sendit: (9) Opportunités d’Emploi et de Stage",
@@ -3702,7 +3702,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.415844+00:00"
+      "notified_at": "2026-10-23T18:39:53.310195+00:00"
     },
     "0dc4d2d761bd9dcf": {
       "title": "(8) Offres de Stages PFE à Saisir chez Banque Populaire",
@@ -3724,7 +3724,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.418821+00:00"
+      "notified_at": "2026-10-23T18:39:53.314114+00:00"
     },
     "d826e3d600b544db": {
       "title": "Banque Populaire recrute des Stagiaires PFE pour 2023",
@@ -3746,7 +3746,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.421747+00:00"
+      "notified_at": "2026-10-23T18:39:53.318044+00:00"
     },
     "4ae86171498580a3": {
       "title": "Campagne PFE 2026 Safran Morocco, envoyez votre CV aujourd’hui",
@@ -3768,7 +3768,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.424627+00:00"
+      "notified_at": "2026-10-23T18:39:53.321955+00:00"
     },
     "d5acac5866f857ec": {
       "title": "Recrutement stages PFE, Maltem Africa cherche plusieurs candidats",
@@ -3790,7 +3790,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.427517+00:00"
+      "notified_at": "2026-10-23T18:39:53.325891+00:00"
     },
     "18747a0f9e611b56": {
       "title": "Crédit du Maroc lance sa campagne PFE 2025/2026 au Maroc",
@@ -3812,7 +3812,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.430391+00:00"
+      "notified_at": "2026-10-23T18:39:53.329785+00:00"
     },
     "034ceb40f81ab21c": {
       "title": "AuditCloud Maroc recrute des stagiaires en développement à Rabat",
@@ -3878,7 +3878,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:10.433248+00:00"
+      "notified_at": "2026-10-23T18:39:53.333734+00:00"
     },
     "c6809cb6f8695eba": {
       "title": "Développeurs Front «React JS»",
@@ -3964,7 +3964,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.277254+00:00"
+      "notified_at": "2026-10-23T18:39:53.337644+00:00"
     },
     "2414cd82131d3f9b": {
       "title": "LabelVie renforce ses équipes Supply Chain avec des stagiaires PFE à Skhirat",
@@ -3984,7 +3984,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.280158+00:00"
+      "notified_at": "2026-10-23T18:39:53.341596+00:00"
     },
     "d54c2666f46cb3bc": {
       "title": "Stage à Casablanca et CDI à Fès ouverts chez OLENA SA",
@@ -4004,7 +4004,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.283110+00:00"
+      "notified_at": "2026-10-23T18:39:53.345599+00:00"
     },
     "07cdcf76c54535e3": {
       "title": "Postes de stage à saisir chez SNOP Tanger",
@@ -4044,7 +4044,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.286122+00:00"
+      "notified_at": "2026-10-23T18:39:53.349507+00:00"
     },
     "c2ceef378158e9f2": {
       "title": "Tractafric lance un stage en RH et un poste Senior",
@@ -4104,7 +4104,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.289066+00:00"
+      "notified_at": "2026-10-23T18:39:53.373540+00:00"
     },
     "90e73db2f62b11b5": {
       "title": "4 stages PFE ouverts chez BTP Consulting Maroc",
@@ -4124,7 +4124,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.291996+00:00"
+      "notified_at": "2026-10-23T18:39:53.377420+00:00"
     },
     "8db484c7c9be8696": {
       "title": "Stages PFE pré-embauche à Agadir chez SKYLARK SERVICES",
@@ -4144,7 +4144,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.294885+00:00"
+      "notified_at": "2026-10-23T18:39:53.381309+00:00"
     },
     "60b8a02b179d6600": {
       "title": "Capgemini Engineering ouvre 10 stages PFE UI UX",
@@ -4164,7 +4164,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.297786+00:00"
+      "notified_at": "2026-10-23T18:39:53.385198+00:00"
     },
     "85bc6c4bf7264bf0": {
       "title": "Intelcia IT Propose des Stages PFE en Informatique",
@@ -4184,7 +4184,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.303337+00:00"
+      "notified_at": "2026-10-23T18:39:53.389092+00:00"
     },
     "2fffda1a16917b66": {
       "title": "Stages PFE 2025 chez Stellantis: Opportunités pour les Étudiants",
@@ -4224,7 +4224,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.306811+00:00"
+      "notified_at": "2026-10-23T18:39:53.393013+00:00"
     },
     "b7181d75eb055a22": {
       "title": "À Rabat, AVL Maroc recrute des stagiaires PFE en ingénierie",
@@ -4284,7 +4284,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.309787+00:00"
+      "notified_at": "2026-10-23T18:39:53.396953+00:00"
     },
     "7efd5ecea5f4d612": {
       "title": "Saham Bank recrute 50 stagiaires PFE à Casablanca",
@@ -4324,7 +4324,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.312746+00:00"
+      "notified_at": "2026-10-23T18:39:53.400872+00:00"
     },
     "6407603de4caef3a": {
       "title": "VINCI Energies Maroc recrute des stagiaires PFE Bac+5",
@@ -4364,7 +4364,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.315682+00:00"
+      "notified_at": "2026-10-23T18:39:53.404856+00:00"
     },
     "739b60c829090cf9": {
       "title": "COFICAB recrute des stagiaires PFE 2025: Découvrez les projets disponibles",
@@ -4384,7 +4384,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.318614+00:00"
+      "notified_at": "2026-10-23T18:39:53.408700+00:00"
     },
     "79d601494f37c7f0": {
       "title": "TNC Recrute des Stagiaires PFE dans (5) Domaines Stratégiques !",
@@ -4404,7 +4404,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.321546+00:00"
+      "notified_at": "2026-10-23T18:39:53.412718+00:00"
     },
     "bfb89bf46151cef1": {
       "title": "Opportunités de Stages PFE en Audit ou Finance chez Deloitte",
@@ -4444,7 +4444,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.324416+00:00"
+      "notified_at": "2026-10-23T18:39:53.416575+00:00"
     },
     "bb003b2ea3e5da12": {
       "title": "AFD Tech Recrute des Stagiaires (PFE) en Automobile",
@@ -4464,7 +4464,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.327396+00:00"
+      "notified_at": "2026-10-23T18:39:53.420477+00:00"
     },
     "2a0e8df389635aca": {
       "title": "Opportunités de Stages PFE avec Option d’Embauche – B AGILE",
@@ -4484,7 +4484,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.330337+00:00"
+      "notified_at": "2026-10-23T18:39:53.424421+00:00"
     },
     "710c49f9a71bfb32": {
       "title": "Adria Business et Technology recrute ses Futurs Stagiaires PFE",
@@ -4504,7 +4504,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.333251+00:00"
+      "notified_at": "2026-10-23T18:39:53.428367+00:00"
     },
     "9e81fc82094f5d8f": {
       "title": "Bouygues Construction IT Campagne de Stages PFE 2024",
@@ -4524,7 +4524,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.336150+00:00"
+      "notified_at": "2026-10-23T18:39:53.432252+00:00"
     },
     "e4f9112892dd9baa": {
       "title": "DATAPROTECT Recrute des Stagiaires en Cybersécurité",
@@ -4544,7 +4544,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.339111+00:00"
+      "notified_at": "2026-10-23T18:39:53.436174+00:00"
     },
     "44056f027134281e": {
       "title": "DATAPROTECT recrute des Stagiaires Marketing et Communication",
@@ -4564,7 +4564,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.341992+00:00"
+      "notified_at": "2026-10-23T18:39:53.440026+00:00"
     },
     "563338b674fd894e": {
       "title": "DATAPROTECT recrute des Stagiaires Création de Contenu",
@@ -4584,7 +4584,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.344882+00:00"
+      "notified_at": "2026-10-23T18:39:53.443920+00:00"
     },
     "bed2efdd8bb860d0": {
       "title": "RATP Dev Casablanca recrute des stagiaires ingénieurs",
@@ -4624,7 +4624,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.347935+00:00"
+      "notified_at": "2026-10-23T18:39:53.447912+00:00"
     },
     "d921ad28590506a1": {
       "title": "Suprajit Morocco recrute des stagiaires dans plusieurs départements",
@@ -4664,7 +4664,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.351032+00:00"
+      "notified_at": "2026-10-23T18:39:53.451828+00:00"
     },
     "b20cf22abfc98736": {
       "title": "Aramex recrute des stagiaires Bac+3 et Bac+5 à Casablanca",
@@ -4684,7 +4684,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.353919+00:00"
+      "notified_at": "2026-10-23T18:39:53.455739+00:00"
     },
     "0f7d5c82425bf013": {
       "title": "Renault lance un recrutement massif de stagiaires",
@@ -4764,7 +4764,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.356820+00:00"
+      "notified_at": "2026-10-23T18:39:53.459588+00:00"
     },
     "c8bc9c23538716e2": {
       "title": "Fujikura Automotive recrute des Stagiaires Réseaux Informatique",
@@ -4784,7 +4784,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.359933+00:00"
+      "notified_at": "2026-10-23T18:39:53.463472+00:00"
     },
     "8bebb4b2f159beba": {
       "title": "Hirschmann Automotive recrute des Stagiaires en Développement Informatique",
@@ -4804,7 +4804,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.363001+00:00"
+      "notified_at": "2026-10-23T18:39:53.467381+00:00"
     },
     "87feae459de0de5e": {
       "title": "Offres de stage Gestamp en maintenance, outillage et informatique",
@@ -4844,7 +4844,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.366019+00:00"
+      "notified_at": "2026-10-23T18:39:53.471293+00:00"
     },
     "10a3a7bd07c6634d": {
       "title": "COFICAB Morocco recrute des stagiaires à Tanger et Kénitra",
@@ -4864,7 +4864,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.369022+00:00"
+      "notified_at": "2026-10-23T18:39:53.475151+00:00"
     },
     "520f1d3dc9aff140": {
       "title": "Offres d’emploi RATP Dev Casablanca: contrôleur, manager SI, stagiaire ISO",
@@ -4924,7 +4924,7 @@
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:13:13.371988+00:00"
+      "notified_at": "2026-10-23T18:39:53.479032+00:00"
     },
     "d3e29bcb0a949eaa": {
       "title": "Contrôleur de Gestion IT H/F 1",
@@ -5116,9 +5116,71 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-23T18:13:13.273740+00:00"
+    },
+    "6f5afca4bcae2ed7": {
+      "title": "Legal Intern",
+      "company": "ENGIE North Africa",
+      "url": "https://ma.linkedin.com/jobs/view/legal-intern-at-engie-north-africa-4472784557",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/legal-intern-at-engie-north-africa-4472784557",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-10-23T18:39:33.451529+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-23T18:39:33.451529+00:00"
+    },
+    "1fb87414330600e1": {
+      "title": "IT & Data Analyst INTERN",
+      "company": "Smollan",
+      "url": "https://ma.linkedin.com/jobs/view/it-data-analyst-intern-at-smollan-4400235818",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/it-data-analyst-intern-at-smollan-4400235818",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Python"
+      ],
+      "first_seen": "2026-10-23T18:39:36.603431+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-23T18:39:36.603431+00:00"
+    },
+    "b1ea0180c07e4eda": {
+      "title": "Offre de stage PFE à Casablanca",
+      "company": "Hexagone Digitale",
+      "url": "https://ma.linkedin.com/jobs/view/offre-de-stage-pfe-%C3%A0-casablanca-at-hexagone-digitale-4310864204",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement@hexagonedigitale.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/offre-de-stage-pfe-%C3%A0-casablanca-at-hexagone-digitale-4310864204",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-23T18:39:54.047597+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-23T18:39:54.047597+00:00"
     }
   },
-  "last_updated": "2026-10-23T18:13:13.371988+00:00",
-  "total_applied": 38,
+  "last_updated": "2026-10-23T18:39:54.047597+00:00",
+  "total_applied": 43,
   "total_simulated": 4
 }
