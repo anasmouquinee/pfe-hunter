@@ -31,6 +31,12 @@ MOROCCO_TECH_DIRECTORY = [
     (r'\bocp\b', "recrutement@ocpgroup.ma", "OCP Group"),
     (r'\bmasen\b', "recrutement@masen.ma", "MASEN"),
     (r'\boncf\b', "recrutement@oncf.ma", "ONCF"),
+    (r'\bmanpower\b', "recrutement@manpower-maroc.com", "Manpower Maroc"),
+    (r'\bakkodis\b|\bakka\b', "recrutement.maroc@akkodis.com", "Akkodis Maroc"),
+    (r'\badecco\b', "recrutement@adecco.ma", "Adecco Maroc"),
+    (r'\bmichael\s*page\b', "contact.maroc@michaelpage.com", "Michael Page Maroc"),
+    (r'\bum6p\b', "recrutement@um6p.ma", "UM6P"),
+    (r'\bmascir\b', "recrutement@mascir.com", "MAScIR"),
     (r'\bcnss\b', "recrutement@cnss.ma", "CNSS"),
 ]
 

@@ -281,7 +281,7 @@ def run_agent(
                 email_sent = False
                 status_override = f"🧪 [Simulation] Email RH détecté : <code>{offer.contact_email}</code>"
 
-        elif applier.can_apply(offer) and (config.auto_platform_apply or auto_apply):
+        elif applier.can_apply(offer):
             platform_name = (offer.source or "plateforme").capitalize()
             print(f"   🤖 Tentative de postulation automatisée ({platform_name} / Navigateur Cloud)...")
             res = applier.apply(offer)

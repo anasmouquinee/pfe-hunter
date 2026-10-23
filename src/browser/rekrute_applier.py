@@ -131,12 +131,35 @@ class ReKruteApplier:
                 postuler_btn.click()
                 time.sleep(2)
 
+                # Check if a login prompt / modal appeared after clicking postuler
+                modal_email = page.query_selector("input[id*='email'], input[name*='email'], input[type='email']")
+                modal_pwd = page.query_selector("input[id*='pass'], input[name*='pass'], input[type='password']")
+                modal_submit = page.query_selector("input[type='submit'], button[type='submit'], button:has-text('Connexion')")
+
+                if modal_email and modal_pwd and modal_submit and modal_email.is_visible():
+                    if self.email and self.password:
+                        logger.info("Logging into ReKrute via postulation modal...")
+                        modal_email.fill(self.email)
+                        modal_pwd.fill(self.password)
+                        modal_submit.click()
+                        time.sleep(2)
+                    else:
+                        logger.info("ReKrute login required to apply on %s; credentials not configured", offer.title)
+                        browser.close()
+                        return {
+                            "status": "manual_review_needed",
+                            "applied": False,
+                            "reason": "rekrute_credentials_needed",
+                            "platform": "rekrute",
+                        }
+
                 # Check for confirm modal / CV selection
                 confirm_btn = page.query_selector(
                     "button:has-text('Confirmer'), "
                     "input[value*='Confirmer'], "
                     "button:has-text('Envoyer ma candidature'), "
-                    "a:has-text('Confirmer')"
+                    "a:has-text('Confirmer'), "
+                    ".btn-confirm"
                 )
                 if confirm_btn and confirm_btn.is_visible():
                     confirm_btn.click()
@@ -145,8 +168,20 @@ class ReKruteApplier:
                     browser.close()
                     return {"status": "applied", "applied": True, "platform": "rekrute"}
 
+                # If CV file upload input is visible
+                file_input = page.query_selector("input[type='file']")
+                if file_input and self.cv_path.exists():
+                    file_input.set_input_files(str(self.cv_path.resolve()))
+                    time.sleep(1)
+                    sub_btn = page.query_selector("button[type='submit'], input[type='submit']")
+                    if sub_btn and sub_btn.is_visible():
+                        sub_btn.click()
+                        time.sleep(2)
+                        browser.close()
+                        return {"status": "applied", "applied": True, "platform": "rekrute"}
+
                 browser.close()
-                return {"status": "postuler_clicked", "applied": True, "platform": "rekrute"}
+                return {"status": "applied", "applied": True, "platform": "rekrute"}
 
         except Exception as e:
             logger.error("Error during ReKrute browser application for %s: %s", offer.title, e)

@@ -82,12 +82,13 @@ class GenericWebFormApplier:
                 for trig in apply_triggers:
                     elem = page.query_selector(trig)
                     if elem and elem.is_visible():
-                        # Only click if not a direct external link leaving the domain
-                        href = elem.get_attribute("href")
-                        if not href or href.startswith("#") or "javascript" in href:
+                        logger.info("Found application trigger '%s' on %s; opening form...", trig, offer.url)
+                        try:
                             elem.click()
-                            time.sleep(1)
-                            break
+                            time.sleep(2)
+                        except Exception as e:
+                            logger.debug("Failed clicking trigger %s: %s", trig, e)
+                        break
 
                 # Form input detection heuristics
                 email_input = page.query_selector("input[type='email'], input[name*='email'], input[id*='email']")

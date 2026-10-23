@@ -71,16 +71,29 @@ class MarocAnnoncesApplier:
                 page.goto(offer.url, timeout=30000, wait_until="domcontentloaded")
                 time.sleep(1.5)
 
-                # Look for contact button or contact form directly on the page
+                # Look for contact button or apply link directly on the page
                 contact_btn = page.query_selector(
+                    "a:has-text('Postuler à cette offre'), "
+                    "a:has-text('Postuler'), "
+                    "a[href*='a=13'], "
                     "a:has-text('Répondre à cette annonce'), "
                     "a:has-text('Contacter l\'annonceur'), "
                     "button:has-text('Répondre'), "
                     ".btn_repondre, #btn_contact"
                 )
                 if contact_btn and contact_btn.is_visible():
+                    logger.info("Clicking MarocAnnonces contact/apply trigger...")
                     contact_btn.click()
-                    time.sleep(1)
+                    time.sleep(1.5)
+
+                # Check if phone reveal link is present
+                phone_reveal = page.query_selector("#phone_num, a[data-rel='phone_number']")
+                if phone_reveal and phone_reveal.is_visible():
+                    try:
+                        phone_reveal.click()
+                        time.sleep(0.5)
+                    except Exception:
+                        pass
 
                 # Detect form inputs
                 name_input = page.query_selector("input[name*='nom'], input[name*='name'], input[id*='nom']")
