@@ -22,7 +22,12 @@ class DiscordNotifier:
             return ""
         return text if len(text) <= max_length else text[:max_length - 3] + "..."
 
-    def send_alert(self, offer: JobOffer, email_sent: bool = False) -> bool:
+    def send_alert(
+        self,
+        offer: JobOffer,
+        email_sent: bool = False,
+        status_override: Optional[str] = None,
+    ) -> bool:
         """Sends rich Discord embed alert."""
         if not self.is_configured():
             logger.debug("Discord notifier not configured (skipping).")
@@ -31,7 +36,9 @@ class DiscordNotifier:
         color = 0x22C55E if offer.is_remunerated else 0x3B82F6  # Green if remunerated, Blue otherwise
         remun_text = "🟢 Rémunéré / Gratifié" if offer.is_remunerated else "⚪ Non précisé"
 
-        if email_sent:
+        if status_override:
+            action_text = status_override
+        elif email_sent:
             action_text = f"✅ Email envoyé avec CV au RH : `{offer.contact_email}`"
         elif offer.contact_email:
             action_text = f"🧪 [Simulation] Email RH détecté : `{offer.contact_email}`"

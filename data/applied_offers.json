@@ -1999,9 +1999,96 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-23T09:21:17.712246+00:00"
+    },
+    "b2684318841159bf": {
+      "title": "Associate Consultant Intern, Winter 2027 – Morocco",
+      "company": "Mastercard",
+      "url": "https://ma.linkedin.com/jobs/view/associate-consultant-intern-winter-2027-%E2%80%93-morocco-at-mastercard-4472946514",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/associate-consultant-intern-winter-2027-%E2%80%93-morocco-at-mastercard-4472946514",
+      "hr_name": "Chris Reed",
+      "hr_linkedin_url": "https://www.linkedin.com/in/chrisreedstl",
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "SQL"
+      ],
+      "first_seen": "2026-10-23T16:11:17.534906+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": true,
+      "simulated_at": "2026-10-23T16:11:17.534906+00:00",
+      "notified": true,
+      "notified_at": "2026-10-23T16:11:17.534906+00:00"
+    },
+    "08e75404af41a90d": {
+      "title": "Stagiaires IT Support",
+      "company": "Foundever (ex Sitel Group)",
+      "url": "https://www.rekrute.com/offre-emploi-stagiaires-it-support-recrutement-foundever-ex-sitel-group-casablanca-187824.html",
+      "source": "rekrute",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-23T16:11:17.542521+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": true,
+      "simulated_at": "2026-10-23T16:11:17.542521+00:00",
+      "notified": true,
+      "notified_at": "2026-10-23T16:11:17.542521+00:00"
+    },
+    "f14c48d2b2ed5d32": {
+      "title": "CGI Maroc recrute des stagiaires PFE en développement JEE, .Net et PHP à Rabat",
+      "company": "CGI Maroc",
+      "url": "https://joblia.ma/offres-emploi/cgi-maroc-recrute-des-stagiaires-pfe-en-developpement-jee-net-et-php-a-rabat",
+      "source": "joblia",
+      "contact_email": "carrieres.maroc@cgi.com",
+      "linkedin_url": "https://www.linkedin.com/jobs/view/4482030409",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 66,
+      "matched_skills": [
+        "Angular",
+        "PHP"
+      ],
+      "first_seen": "2026-10-23T16:11:17.550021+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": true,
+      "simulated_at": "2026-10-23T16:11:17.550021+00:00",
+      "notified": true,
+      "notified_at": "2026-10-23T16:11:17.550021+00:00"
+    },
+    "14da32f593b19c65": {
+      "title": "Devops/ Sysops Expert",
+      "company": "Akkodis",
+      "url": "https://ma.linkedin.com/jobs/view/devops-sysops-expert-at-akkodis-4482892832",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/devops-sysops-expert-at-akkodis-4482892832",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "DevOps"
+      ],
+      "first_seen": "2026-10-23T16:40:53.689885+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": true,
+      "simulated_at": "2026-10-23T16:40:53.689885+00:00",
+      "notified": true,
+      "notified_at": "2026-10-23T16:40:53.689885+00:00"
     }
   },
-  "last_updated": "2026-10-23T09:21:17.712246+00:00",
+  "last_updated": "2026-10-23T16:40:53.689885+00:00",
   "total_applied": 28,
-  "total_simulated": 0
+  "total_simulated": 4
 }

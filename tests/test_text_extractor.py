@@ -26,6 +26,12 @@ def test_extract_emails_ignores_media_assets():
     assert "contact@joblia.ma" not in emails
     assert "support@dreamjob.ma" not in emails
 
+    text_system = "Contactez rh@company.ma mais pas noreply@company.ma ou support@emploi.ma ou <admin@company.ma>."
+    emails_system = extract_emails(text_system)
+    assert "rh@company.ma" in emails_system
+    assert "noreply@company.ma" not in emails_system
+    assert "support@emploi.ma" not in emails_system
+
 
 
 def test_extract_recruiter_profile():

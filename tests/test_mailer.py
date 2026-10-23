@@ -150,3 +150,104 @@ def test_formal_cover_letter_natixis_cib_ml_research(tmp_path):
     assert paths["html"].stat().st_size > 500
     assert paths["txt"].stat().st_size > 500
 
+
+def test_resend_api_mock():
+    from unittest.mock import patch, MagicMock
+    sender = EmailSender()
+    sender.resend_api_key = "re_mock_123"
+    sender.dry_run = False
+
+    offer = JobOffer(
+        title="Stage PFE IA",
+        company="TestCorp",
+        url="https://example.com/test",
+        source="rekrute",
+        contact_email="rh@testcorp.ma"
+    )
+
+    with patch("requests.post") as mock_post, patch("time.sleep"):
+        mock_post.return_value = MagicMock(status_code=200)
+        success = sender.send_application(offer)
+        assert success is True
+        assert mock_post.called
+        call_url = mock_post.call_args[0][0]
+        assert "api.resend.com" in call_url
+
+
+def test_linkedin_applier_initialization():
+    from src.browser.linkedin_applier import LinkedInApplier
+    applier = LinkedInApplier(li_at_cookie="")
+    assert applier.is_configured() is False
+
+    offer = JobOffer(
+        title="Stage PFE Data",
+        company="LinkedIn Corp",
+        url="https://www.linkedin.com/jobs/view/123",
+        source="linkedin_guest",
+    )
+    res = applier.apply(offer)
+    assert res["applied"] is False
+
+
+def test_rekrute_applier_initialization():
+    from src.browser.rekrute_applier import ReKruteApplier
+    applier = ReKruteApplier(email="test@example.com", password="")
+    assert applier.is_configured() is True
+
+    offer_non_rekrute = JobOffer(
+        title="Stage PFE Data",
+        company="Other Corp",
+        url="https://example.com/other",
+        source="linkedin",
+    )
+    res = applier.apply(offer_non_rekrute)
+    assert res["status"] == "skipped"
+    assert res["reason"] == "not_rekrute_url"
+
+
+def test_marocannonces_applier_initialization():
+    from src.browser.marocannonces_applier import MarocAnnoncesApplier
+    applier = MarocAnnoncesApplier()
+    assert applier.is_configured() is True
+
+    offer_non_ma = JobOffer(
+        title="Stage PFE Data",
+        company="Other Corp",
+        url="https://example.com/other",
+        source="rekrute",
+    )
+    res = applier.apply(offer_non_ma)
+    assert res["status"] == "skipped"
+    assert res["reason"] == "not_marocannonces_url"
+
+
+def test_auto_applier_router():
+    from src.browser.auto_applier import AutoApplierRouter
+    router = AutoApplierRouter()
+
+    offer_rekrute = JobOffer(
+        title="Stage PFE Java",
+        company="TechCorp",
+        url="https://www.rekrute.com/offre-emploi-123.html",
+        source="rekrute"
+    )
+    assert router.can_apply(offer_rekrute) is True
+
+    offer_ma = JobOffer(
+        title="Stage PFE Web",
+        company="DevCorp",
+        url="https://www.marocannonces.com/maroc/offre-123.html",
+        source="marocannonces"
+    )
+    assert router.can_apply(offer_ma) is True
+
+    offer_portal = JobOffer(
+        title="Stage PFE Cloud",
+        company="CloudCorp",
+        url="https://careers.cloudcorp.ma/apply/456",
+        source="career_portal"
+    )
+    assert router.can_apply(offer_portal) is True
+
+
+

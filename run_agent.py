@@ -25,6 +25,7 @@ from src.mailer.email_sender import EmailSender
 from src.mailer.cover_letter_generator import CoverLetterGenerator
 from src.notifier.telegram_notifier import TelegramNotifier
 from src.notifier.discord_notifier import DiscordNotifier
+from src.browser.auto_applier import AutoApplierRouter
 from src.utils.logger import logger
 from src.utils.date_parser import parse_offer_age_days
 
@@ -150,6 +151,7 @@ def run_agent(
     custom_keywords: Optional[List[str]] = None,
     location: str = "Casablanca",
     limit: Optional[int] = None,
+    auto_apply: bool = False,
 ) -> int:
     """Executes full scraping, evaluation, dispatching, and alerting pipeline."""
     config.dry_run = dry_run
@@ -163,13 +165,17 @@ def run_agent(
     state_manager = StateManager()
     evaluator = OfferEvaluator()
     mailer = EmailSender()
+    applier = AutoApplierRouter()
     telegram = TelegramNotifier()
     discord = DiscordNotifier()
 
     print("📡 Statut des Canaux & Secrets :")
-    print(f"   - Telegram   : {'✅ Configuré (Actif)' if telegram.is_configured() else '⚠️ Non configuré (TELEGRAM_BOT_TOKEN / CHAT_ID manquant)'}")
-    print(f"   - Discord    : {'✅ Configuré (Actif)' if discord.is_configured() else '⚠️ Non configuré (DISCORD_WEBHOOK_URL manquant)'}")
-    print(f"   - Gmail SMTP : {'✅ Mot de passe détecté' if bool(config.gmail_app_password) else '⚠️ GMAIL_APP_PASSWORD non renseigné'}")
+    print(f"   - Telegram       : {'✅ Configuré (Actif)' if telegram.is_configured() else '⚠️ Non configuré (TELEGRAM_BOT_TOKEN / CHAT_ID manquant)'}")
+    print(f"   - Discord        : {'✅ Configuré (Actif)' if discord.is_configured() else '⚠️ Non configuré (DISCORD_WEBHOOK_URL manquant)'}")
+    print(f"   - Resend API     : {'✅ Détecté (Primary Cloud)' if bool(config.resend_api_key) else '⚠️ Non configuré (RESEND_API_KEY manquant)'}")
+    print(f"   - Gmail SMTP     : {'✅ Détecté (Fallback)' if bool(config.gmail_app_password) else '⚠️ GMAIL_APP_PASSWORD non renseigné'}")
+    print(f"   - LinkedIn Cloud : {'✅ Session détectée (Easy Apply Actif)' if applier.linkedin.is_configured() else '⚠️ Mode Invité (LINKEDIN_LI_AT non renseigné)'}")
+    print(f"   - Multi-Plateforme: {'✅ Prêt (ReKrute, MarocAnnonces, Web Forms)' if applier.generic.is_configured() else '⚠️ Playwright non installé'}")
     print("-" * 70)
 
     scrapers = [
@@ -207,9 +213,9 @@ def run_agent(
 
     for offer in all_raw_offers:
         evaluated = evaluator.evaluate(offer)
-        # Strictly require genuine AI domain, student PFE internship, and recent publication
+        # Require genuine Tech domain (Software, Data, AI, Web, Cloud), student PFE internship, and recent publication
         if (evaluator.is_pfe_offer(evaluated) and 
-            evaluator.is_ai_offer(evaluated) and 
+            evaluator.is_tech_offer(evaluated) and 
             evaluator.is_recent_enough(evaluated) and 
             evaluated.score >= 50):
             qualified_offers.append(evaluated)
@@ -254,8 +260,11 @@ def run_agent(
         saved_letter = CoverLetterGenerator.save_letter_for_offer(offer)
         print(f"   📄 Lettre de motivation prête : {saved_letter['html'].name}")
 
-        # B. Automated Email if Recruiter / HR email is found
+        # B. Automated Application (Multi-Channel: Email or LinkedIn Easy Apply)
         email_sent = False
+        browser_applied = False
+        status_override = None
+
         if offer.contact_email:
             print(f"   ✉️ Contact RH identifié : {offer.contact_email}")
             if not config.dry_run:
@@ -263,14 +272,33 @@ def run_agent(
                     email_sent = mailer.send_application(offer)
                     if email_sent:
                         emails_sent_count += 1
+                        status_override = f"✅ Candidature envoyée avec CV au RH : <code>{offer.contact_email}</code>"
                 else:
                     print(f"   ⚠️ Limite d'envois atteinte pour cette session ({config.max_emails_per_run})")
+                    status_override = f"⚠️ Limite d'envois atteinte ({config.max_emails_per_run}) -> En attente"
             else:
-                # In dry run: log simulation without actually sending
                 mailer.send_application(offer)
                 email_sent = False
+                status_override = f"🧪 [Simulation] Email RH détecté : <code>{offer.contact_email}</code>"
+
+        elif applier.can_apply(offer) and (config.auto_platform_apply or auto_apply):
+            platform_name = (offer.source or "plateforme").capitalize()
+            print(f"   🤖 Tentative de postulation automatisée ({platform_name} / Navigateur Cloud)...")
+            res = applier.apply(offer)
+            if res.get("applied"):
+                browser_applied = True
+                status_override = f"✅ Candidature envoyée automatiquement sur {platform_name} !"
+                print(f"   🎉 Candidature {platform_name} soumise avec succès !")
+            elif res.get("status") == "simulated":
+                status_override = f"🧪 [Simulation] Postulation automatisée {platform_name} prête"
+                print(f"   🧪 [Simulation] Formulaire {platform_name} détecté et validé.")
+            elif res.get("status") == "manual_review_needed":
+                status_override = f"ℹ️ Questions spécifiques recruteur ({platform_name}) -> Postuler en 1-clic ci-dessous"
+                print(f"   ℹ️ Questions spécifiques recruteur ({platform_name}) -> Intervention requise.")
+            else:
+                print(f"   ℹ️ Postulation {platform_name} : {res.get('status')}")
         else:
-            print("   ℹ️ Aucun email RH public dans la description -> Postulation manuelle requise avec la lettre générée.")
+            print("   ℹ️ Aucun email RH direct -> Postulation en 1-clic disponible.")
 
         # C. LinkedIn Links for Anas to apply/connect manually
         if offer.hr_linkedin_url:
@@ -279,14 +307,15 @@ def run_agent(
             print(f"   🔗 Lien LinkedIn pour postuler manuellement : {offer.linkedin_url}")
 
         # D. Webhook Dispatch (Telegram / Discord) - notify if not already notified
-        if not already_notified or email_sent:
-            telegram.send_alert(offer, email_sent=email_sent)
-            discord.send_alert(offer, email_sent=email_sent)
+        is_applied = email_sent or browser_applied
+        if not already_notified or is_applied:
+            telegram.send_alert(offer, email_sent=email_sent, status_override=status_override)
+            discord.send_alert(offer, email_sent=email_sent, status_override=status_override)
 
         # E. Save State - explicitly marking simulated vs real application
         state_manager.record_offer(
             offer,
-            applied=email_sent,
+            applied=is_applied,
             notified=True,
             simulated=config.dry_run,
         )
@@ -312,6 +341,7 @@ if __name__ == "__main__":
     parser.add_argument("--generate-letters", action="store_true", help="Generate ready-to-download cover letters (HTML & TXT) for all tracked offers")
     parser.add_argument("--letter-company", type=str, help="Generate a customized cover letter for a specific company name")
     parser.add_argument("--letter-role", type=str, default="Stages PFE 2026/2027 - DataLab (Pré-Embauche)", help="Role title for customized letter")
+    parser.add_argument("--auto-apply", action="store_true", help="Enable automatic multi-platform browser submissions (LinkedIn, ReKrute, MarocAnnonces, Web forms)")
     parser.add_argument("--keyword", type=str, help="Search for a specific keyword instead of default AI keywords")
     parser.add_argument("--location", type=str, default="Casablanca", help="Search location (default: Casablanca)")
     parser.add_argument("--limit", type=int, help="Limit maximum offers processed")
@@ -332,5 +362,11 @@ if __name__ == "__main__":
     is_live = args.live and not args.dry_run
     custom_kws = [args.keyword] if args.keyword else None
 
-    sys.exit(run_agent(dry_run=not is_live, custom_keywords=custom_kws, location=args.location, limit=args.limit))
+    sys.exit(run_agent(
+        dry_run=not is_live,
+        custom_keywords=custom_kws,
+        location=args.location,
+        limit=args.limit,
+        auto_apply=args.auto_apply,
+    ))
 

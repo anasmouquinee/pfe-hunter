@@ -47,17 +47,23 @@ def extract_emails(text: str) -> List[str]:
     )
 
     ignored_domains = (
-        "@joblia.ma", "@dreamjob.ma", "@emploima.ma", "@rekrute.com",
+        "@joblia.ma", "@dreamjob.ma", "@emploima.ma", "@emploi.ma", "@rekrute.com",
         "@marocannonces.com", "@talent.com", "@linkedin.com", "@github.com",
-        "@sentry.io", "@w3.org", "@example.com"
+        "@sentry.io", "@w3.org", "@example.com", "@cloudflare.com"
+    )
+
+    ignored_prefixes = (
+        "noreply@", "no-reply@", "ne-pas-repondre@", "donotreply@",
+        "support@", "admin@", "abuse@", "postmaster@"
     )
 
     for candidate in matches:
-        cleaned = candidate.rstrip('.,;!?:()[]"\'').lower()
+        cleaned = candidate.strip('.,;!?:()[]"\'<>').lower()
         if not cleaned.endswith(ignored_extensions):
             if not any(cleaned.endswith(dom) for dom in ignored_domains):
-                if cleaned not in valid_emails:
-                    valid_emails.append(cleaned)
+                if not any(cleaned.startswith(pfx) for pfx in ignored_prefixes):
+                    if cleaned not in valid_emails:
+                        valid_emails.append(cleaned)
 
     return valid_emails
 

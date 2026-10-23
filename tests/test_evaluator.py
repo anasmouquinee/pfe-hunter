@@ -151,3 +151,85 @@ def test_evaluator_matches_cased_ai_acronym_and_ia_context():
         description="Projet de fin d'études : stage en ia pour la modélisation prédictive."
     )
     assert evaluator.is_ai_offer(offer_ia_context) is True
+
+
+def test_evaluator_accepts_broad_tech_offers():
+    """Verifies that all IT/Dev/Cloud domains are accepted under the broadened tech scope."""
+    evaluator = OfferEvaluator()
+
+    # 1. Full Stack Web Developer (React / Node / TypeScript)
+    offer_web = JobOffer(
+        title="Stage PFE Développeur Full Stack (React / Node.js)",
+        company="TechStudio Casablanca",
+        location="Casablanca",
+        url="https://example.com/pfe-web",
+        description="Stage PFE pour le développement d'une application web moderne avec React, TypeScript, Docker et PostgreSQL.",
+        source="rekrute"
+    )
+    assert evaluator.is_tech_offer(offer_web) is True
+    assert evaluator.is_pfe_offer(offer_web) is True
+    evaluated_web = evaluator.evaluate(offer_web)
+    assert evaluated_web.score >= 50
+    assert "React" in evaluated_web.matched_skills or "TypeScript" in evaluated_web.matched_skills
+
+    # 2. DevOps / Cloud Engineer
+    offer_devops = JobOffer(
+        title="Stage PFE Ingénieur DevOps & Cloud AWS",
+        company="CloudOps Rabat",
+        location="Rabat",
+        url="https://example.com/pfe-devops",
+        description="Mise en place de pipelines CI/CD, conteneurisation Docker, orchestration Kubernetes et infrastructure Terraform sur AWS.",
+        source="rekrute"
+    )
+    assert evaluator.is_tech_offer(offer_devops) is True
+    assert evaluator.is_pfe_offer(offer_devops) is True
+    evaluated_devops = evaluator.evaluate(offer_devops)
+    assert evaluated_devops.score >= 50
+
+    # 3. Non-tech role should be rejected
+    offer_compta = JobOffer(
+        title="Stage PFE Comptabilité & Gestion Financière",
+        company="FinanceCorp",
+        location="Casablanca",
+        url="https://example.com/stage-compta",
+        description="Tenue des journaux comptables, rapprochements bancaires et déclarations fiscales.",
+        source="emploima"
+    )
+    assert evaluator.is_tech_offer(offer_compta) is False
+    assert evaluator.is_pfe_offer(offer_compta) is False
+    assert evaluator.evaluate(offer_compta).score < 50
+
+
+def test_company_directory_auto_email_resolution():
+    """Verifies that known Moroccan tech employers have their recruitment email auto-resolved."""
+    # Capgemini without email
+    offer_cap = JobOffer(
+        title="Stage PFE Ingénieur Logiciel",
+        company="Capgemini Engineering Maroc",
+        location="Casablanca",
+        url="https://example.com/capgemini",
+        source="rekrute"
+    )
+    assert offer_cap.contact_email == "recrutementmaroc.ceg@capgemini.com"
+
+    # Alten without email
+    offer_alten = JobOffer(
+        title="Stage PFE Développeur Java",
+        company="Alten Delivery Center Maroc",
+        location="Fès",
+        url="https://example.com/alten",
+        source="rekrute"
+    )
+    assert offer_alten.contact_email == "recrutement.maroc@alten.com"
+
+    # Existing explicit email should not be overwritten
+    offer_explicit = JobOffer(
+        title="Stage PFE Python",
+        company="Capgemini",
+        location="Casablanca",
+        url="https://example.com/cap-custom",
+        contact_email="custom.recruiter@capgemini.com",
+        source="rekrute"
+    )
+    assert offer_explicit.contact_email == "custom.recruiter@capgemini.com"
+

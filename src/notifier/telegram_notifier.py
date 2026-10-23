@@ -18,19 +18,26 @@ class TelegramNotifier:
     def is_configured(self) -> bool:
         return bool(self.bot_token and self.chat_id)
 
-    def format_message(self, offer: JobOffer, email_sent: bool = False) -> str:
+    def format_message(
+        self,
+        offer: JobOffer,
+        email_sent: bool = False,
+        status_override: Optional[str] = None,
+    ) -> str:
         """
         Formats an offer into a clean HTML card.
         HTML mode avoids Telegram Markdown errors when URLs or names contain underscores ('_').
         """
         remun_icon = "🟢 Rémunéré / Gratifié" if offer.is_remunerated else "⚪ Non précisé"
 
-        if email_sent:
-            action_text = f"✅ Email envoyé avec CV au RH : <code>{html.escape(offer.contact_email or '')}</code>"
+        if status_override:
+            action_text = status_override
+        elif email_sent:
+            action_text = f"✅ Candidature envoyée avec CV au RH : <code>{html.escape(offer.contact_email or '')}</code>"
         elif offer.contact_email:
             action_text = f"🧪 [Simulation] Email RH détecté : <code>{html.escape(offer.contact_email)}</code>"
         else:
-            action_text = "⚠️ Email absent -> À postuler manuellement sur LinkedIn"
+            action_text = "⚠️ Email absent -> Postulation 1-clic ci-dessous"
 
         skills_str = ", ".join(offer.matched_skills) if offer.matched_skills else "IA / Data"
 
@@ -59,7 +66,7 @@ class TelegramNotifier:
 
         if offer.linkedin_url:
             msg += (
-                f"\n🔗 <b>Lien LinkedIn (Postuler Manuellement) :</b>\n"
+                f"\n🔗 <b>Lien LinkedIn :</b>\n"
                 f"👉 <a href=\"{offer.linkedin_url}\">Ouvrir l'offre LinkedIn</a>\n"
             )
         elif offer.url:
@@ -70,19 +77,37 @@ class TelegramNotifier:
 
         return msg
 
-    def send_alert(self, offer: JobOffer, email_sent: bool = False) -> bool:
-        """Sends Telegram alert formatted in HTML."""
+    def send_alert(
+        self,
+        offer: JobOffer,
+        email_sent: bool = False,
+        status_override: Optional[str] = None,
+    ) -> bool:
+        """Sends Telegram alert formatted in HTML with 1-click interactive inline buttons."""
         if not self.is_configured():
             logger.debug("Telegram notifier not configured (skipping).")
             return False
 
+        # Build interactive 1-click buttons
+        inline_keyboard = []
+        btn_row = []
+        target_link = offer.linkedin_url or offer.url
+        if target_link:
+            btn_row.append({"text": "⚡ Ouvrir l'offre", "url": target_link})
+        if offer.hr_linkedin_url:
+            btn_row.append({"text": "👤 Contacter le RH", "url": offer.hr_linkedin_url})
+        if btn_row:
+            inline_keyboard.append(btn_row)
+
         url = f"https://api.telegram.org/bot{self.bot_token}/sendMessage"
         payload = {
             "chat_id": self.chat_id,
-            "text": self.format_message(offer, email_sent),
+            "text": self.format_message(offer, email_sent, status_override=status_override),
             "parse_mode": "HTML",
             "disable_web_page_preview": False,
         }
+        if inline_keyboard:
+            payload["reply_markup"] = {"inline_keyboard": inline_keyboard}
 
         try:
             res = requests.post(url, json=payload, timeout=10)

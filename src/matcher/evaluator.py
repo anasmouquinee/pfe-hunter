@@ -67,6 +67,32 @@ class OfferEvaluator:
         r'lakehouse',
     ]
 
+    # Broadened IT & Software Engineering core keywords
+    TECH_CORE_KEYWORDS = [
+        # AI & Data
+        r'intelligence artificielle', r'artificial intelligence', r'machine learning', r'\bml\b',
+        r'deep learning', r'\bdl\b', r'data science', r'data scientist', r'data engineer',
+        r'data engineering', r'ingénieur data', r'ingénierie des données', r'\bllm\b', r'\brag\b',
+        r'langchain', r'computer vision', r'\bnlp\b', r'pytorch', r'tensorflow',
+        r'lakehouse', r'big data', r'apache airflow', r'apache kafka', r'etl',
+        # Software & Web Development
+        r'développeur', r'developpeur', r'developer', r'génie logiciel', r'genie logiciel',
+        r'software engineer', r'software development', r'informatique',
+        r'full\s*stack', r'backend', r'back-end', r'frontend', r'front-end',
+        r'développement web', r'developpement web', r'web development', r'mobile',
+        r'\bpython\b', r'\bjava\b', r'spring\s*boot', r'\bjavascript\b', r'\btypescript\b',
+        r'\breact\b', r'\bangular\b', r'\bvue(?:\.js)?\b', r'node(?:\.js)?', r'\bnext(?:\.js)?',
+        r'\bphp\b', r'laravel', r'symfony', r'\bc#\b', r'\.net\b', r'\basp\.net\b',
+        r'\bc\+\+\b', r'\bgolang\b', r'\bflutter\b',
+        # Database & Cloud / DevOps
+        r'\bsql\b', r'postgresql', r'mongodb', r'mysql', r'oracle',
+        r'devops', r'\bcloud\b', r'\bdocker\b', r'kubernetes', r'ci/cd', r'linux',
+        r'\baws\b', r'\bazure\b', r'\bgcp\b',
+        # Systems & Security
+        r'cybersécurité', r'cybersecurite', r'cybersecurity', r'réseau', r'reseau',
+        r'systèmes et réseaux', r'systemes et reseaux', r'qa engineer', r'test automation',
+    ]
+
     # Acronyms that MUST be matched case-sensitively or in explicit tech contexts
     # to avoid false positives with French common words like "j'ai", "ai" (avoir), etc.
     AI_ACRONYM_PATTERN = re.compile(r'\b(?:AI|IA|A\.I\.|I\.A\.)\b')
@@ -96,8 +122,6 @@ class OfferEvaluator:
         r'vendeur',
         r'community manager',
         r'graphiste',
-        r'wordpress',
-        r'magento',
         r'secrétariat',
         r'secretariat',
         r'assistant(?:e)? de direction',
@@ -130,14 +154,14 @@ class OfferEvaluator:
 
     def is_ai_offer(self, offer: JobOffer) -> bool:
         """
-        Strictly verifies if the offer is focused on AI, ML, Data Science, or Data Engineering.
+        Verifies if the offer is focused specifically on AI, ML, Data Science, or Data Engineering.
         Eliminates common French false-positives (e.g., 'j'ai' matching lowercase 'ai').
         """
         title_lower = offer.title.lower()
         raw_full_text = f"{offer.title} {offer.description}"
         full_text_lower = raw_full_text.lower()
 
-        # 1. Reject if title explicitly states a non-AI enterprise role (e.g., SAP, comptable)
+        # 1. Reject if title explicitly states a non-tech enterprise role (e.g., SAP, comptable)
         for pattern in self.NON_AI_DISQUALIFIERS:
             if re.search(pattern, title_lower):
                 return False
@@ -166,9 +190,45 @@ class OfferEvaluator:
 
         return True
 
+    def is_tech_offer(self, offer: JobOffer) -> bool:
+        """
+        Verifies if the offer is relevant to the broader IT & Software Engineering domain
+        (AI, Data, Software Development, Web/Mobile, Cloud, DevOps, Networks).
+        """
+        title_lower = offer.title.lower()
+        raw_full_text = f"{offer.title} {offer.description}"
+        full_text_lower = raw_full_text.lower()
+
+        # 1. Reject if title explicitly states a non-tech role
+        for pattern in self.NON_AI_DISQUALIFIERS:
+            if re.search(pattern, title_lower):
+                return False
+
+        # 2. Check for explicit AI acronyms (AI, IA)
+        has_ai_acronym = bool(self.AI_ACRONYM_PATTERN.search(raw_full_text))
+        has_ia_context = bool(self.LOWER_IA_CONTEXT_PATTERN.search(full_text_lower))
+
+        # 3. Check for tech core keywords
+        matched_tech = [
+            kw for kw in self.TECH_CORE_KEYWORDS
+            if re.search(kw, full_text_lower)
+        ]
+
+        total_signals = len(matched_tech) + (1 if has_ai_acronym else 0) + (1 if has_ia_context else 0)
+        if total_signals == 0:
+            return False
+
+        # 4. If non-tech noise is present in description, require at least 2 distinct tech signals
+        has_non_tech = any(re.search(pattern, full_text_lower) for pattern in self.NON_AI_DISQUALIFIERS)
+        if has_non_tech and total_signals < 2:
+            return False
+
+        return True
+
     def is_pfe_offer(self, offer: JobOffer) -> bool:
         """
-        Determines if the offer is a genuine student PFE / end-of-studies internship.
+        Determines if the offer is a genuine student PFE / end-of-studies internship
+        in Computer Science, Software Development, Data, or AI.
         """
         text = f"{offer.title} {offer.description}".lower()
 
@@ -177,8 +237,8 @@ class OfferEvaluator:
             if re.search(pattern, text) and not any(re.search(pfe, text) for pfe in self.PFE_KEYWORDS):
                 return False
 
-        # Offer must be relevant to AI/Data
-        if not self.is_ai_offer(offer):
+        # Offer must be relevant to the IT/Tech domain (Data, AI, Software, Web, Cloud)
+        if not self.is_tech_offer(offer):
             return False
 
         # Direct match on PFE keywords
@@ -186,14 +246,14 @@ class OfferEvaluator:
             if re.search(pattern, text):
                 return True
 
-        # Fallback: title contains "stage" or "intern" in an AI role
+        # Fallback: title contains "stage" or "intern" in a tech role
         if "stage" in text or "stagiaire" in text or "intern" in text:
             return True
 
         return False
 
     def is_target_location(self, offer: JobOffer) -> bool:
-        """Checks if the offer is in Casablanca, Settat, or Remote."""
+        """Checks if the offer is in Casablanca, Settat, Rabat, or Remote/Maroc."""
         loc = f"{offer.location} {offer.description}".lower()
         targets = [c.lower() for c in config.target_cities]
         return any(city in loc for city in targets) or "maroc" in loc
@@ -235,15 +295,15 @@ class OfferEvaluator:
         offer.matched_skills = matched_skills
 
         # 3. Relevance & Domain Verification
-        is_ai = self.is_ai_offer(offer)
+        is_tech = self.is_tech_offer(offer)
         is_pfe = self.is_pfe_offer(offer)
 
-        if not is_ai or not is_pfe:
+        if not is_tech or not is_pfe:
             # Irrelevant or disqualified offer
             offer.score = 15
             return offer
 
-        # 4. Score calculation for genuine AI PFE opportunities (50 to 100)
+        # 4. Score calculation for genuine Tech PFE opportunities (50 to 100)
         base_score = 45
         skill_score = min(len(matched_skills) * 8, 40)
         remuneration_bonus = 10 if offer.is_remunerated else 0
@@ -251,3 +311,4 @@ class OfferEvaluator:
 
         offer.score = min(base_score + skill_score + remuneration_bonus + location_bonus, 100)
         return offer
+

@@ -93,7 +93,7 @@ class LinkedInGuestScraper(BaseScraper):
                         offers.append(off)
 
                 # Polite pause between pagination pages
-                time.sleep(0.5)
+                time.sleep(1.0)
 
             except Exception as e:
                 logger.error("Error scraping LinkedIn Guest API for '%s': %s", keyword, e)
@@ -101,6 +101,15 @@ class LinkedInGuestScraper(BaseScraper):
 
         logger.info("LinkedIn Guest API scraped %d total offers for '%s' in %s", len(offers), keyword, location)
         return offers
+
+    def _is_relevant_title(self, title: str) -> bool:
+        """Checks if title is tech or internship relevant before issuing full detail request."""
+        t = title.lower()
+        return any(w in t for w in (
+            "stage", "pfe", "intern", "data", "ia", "ai", "dev", "engineer",
+            "ingénieur", "software", "informatique", "python", "cloud", "web",
+            "fullstack", "backend", "frontend", "react", "java", "tech"
+        ))
 
     def parse_html(self, soup: BeautifulSoup) -> List[JobOffer]:
         offers: List[JobOffer] = []
@@ -132,8 +141,14 @@ class LinkedInGuestScraper(BaseScraper):
             date_elem = card.select_one("time")
             posted_date = date_elem.get_text(strip=True) if date_elem else ""
 
-            # Fetch full posting details to discover HR email and recruiter profile
-            description, contact_email, hr_linkedin_url, hr_name = self._fetch_job_details(normalized_url, title)
+            # Only fetch detail page if title is relevant (reduces 75% of useless requests & 429 blocks)
+            description = f"Offre LinkedIn: {title}"
+            contact_email = None
+            hr_linkedin_url = None
+            hr_name = None
+
+            if self._is_relevant_title(title):
+                description, contact_email, hr_linkedin_url, hr_name = self._fetch_job_details(normalized_url, title)
 
             offer = JobOffer(
                 title=title,
