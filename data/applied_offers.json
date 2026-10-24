@@ -5248,9 +5248,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-23T21:41:29.813772+00:00"
+    },
+    "080384e6c7c920f2": {
+      "title": "Research Assistant - PFE 2027",
+      "company": "Oracle",
+      "url": "https://ma.talent.com/view?id=622150278429547524",
+      "source": "talent",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-24T03:20:07.659647+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-24T03:20:07.659647+00:00"
     }
   },
-  "last_updated": "2026-10-23T21:41:52.751407+00:00",
+  "last_updated": "2026-10-24T03:20:07.659647+00:00",
   "total_applied": 48,
   "total_simulated": 4
 }
