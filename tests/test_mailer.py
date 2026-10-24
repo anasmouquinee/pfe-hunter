@@ -188,6 +188,9 @@ def test_linkedin_applier_initialization():
     res = applier.apply(offer)
     assert res["applied"] is False
 
+    applier_quoted = LinkedInApplier(li_at_cookie='"li_at=sample_token"')
+    assert applier_quoted.is_configured() is True
+
 
 def test_rekrute_applier_initialization():
     from src.browser.rekrute_applier import ReKruteApplier

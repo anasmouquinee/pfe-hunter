@@ -48,16 +48,29 @@ class LinkedInApplier:
             logger.debug("LINKEDIN_LI_AT cookie not configured; skipping LinkedIn browser auto-apply.")
             return {"status": "skipped", "applied": False, "reason": "cookie_not_configured"}
 
+        clean_cookie = (self.li_at or "").strip().strip('"\'')
+        if clean_cookie.startswith("li_at="):
+            clean_cookie = clean_cookie.split("=", 1)[1].strip()
+
+        if not clean_cookie:
+            logger.debug("LINKEDIN_LI_AT cookie empty after sanitization; skipping LinkedIn browser auto-apply.")
+            return {"status": "skipped", "applied": False, "reason": "cookie_not_configured"}
+
         raw_url = offer.linkedin_url or offer.url or ""
         if not raw_url or "linkedin.com" not in raw_url:
             return {"status": "skipped", "applied": False, "reason": "not_linkedin_url"}
 
         # Extract pure numeric job ID to avoid SEO slug redirect loops
-        job_id_match = re.search(r'(\d{8,12})', raw_url)
-        if job_id_match:
-            target_url = f"https://www.linkedin.com/jobs/view/{job_id_match.group(1)}/"
+        job_id = None
+        match = re.search(r'/view/(?:[a-zA-Z0-9_-]+-)?(\d+)', raw_url)
+        if match:
+            job_id = match.group(1)
         else:
-            target_url = re.sub(r"https://[a-z]{2}\.linkedin\.com/", "https://www.linkedin.com/", raw_url)
+            digits = re.findall(r'\b\d{8,12}\b', raw_url)
+            if digits:
+                job_id = digits[-1]
+
+        target_url = f"https://www.linkedin.com/jobs/view/{job_id}/" if job_id else raw_url
 
         logger.info("Initializing headless browser for LinkedIn: %s (%s)", offer.company, offer.title)
 
@@ -82,14 +95,24 @@ class LinkedInApplier:
                     viewport={"width": 1280, "height": 800},
                 )
 
-                # Inject a single authenticated session cookie for .linkedin.com (covers all subdomains)
+                # Stealth: override webdriver property
+                context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+
+                # Inject authenticated session cookie (li_at) + CSRF token (JSESSIONID) for .linkedin.com
                 context.add_cookies([
                     {
                         "name": "li_at",
-                        "value": self.li_at.strip(),
+                        "value": clean_cookie,
                         "domain": ".linkedin.com",
                         "path": "/",
                         "httpOnly": True,
+                        "secure": True,
+                    },
+                    {
+                        "name": "JSESSIONID",
+                        "value": "ajax:0123456789012345678",
+                        "domain": ".linkedin.com",
+                        "path": "/",
                         "secure": True,
                     }
                 ])
@@ -98,12 +121,22 @@ class LinkedInApplier:
                 try:
                     page.goto(target_url, timeout=35000, wait_until="domcontentloaded")
                 except Exception as nav_err:
-                    if "TOO_MANY_REDIRECTS" in str(nav_err):
-                        logger.warning("Redirect loop detected on %s; trying raw URL fallback", target_url)
-                        page.goto(raw_url, timeout=35000, wait_until="domcontentloaded")
+                    if "TOO_MANY_REDIRECTS" in str(nav_err) or "ERR_TOO_MANY_REDIRECTS" in str(nav_err):
+                        logger.warning("Redirect loop detected on %s; trying search URL fallback", target_url)
+                        if job_id:
+                            page.goto(f"https://www.linkedin.com/jobs/search/?currentJobId={job_id}", timeout=35000, wait_until="domcontentloaded")
+                        else:
+                            page.goto(raw_url, timeout=35000, wait_until="domcontentloaded")
                     else:
                         raise nav_err
                 time.sleep(2)
+
+                # Detect if LinkedIn session was rejected or challenged
+                curr_url = page.url.lower()
+                if "/login" in curr_url or "/authwall" in curr_url or "/checkpoint" in curr_url:
+                    logger.warning("LinkedIn session cookie is invalid or expired (redirected to %s)", page.url)
+                    browser.close()
+                    return {"status": "auth_required", "applied": False, "reason": "session_expired_or_invalid"}
 
                 # Detect Easy Apply button (French & English labels, desktop & top-card variations)
                 easy_apply_selectors = [
@@ -114,6 +147,8 @@ class LinkedInApplier:
                     "button:has-text('Easy Apply')",
                     ".jobs-s-apply button",
                     "div.jobs-apply-button--top-card button",
+                    ".jobs-apply-button--top-card",
+                    "[data-job-id] button.jobs-apply-button",
                 ]
 
                 apply_btn = None
@@ -124,6 +159,17 @@ class LinkedInApplier:
                         break
 
                 if not apply_btn:
+                    # Check if there is an external apply button ("Postuler" / "Apply")
+                    external_btn = page.query_selector(
+                        "button:has-text('Postuler'), button:has-text('Apply'), "
+                        "a:has-text('Postuler'), a:has-text('Apply'), "
+                        "a[data-tracking-control-name*='apply']"
+                    )
+                    if external_btn:
+                        logger.info("External portal application button detected on %s (non-Easy Apply)", target_url)
+                        browser.close()
+                        return {"status": "external_apply", "applied": False, "reason": "external_company_portal"}
+
                     logger.info("No Easy Apply button detected on %s (External portal or non-Easy Apply)", target_url)
                     browser.close()
                     return {"status": "external_apply", "applied": False, "reason": "no_easy_apply_button"}

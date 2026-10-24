@@ -155,6 +155,9 @@ def run_agent(
 ) -> int:
     """Executes full scraping, evaluation, dispatching, and alerting pipeline."""
     config.dry_run = dry_run
+    if auto_apply:
+        config.auto_easy_apply = True
+        config.auto_platform_apply = True
     print("=" * 70)
     print(f"🚀 PFE HUNTER AGENT STARTING FOR {config.candidate.full_name.upper()}")
     print(f"📍 Cible : {config.candidate.specialization} ({config.candidate.school})")
@@ -260,12 +263,79 @@ def run_agent(
         saved_letter = CoverLetterGenerator.save_letter_for_offer(offer)
         print(f"   📄 Lettre de motivation prête : {saved_letter['html'].name}")
 
-        # B. Automated Application (Multi-Channel: Email or LinkedIn Easy Apply)
+        # B. Automated Application (Multi-Channel: LinkedIn Easy Apply & Direct Email)
         email_sent = False
         browser_applied = False
         status_override = None
 
-        if offer.contact_email:
+        target_url = (offer.linkedin_url or offer.url or "").lower()
+        is_linkedin = "linkedin.com" in target_url or offer.source == "linkedin_guest"
+
+        # Case 1: LinkedIn opportunity with LinkedIn automation configured
+        if is_linkedin and applier.linkedin.is_configured():
+            print(f"   🤖 Tentative de postulation automatisée LinkedIn Easy Apply...")
+            res = applier.linkedin.apply(offer)
+            if res.get("applied"):
+                browser_applied = True
+                status_override = "✅ Candidature envoyée automatiquement via LinkedIn Easy Apply !"
+                print(f"   🎉 Candidature LinkedIn Easy Apply soumise avec succès !")
+            elif res.get("status") == "simulated":
+                status_override = "🧪 [Simulation] LinkedIn Easy Apply prêt et validé"
+                print(f"   🧪 [Simulation] Bouton LinkedIn Easy Apply détecté et validé.")
+            elif res.get("status") == "manual_review_needed":
+                status_override = "ℹ️ Questions spécifiques recruteur sur LinkedIn -> Postuler en 1-clic ci-dessous"
+                print(f"   ℹ️ Questions spécifiques recruteur (LinkedIn) -> Intervention requise.")
+                if offer.contact_email and not config.dry_run and emails_sent_count < config.max_emails_per_run:
+                    email_sent = mailer.send_application(offer)
+                    if email_sent:
+                        emails_sent_count += 1
+                        status_override += f" (E-mail envoyé en parallèle au RH : {offer.contact_email})"
+            elif res.get("status") == "external_apply":
+                print("   ℹ️ Pas de bouton Candidature Simplifiée sur LinkedIn (Redirection externe requise).")
+                if offer.contact_email:
+                    print(f"   ✉️ Contact RH identifié : {offer.contact_email}")
+                    if not config.dry_run:
+                        if emails_sent_count < config.max_emails_per_run:
+                            email_sent = mailer.send_application(offer)
+                            if email_sent:
+                                emails_sent_count += 1
+                                status_override = f"✅ Offre externe LinkedIn -> E-mail avec CV envoyé au RH : <code>{offer.contact_email}</code>"
+                        else:
+                            print(f"   ⚠️ Limite d'envois atteinte pour cette session ({config.max_emails_per_run})")
+                            status_override = f"⚠️ Limite d'envois atteinte ({config.max_emails_per_run}) -> En attente"
+                    else:
+                        mailer.send_application(offer)
+                        email_sent = False
+                        status_override = f"🧪 [Simulation] Offre externe LinkedIn -> E-mail RH simulé : <code>{offer.contact_email}</code>"
+                else:
+                    status_override = "ℹ️ Postulation externe requise sur le site entreprise -> Ouvrir le lien ci-dessous"
+            elif res.get("status") == "auth_required":
+                print("   ⚠️ Session LinkedIn expirée ou invalide (Renouveler LINKEDIN_LI_AT).")
+                if offer.contact_email:
+                    print(f"   ✉️ Fallback e-mail vers le contact RH : {offer.contact_email}")
+                    if not config.dry_run:
+                        if emails_sent_count < config.max_emails_per_run:
+                            email_sent = mailer.send_application(offer)
+                            if email_sent:
+                                emails_sent_count += 1
+                                status_override = f"✅ Session LinkedIn expirée -> E-mail envoyé au RH : <code>{offer.contact_email}</code>"
+                    else:
+                        mailer.send_application(offer)
+                        status_override = f"🧪 [Simulation] Session LinkedIn expirée -> E-mail RH simulé : <code>{offer.contact_email}</code>"
+                else:
+                    status_override = "⚠️ Session LinkedIn expirée -> Renouveler LINKEDIN_LI_AT ou postuler ci-dessous"
+            else:
+                print(f"   ℹ️ Postulation LinkedIn : {res.get('status')} ({res.get('error') or res.get('reason')})")
+                if offer.contact_email:
+                    print(f"   ✉️ Fallback e-mail vers : {offer.contact_email}")
+                    if not config.dry_run and emails_sent_count < config.max_emails_per_run:
+                        email_sent = mailer.send_application(offer)
+                        if email_sent:
+                            emails_sent_count += 1
+                            status_override = f"✅ E-mail envoyé avec CV au RH : <code>{offer.contact_email}</code>"
+
+        # Case 2: Other job platforms or direct HR contacts
+        elif offer.contact_email:
             print(f"   ✉️ Contact RH identifié : {offer.contact_email}")
             if not config.dry_run:
                 if emails_sent_count < config.max_emails_per_run:
@@ -300,11 +370,12 @@ def run_agent(
         else:
             print("   ℹ️ Aucun email RH direct -> Postulation en 1-clic disponible.")
 
-        # C. LinkedIn Links for Anas to apply/connect manually
+        # C. LinkedIn Links for Anas
         if offer.hr_linkedin_url:
             print(f"   👤 Recruteur RH LinkedIn : {offer.hr_linkedin_url}")
         if offer.linkedin_url:
-            print(f"   🔗 Lien LinkedIn pour postuler manuellement : {offer.linkedin_url}")
+            link_label = "Lien de confirmation LinkedIn" if (email_sent or browser_applied) else "Lien LinkedIn pour postuler manuellement"
+            print(f"   🔗 {link_label} : {offer.linkedin_url}")
 
         # D. Webhook Dispatch (Telegram / Discord) - notify if not already notified
         is_applied = email_sent or browser_applied
