@@ -79,6 +79,40 @@ def test_evaluator_rejects_non_ai_offers():
     )
     assert evaluator.is_ai_offer(offer_servicenow) is False
 
+    # Case 4: HR Graduate trainee - PFE (Human Resources, NOT Tech)
+    offer_hr = JobOffer(
+        title="HR Graduate trainee - PFE",
+        company="Stellantis Middle East & Africa",
+        location="Casablanca",
+        url="https://example.com/pfe-hr",
+        description="Stage PFE en gestion des ressources humaines, paie et onboarding.",
+        source="linkedin_guest"
+    )
+    assert evaluator.is_pfe_offer(offer_hr) is False
+    assert evaluator.is_tech_offer(offer_hr) is False
+
+    # Case 5: Senior Datastage (Senior position, 'stage' substring in 'datastage')
+    offer_senior = JobOffer(
+        title="Ingénieure / Ingénieur Datastage Senior",
+        company="Capgemini",
+        location="Casablanca",
+        url="https://example.com/senior-datastage",
+        description="Poste pour ingénieur confirmé sur IBM DataStage ETL. Nous recrutons du stage PFE au Senior Manager.",
+        source="linkedin_guest"
+    )
+    assert evaluator.is_pfe_offer(offer_senior) is False
+
+    # Case 6: Obsolete year 2022 in title
+    offer_2022 = JobOffer(
+        title="Cegedim SRH lance sa campagne de recrutement de stagiaires 2022",
+        company="Cegedim SRH",
+        location="Casablanca",
+        url="https://example.com/cegedim-2022",
+        description="Campagne de recrutement de stagiaires pour l'année 2022.",
+        source="emploima"
+    )
+    assert evaluator.is_pfe_offer(offer_2022) is False
+
 
 def test_evaluator_accepts_core_ai_topics():
     evaluator = OfferEvaluator()

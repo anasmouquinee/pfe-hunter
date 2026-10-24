@@ -1,6 +1,7 @@
 """Multi-provider email dispatcher with Resend API (Primary Cloud) and Gmail SMTP fallback."""
 
 import base64
+import re
 import smtplib
 import time
 from email.mime.application import MIMEApplication
@@ -60,7 +61,15 @@ class EmailSender:
         else:
             logger.warning("CV file %s not found for attachment!", self.cv_path)
 
-        sender_header = f"{config.candidate.full_name} <{self.resend_from_email}>"
+        # Resend strictly requires: 'Name <email@domain.com>' or 'email@domain.com'
+        clean_from = (self.resend_from_email or "onboarding@resend.dev").strip().strip('"\'')
+        if "<" in clean_from and ">" in clean_from:
+            sender_header = clean_from
+        else:
+            email_match = re.search(r'[\w\.-]+@[\w\.-]+\.\w+', clean_from)
+            bare_email = email_match.group(0) if email_match else "onboarding@resend.dev"
+            sender_header = f"{config.candidate.full_name} <{bare_email}>"
+
         payload = {
             "from": sender_header,
             "to": [recipient],

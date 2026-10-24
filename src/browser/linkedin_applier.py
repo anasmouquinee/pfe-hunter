@@ -52,8 +52,12 @@ class LinkedInApplier:
         if not raw_url or "linkedin.com" not in raw_url:
             return {"status": "skipped", "applied": False, "reason": "not_linkedin_url"}
 
-        # Normalize country subdomains (ma.linkedin.com, fr.linkedin.com) to canonical www.linkedin.com
-        target_url = re.sub(r"https://[a-z]{2}\.linkedin\.com/", "https://www.linkedin.com/", raw_url)
+        # Extract pure numeric job ID to avoid SEO slug redirect loops
+        job_id_match = re.search(r'(\d{8,12})', raw_url)
+        if job_id_match:
+            target_url = f"https://www.linkedin.com/jobs/view/{job_id_match.group(1)}/"
+        else:
+            target_url = re.sub(r"https://[a-z]{2}\.linkedin\.com/", "https://www.linkedin.com/", raw_url)
 
         logger.info("Initializing headless browser for LinkedIn: %s (%s)", offer.company, offer.title)
 
@@ -78,7 +82,7 @@ class LinkedInApplier:
                     viewport={"width": 1280, "height": 800},
                 )
 
-                # Inject authenticated session cookie across all LinkedIn subdomains
+                # Inject a single authenticated session cookie for .linkedin.com (covers all subdomains)
                 context.add_cookies([
                     {
                         "name": "li_at",
@@ -87,21 +91,18 @@ class LinkedInApplier:
                         "path": "/",
                         "httpOnly": True,
                         "secure": True,
-                        "sameSite": "None",
-                    },
-                    {
-                        "name": "li_at",
-                        "value": self.li_at.strip(),
-                        "domain": ".www.linkedin.com",
-                        "path": "/",
-                        "httpOnly": True,
-                        "secure": True,
-                        "sameSite": "None",
-                    },
+                    }
                 ])
 
                 page = context.new_page()
-                page.goto(target_url, timeout=35000, wait_until="domcontentloaded")
+                try:
+                    page.goto(target_url, timeout=35000, wait_until="domcontentloaded")
+                except Exception as nav_err:
+                    if "TOO_MANY_REDIRECTS" in str(nav_err):
+                        logger.warning("Redirect loop detected on %s; trying raw URL fallback", target_url)
+                        page.goto(raw_url, timeout=35000, wait_until="domcontentloaded")
+                    else:
+                        raise nav_err
                 time.sleep(2)
 
                 # Detect Easy Apply button (French & English labels, desktop & top-card variations)

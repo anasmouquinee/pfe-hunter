@@ -5,9 +5,12 @@ from src.matcher.evaluator import OfferEvaluator
 from src.utils.date_parser import parse_offer_age_days, is_recent_offer
 
 
+from datetime import datetime, timezone
+
 def test_parse_offer_age_days():
     # ISO date from today/yesterday
-    assert parse_offer_age_days("2026-10-22T10:00:00+00:00") <= 1
+    recent_iso = datetime.now(timezone.utc).isoformat()
+    assert parse_offer_age_days(recent_iso) <= 1
     assert parse_offer_age_days("Aujourd'hui à 15:30") == 0
     assert parse_offer_age_days("Hier à 10:00") == 1
     assert parse_offer_age_days("il y a 3 jours") == 3

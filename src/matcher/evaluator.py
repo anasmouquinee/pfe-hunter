@@ -126,8 +126,16 @@ class OfferEvaluator:
         r'secretariat',
         r'assistant(?:e)? de direction',
         r'ressources humaines',
+        r'relations humaines',
+        r'human resources',
+        r'\brh\b',
+        r'\bhr\b',
+        r'talent acquisition',
         r'recruteur',
         r'chargé(?:e)? de recrutement',
+        r'gestionnaire de paie',
+        r'\bpaie\b',
+        r'juridique',
     ]
 
     DISQUALIFY_KEYWORDS = [
@@ -230,24 +238,38 @@ class OfferEvaluator:
         Determines if the offer is a genuine student PFE / end-of-studies internship
         in Computer Science, Software Development, Data, or AI.
         """
+        title_lower = offer.title.lower()
         text = f"{offer.title} {offer.description}".lower()
 
-        # Reject permanent contracts and senior positions unless explicitly framed as PFE
+        # 1. Immediate Title Rejections
+        # A. Senior / Lead / Director / Manager roles are NEVER student PFE internships
+        if re.search(r'\b(senior|lead|directeur|manager|chef de projet|expert senior|architecte)\b', title_lower):
+            return False
+
+        # B. Expired / Obsolete years in title (prior to current season)
+        if re.search(r'\b(201\d|202[0-4])\b', title_lower):
+            return False
+
+        # C. Permanent / Regular contracts unless explicitly stating stage/pfe in title
+        if re.search(r'\b(cdi|cdd|intérim|interim)\b', title_lower) and not re.search(r'\b(pfe|stage|stagiaire|intern)\b', title_lower):
+            return False
+
+        # 2. Reject permanent contracts and senior requirements in body
         for pattern in self.DISQUALIFY_KEYWORDS:
             if re.search(pattern, text) and not any(re.search(pfe, text) for pfe in self.PFE_KEYWORDS):
                 return False
 
-        # Offer must be relevant to the IT/Tech domain (Data, AI, Software, Web, Cloud)
+        # 3. Offer must be relevant to the IT/Tech domain (Data, AI, Software, Web, Cloud)
         if not self.is_tech_offer(offer):
             return False
 
-        # Direct match on PFE keywords
+        # 4. Direct match on explicit PFE keywords
         for pattern in self.PFE_KEYWORDS:
             if re.search(pattern, text):
                 return True
 
-        # Fallback: title contains "stage" or "intern" in a tech role
-        if "stage" in text or "stagiaire" in text or "intern" in text:
+        # 5. Fallback: text contains standalone word "stage", "stagiaire", or "intern" (word boundary prevents "datastage")
+        if re.search(r'\b(stage|stagiaire|intern(?:ship)?)\b', text):
             return True
 
         return False

@@ -22,4 +22,4 @@ def test_default_cities_and_remuneration_keywords():
 def test_dry_run_enabled_by_default():
     # Ensure safety: dry run should be active unless explicitly overridden
     assert isinstance(config.dry_run, bool)
-    assert config.max_emails_per_run <= 10
+    assert 0 < config.max_emails_per_run <= 50

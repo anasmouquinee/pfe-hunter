@@ -103,7 +103,7 @@ class AgentConfig(BaseModel):
         ).lower() in ("true", "1", "yes")
     )
 
-    max_emails_per_run: int = Field(default_factory=lambda: int(os.getenv("MAX_EMAILS_PER_RUN", "5")))
+    max_emails_per_run: int = Field(default_factory=lambda: int(os.getenv("MAX_EMAILS_PER_RUN", "20")))
     max_offer_age_days: int = Field(default_factory=lambda: int(os.getenv("MAX_OFFER_AGE_DAYS", "14")))
 
     # Notification Webhooks
