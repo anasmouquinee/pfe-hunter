@@ -1654,22 +1654,23 @@
       "company": "Capgemini Engineering",
       "url": "https://ma.linkedin.com/jobs/view/qualit%C3%A9-pmo-stagiaire-pfe-at-capgemini-engineering-4479755582",
       "source": "linkedin_guest",
-      "contact_email": null,
+      "contact_email": "recrutementmaroc.ceg@capgemini.com",
       "linkedin_url": "https://ma.linkedin.com/jobs/view/qualit%C3%A9-pmo-stagiaire-pfe-at-capgemini-engineering-4479755582",
       "hr_name": null,
       "hr_linkedin_url": null,
       "is_remunerated": false,
-      "score": 58,
+      "score": 66,
       "matched_skills": [
-        "Intelligence Artificielle"
+        "Intelligence Artificielle",
+        "Cloud"
       ],
       "first_seen": "2026-10-15T15:17:47.082319+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-25T15:17:16.469616+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-15T15:17:47.082319+00:00"
+      "notified_at": "2026-10-25T15:17:16.469616+00:00"
     },
     "4e0f8af1daa2ac1d": {
       "title": "Data Steward Junior – Audit & Assurance (H/F)",
@@ -5172,12 +5173,12 @@
       "score": 50,
       "matched_skills": [],
       "first_seen": "2026-10-23T18:39:54.047597+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-10-25T15:17:26.606015+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-23T18:39:54.047597+00:00"
+      "notified_at": "2026-10-25T15:17:26.606015+00:00"
     },
     "1a34e7c97e8b04ea": {
       "title": "O&D Services recrute des téléprospecteurs B2B, des développeurs et des stagiaires PFE à Casablanca",
@@ -5352,9 +5353,53 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-25T12:23:27.165160+00:00"
+    },
+    "4d8b1fe74bd60e1f": {
+      "title": "Pre-Sales Engineer Intern",
+      "company": "Ostorlab",
+      "url": "https://ma.linkedin.com/jobs/view/pre-sales-engineer-intern-at-ostorlab-4479004129",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/pre-sales-engineer-intern-at-ostorlab-4479004129",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 84,
+      "matched_skills": [
+        "Python",
+        "Java",
+        "JavaScript"
+      ],
+      "first_seen": "2026-10-25T15:17:07.949543+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-25T15:17:07.949543+00:00"
+    },
+    "3a11a6d98aca94e1": {
+      "title": "Stagiaire PFE – Gouvernance, Risques et contrôle (GRC) | F/H",
+      "company": "KPMG Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-%E2%80%93-gouvernance-risques-et-contr%C3%B4le-grc-f-h-at-kpmg-au-maroc-4472627173",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-%E2%80%93-gouvernance-risques-et-contr%C3%B4le-grc-f-h-at-kpmg-au-maroc-4472627173",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-25T15:17:20.395915+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-25T15:17:20.395915+00:00"
     }
   },
-  "last_updated": "2026-10-25T12:23:27.165160+00:00",
-  "total_applied": 89,
+  "last_updated": "2026-10-25T15:17:26.606015+00:00",
+  "total_applied": 91,
   "total_simulated": 4
 }
