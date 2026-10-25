@@ -5397,9 +5397,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-25T15:17:20.395915+00:00"
+    },
+    "a1a9b12a26ba9ee3": {
+      "title": "Mobile Developper_FLUTTER_CEGID_HR_F/H",
+      "company": "Cegid",
+      "url": "https://ma.linkedin.com/jobs/view/mobile-developper-flutter-cegid-hr-f-h-at-cegid-4446832888",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/mobile-developper-flutter-cegid-hr-f-h-at-cegid-4446832888",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-25T18:20:08.120324+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-25T18:20:08.120324+00:00"
     }
   },
-  "last_updated": "2026-10-25T15:17:26.606015+00:00",
+  "last_updated": "2026-10-25T18:20:08.120324+00:00",
   "total_applied": 91,
   "total_simulated": 4
 }
