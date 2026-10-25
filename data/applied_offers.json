@@ -5308,9 +5308,33 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-24T09:26:58.681135+00:00"
+    },
+    "7a5dfc2b827ff15e": {
+      "title": "Stage Pré‑embauche AGIRH",
+      "company": "Inetum",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pr%C3%A9%E2%80%91embauche-agirh-at-inetum-4367424685",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pr%C3%A9%E2%80%91embauche-agirh-at-inetum-4367424685",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 74,
+      "matched_skills": [
+        "SQL",
+        "Java",
+        "JavaScript"
+      ],
+      "first_seen": "2026-10-25T03:22:26.004827+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-25T03:22:26.004827+00:00"
     }
   },
-  "last_updated": "2026-10-24T09:28:42.718958+00:00",
+  "last_updated": "2026-10-25T03:22:26.004827+00:00",
   "total_applied": 88,
   "total_simulated": 4
 }
