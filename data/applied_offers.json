@@ -5332,9 +5332,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-25T03:22:26.004827+00:00"
+    },
+    "86f82106c11cf9df": {
+      "title": "Foundever recrute un Stagiaire IT Support à Casablanca",
+      "company": "Foundever",
+      "url": "https://joblia.ma/offres-emploi/foundever-recrute-un-stagiaire-it-support-a-casablanca",
+      "source": "joblia",
+      "contact_email": "morocco.careers@dell.com",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-25T12:23:27.165160+00:00",
+      "applied": true,
+      "applied_at": "2026-10-25T12:23:27.165160+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-25T12:23:27.165160+00:00"
     }
   },
-  "last_updated": "2026-10-25T03:22:26.004827+00:00",
-  "total_applied": 88,
+  "last_updated": "2026-10-25T12:23:27.165160+00:00",
+  "total_applied": 89,
   "total_simulated": 4
 }
