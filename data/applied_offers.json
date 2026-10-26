@@ -5486,9 +5486,56 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-26T14:00:29.857593+00:00"
+    },
+    "904fc1f3bcbbc07d": {
+      "title": "Sécurisation et automatisation des infrastructures IT Windows/Linux, bases de données et solutions ITSM grâce à l’IA",
+      "company": "MAROC FER",
+      "url": "https://ma.linkedin.com/jobs/view/s%C3%A9curisation-et-automatisation-des-infrastructures-it-windows-linux-bases-de-donn%C3%A9es-et-solutions-itsm-gr%C3%A2ce-%C3%A0-l%E2%80%99ia-at-maroc-fer-4483721020",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/s%C3%A9curisation-et-automatisation-des-infrastructures-it-windows-linux-bases-de-donn%C3%A9es-et-solutions-itsm-gr%C3%A2ce-%C3%A0-l%E2%80%99ia-at-maroc-fer-4483721020",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 82,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "Python",
+        "SQL"
+      ],
+      "first_seen": "2026-10-26T18:28:15.875791+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-26T18:28:15.875791+00:00"
+    },
+    "b5a1a298fe95b783": {
+      "title": "PFE en Data science",
+      "company": "MAROC FER",
+      "url": "https://ma.linkedin.com/jobs/view/pfe-en-data-science-at-maroc-fer-4483710386",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/pfe-en-data-science-at-maroc-fer-4483710386",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Data Science"
+      ],
+      "first_seen": "2026-10-26T18:28:19.834958+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-26T18:28:19.834958+00:00"
     }
   },
-  "last_updated": "2026-10-26T14:00:29.857593+00:00",
+  "last_updated": "2026-10-26T18:28:19.834958+00:00",
   "total_applied": 92,
   "total_simulated": 4
 }
