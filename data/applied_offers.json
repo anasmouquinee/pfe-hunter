@@ -5533,9 +5533,54 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-26T18:28:19.834958+00:00"
+    },
+    "3c382c78c4e28f6e": {
+      "title": "Consultant(e) Stagiaire Audit IT | PFE | F/H",
+      "company": "KPMG Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/consultant-e-stagiaire-audit-it-pfe-f-h-at-kpmg-au-maroc-4482990796",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/consultant-e-stagiaire-audit-it-pfe-f-h-at-kpmg-au-maroc-4482990796",
+      "hr_name": "Ayane Ibrahim",
+      "hr_linkedin_url": "https://ma.linkedin.com/in/ayane-ibrahim-195482240",
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-26T21:17:59.136083+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-26T21:17:59.136083+00:00"
+    },
+    "da6232689a4464ce": {
+      "title": "PFE en Data science",
+      "company": "Inetum Maroc",
+      "url": "https://ma.talent.com/view?id=643277524464310138",
+      "source": "talent",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 82,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "Data Science",
+        "DevOps"
+      ],
+      "first_seen": "2026-10-26T21:18:02.026198+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-26T21:18:02.026198+00:00"
     }
   },
-  "last_updated": "2026-10-26T18:28:19.834958+00:00",
+  "last_updated": "2026-10-26T21:18:02.026198+00:00",
   "total_applied": 92,
   "total_simulated": 4
 }
