@@ -5457,9 +5457,38 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-26T00:46:17.086530+00:00"
+    },
+    "e1f0e1574acdfd1c": {
+      "title": "Stagiaire Full Stack (F/H) – 6 mois",
+      "company": "Sofrecom Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-full-stack-f-h-%E2%80%93-6-mois-at-sofrecom-maroc-4483544158",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement.maroc@sofrecom.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-full-stack-f-h-%E2%80%93-6-mois-at-sofrecom-maroc-4483544158",
+      "hr_name": "Oumaima EL MALETY",
+      "hr_linkedin_url": "https://ma.linkedin.com/in/oumaima-el-malety-a07219176",
+      "is_remunerated": false,
+      "score": 90,
+      "matched_skills": [
+        "Docker",
+        "SQL",
+        "Java",
+        "Spring Boot",
+        "Angular",
+        "Full Stack",
+        "Cloud",
+        "CI/CD"
+      ],
+      "first_seen": "2026-10-26T14:00:29.857593+00:00",
+      "applied": true,
+      "applied_at": "2026-10-26T14:00:29.857593+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-26T14:00:29.857593+00:00"
     }
   },
-  "last_updated": "2026-10-26T00:46:17.086530+00:00",
-  "total_applied": 91,
+  "last_updated": "2026-10-26T14:00:29.857593+00:00",
+  "total_applied": 92,
   "total_simulated": 4
 }
