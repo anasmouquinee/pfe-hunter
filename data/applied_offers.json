@@ -5578,9 +5578,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-26T21:18:02.026198+00:00"
+    },
+    "99fa232e8beae178": {
+      "title": "PFE Internship – Mechatronics Engineering",
+      "company": "Stellantis Middle East & Africa",
+      "url": "https://ma.linkedin.com/jobs/view/pfe-internship-%E2%80%93-mechatronics-engineering-at-stellantis-middle-east-africa-4482202241",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/pfe-internship-%E2%80%93-mechatronics-engineering-at-stellantis-middle-east-africa-4482202241",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-27T15:20:52.247313+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-27T15:20:52.247313+00:00"
     }
   },
-  "last_updated": "2026-10-26T21:18:02.026198+00:00",
+  "last_updated": "2026-10-27T15:20:52.247313+00:00",
   "total_applied": 92,
   "total_simulated": 4
 }
