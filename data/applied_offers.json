@@ -5753,9 +5753,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-28T15:17:39.540515+00:00"
+    },
+    "135a447e51d7cfca": {
+      "title": "Stage Business & Marketing",
+      "company": "MintHR",
+      "url": "https://ma.linkedin.com/jobs/view/stage-business-marketing-at-minthr-4484440507",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-business-marketing-at-minthr-4484440507",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 68,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-10-28T21:15:27.709243+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-28T21:15:27.709243+00:00"
     }
   },
-  "last_updated": "2026-10-28T15:17:39.540515+00:00",
+  "last_updated": "2026-10-28T21:15:27.709243+00:00",
   "total_applied": 92,
   "total_simulated": 4
 }
