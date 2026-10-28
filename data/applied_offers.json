@@ -5689,9 +5689,53 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-27T18:20:47.525018+00:00"
+    },
+    "ed575499f52da949": {
+      "title": "Stage pré-embauche rémunéré – Infrastructure & Cloud ERP (H/F)",
+      "company": "SQORUS Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pr%C3%A9-embauche-r%C3%A9mun%C3%A9r%C3%A9-%E2%80%93-infrastructure-cloud-erp-h-f-at-sqorus-maroc-4484456443",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pr%C3%A9-embauche-r%C3%A9mun%C3%A9r%C3%A9-%E2%80%93-infrastructure-cloud-erp-h-f-at-sqorus-maroc-4484456443",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 68,
+      "matched_skills": [
+        "Cloud"
+      ],
+      "first_seen": "2026-10-28T12:21:11.212239+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-28T12:21:11.212239+00:00"
+    },
+    "20c929d8484d1972": {
+      "title": "PFE en Data science",
+      "company": "Inetum",
+      "url": "https://ma.linkedin.com/jobs/view/pfe-en-data-science-at-inetum-4483595292",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/pfe-en-data-science-at-inetum-4483595292",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Data Science"
+      ],
+      "first_seen": "2026-10-28T12:21:14.924996+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-28T12:21:14.924996+00:00"
     }
   },
-  "last_updated": "2026-10-27T18:20:47.525018+00:00",
+  "last_updated": "2026-10-28T12:21:14.924996+00:00",
   "total_applied": 92,
   "total_simulated": 4
 }
