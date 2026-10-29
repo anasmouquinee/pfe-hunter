@@ -5940,9 +5940,55 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-29T15:19:56.618179+00:00"
+    },
+    "7ac298038c4d66f5": {
+      "title": "Deloitte Extended Services recrute 43 profils en finance, conseil, data, IA et cybersécurité à Casablanca",
+      "company": "Deloitte Extended Services",
+      "url": "https://joblia.ma/offres-emploi/deloitte-extended-services-recrute-43-profils-en-finance-conseil-data-ia-et-cybersecurite-a-casablanca",
+      "source": "joblia",
+      "contact_email": "recrutement@iam.ma",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 90,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "AI",
+        "Machine Learning",
+        "Cloud"
+      ],
+      "first_seen": "2026-10-29T18:19:37.883605+00:00",
+      "applied": true,
+      "applied_at": "2026-10-29T18:19:37.883605+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-29T18:19:37.883605+00:00"
+    },
+    "a22c3b57ff7761e7": {
+      "title": "Software Development 1",
+      "company": "IDEMIA Public Security",
+      "url": "https://ma.linkedin.com/jobs/view/software-development-1-at-idemia-public-security-4485205100",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/software-development-1-at-idemia-public-security-4485205100",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-29T18:19:43.307026+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-29T18:19:43.307026+00:00"
     }
   },
-  "last_updated": "2026-10-29T15:19:56.618179+00:00",
-  "total_applied": 92,
+  "last_updated": "2026-10-29T18:19:43.307026+00:00",
+  "total_applied": 93,
   "total_simulated": 4
 }
