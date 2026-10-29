@@ -5775,9 +5775,74 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-28T21:15:27.709243+00:00"
+    },
+    "55081f07f21b523c": {
+      "title": "IT Data & AI Intern - PFE",
+      "company": "Stellantis Middle East & Africa",
+      "url": "https://ma.linkedin.com/jobs/view/it-data-ai-intern-pfe-at-stellantis-middle-east-africa-4482574571",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/it-data-ai-intern-pfe-at-stellantis-middle-east-africa-4482574571",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 66,
+      "matched_skills": [
+        "AI",
+        "Data Science"
+      ],
+      "first_seen": "2026-10-29T03:20:27.007739+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-29T03:20:27.007739+00:00"
+    },
+    "d5892465ddf6990d": {
+      "title": "Internal Audit AI & Data Intern - PFE",
+      "company": "Stellantis Middle East & Africa",
+      "url": "https://ma.linkedin.com/jobs/view/internal-audit-ai-data-intern-pfe-at-stellantis-middle-east-africa-4482587192",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/internal-audit-ai-data-intern-pfe-at-stellantis-middle-east-africa-4482587192",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "AI"
+      ],
+      "first_seen": "2026-10-29T03:20:32.792155+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-29T03:20:32.792155+00:00"
+    },
+    "72555c87dca55750": {
+      "title": "Brand Ads Intern",
+      "company": "Glovo",
+      "url": "https://ma.linkedin.com/jobs/view/brand-ads-intern-at-glovo-4423946104",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/brand-ads-intern-at-glovo-4423946104",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-10-29T03:20:36.089548+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-29T03:20:36.089548+00:00"
     }
   },
-  "last_updated": "2026-10-28T21:15:27.709243+00:00",
+  "last_updated": "2026-10-29T03:20:36.089548+00:00",
   "total_applied": 92,
   "total_simulated": 4
 }
