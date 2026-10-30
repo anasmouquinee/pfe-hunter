@@ -6012,9 +6012,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-29T21:17:49.211191+00:00"
+    },
+    "4cd2862f7effe1c4": {
+      "title": "TS en Développement Informatique   – Stage",
+      "company": "Entreprise Partenaire (MarocAnnonces)",
+      "url": "https://www.marocannonces.com/categorie/309/Offres-emploi/annonce/10483143/TS-en-Développement-Informatique-–-Stage.html",
+      "source": "marocannonces",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-10-30T15:15:41.428353+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-30T15:15:41.428353+00:00"
     }
   },
-  "last_updated": "2026-10-29T21:17:49.211191+00:00",
+  "last_updated": "2026-10-30T15:15:41.428353+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
