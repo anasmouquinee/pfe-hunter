@@ -6032,9 +6032,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-30T15:15:41.428353+00:00"
+    },
+    "1fd06b320017b04e": {
+      "title": "Ingénieur Etudes & Développement JAVA/J2EE",
+      "company": "Wafa Assurance",
+      "url": "https://ma.linkedin.com/jobs/view/ing%C3%A9nieur-etudes-d%C3%A9veloppement-java-j2ee-at-wafa-assurance-4483451146",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/ing%C3%A9nieur-etudes-d%C3%A9veloppement-java-j2ee-at-wafa-assurance-4483451146",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Java"
+      ],
+      "first_seen": "2026-10-30T18:16:48.014578+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-30T18:16:48.014578+00:00"
     }
   },
-  "last_updated": "2026-10-30T15:15:41.428353+00:00",
+  "last_updated": "2026-10-30T18:16:48.014578+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
