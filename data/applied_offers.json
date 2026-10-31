@@ -6054,9 +6054,33 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-30T18:16:48.014578+00:00"
+    },
+    "a607b69333b06eff": {
+      "title": "Campagne PFE 2026-2027",
+      "company": "SEGULA Technologies",
+      "url": "https://ma.linkedin.com/jobs/view/campagne-pfe-2026-2027-at-segula-technologies-4485636052",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/campagne-pfe-2026-2027-at-segula-technologies-4485636052",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 74,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "Data Science"
+      ],
+      "first_seen": "2026-10-31T00:27:48.077399+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-31T00:27:48.077399+00:00"
     }
   },
-  "last_updated": "2026-10-30T18:16:48.014578+00:00",
+  "last_updated": "2026-10-31T00:27:48.077399+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
