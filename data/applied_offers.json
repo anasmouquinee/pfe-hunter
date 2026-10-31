@@ -6138,9 +6138,33 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-31T15:13:58.162888+00:00"
+    },
+    "1d13cd51a42276f4": {
+      "title": "SEGULA Technologies lance sa campagne PFE 2026-2027",
+      "company": "SEGULA Technologies",
+      "url": "https://joblia.ma/offres-emploi/segula-technologies-lance-sa-campagne-pfe-2026-2027",
+      "source": "joblia",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 84,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "Data Science"
+      ],
+      "first_seen": "2026-10-31T18:16:21.708120+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-10-31T18:16:21.708120+00:00"
     }
   },
-  "last_updated": "2026-10-31T15:13:58.162888+00:00",
+  "last_updated": "2026-10-31T18:16:21.708120+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
