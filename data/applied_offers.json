@@ -6162,9 +6162,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-10-31T18:16:21.708120+00:00"
+    },
+    "840969703d7d1a3d": {
+      "title": "Artificial Intelligence Engineer",
+      "company": "Mirage Metrics",
+      "url": "https://ma.linkedin.com/jobs/view/artificial-intelligence-engineer-at-mirage-metrics-4483954469",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/artificial-intelligence-engineer-at-mirage-metrics-4483954469",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-01T00:34:14.524557+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-01T00:34:14.524557+00:00"
     }
   },
-  "last_updated": "2026-10-31T18:16:21.708120+00:00",
+  "last_updated": "2026-11-01T00:34:14.524557+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
