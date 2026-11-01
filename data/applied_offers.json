@@ -6182,9 +6182,51 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-01T00:34:14.524557+00:00"
+    },
+    "ab14193c9e8ad9cc": {
+      "title": "Stagiaire Monteur(se) Vidéo – Actualité & Médias Digitaux",
+      "company": "MADAD VENTURES",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-monteur-se-vid%C3%A9o-%E2%80%93-actualit%C3%A9-m%C3%A9dias-digitaux-at-madad-ventures-4484949348",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-monteur-se-vid%C3%A9o-%E2%80%93-actualit%C3%A9-m%C3%A9dias-digitaux-at-madad-ventures-4484949348",
+      "hr_name": "BADR IFLI",
+      "hr_linkedin_url": "https://ma.linkedin.com/in/badr-ifli-5a4562252",
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-11-01T09:13:36.164743+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-01T09:13:36.164743+00:00"
+    },
+    "f25d52e4a2587cfa": {
+      "title": "Auditeur Financier Stagiaire PFE - PwC Services",
+      "company": "PwC",
+      "url": "https://ma.linkedin.com/jobs/view/auditeur-financier-stagiaire-pfe-pwc-services-at-pwc-4479083255",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/auditeur-financier-stagiaire-pfe-pwc-services-at-pwc-4479083255",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-11-01T09:13:39.289825+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-01T09:13:39.289825+00:00"
     }
   },
-  "last_updated": "2026-11-01T00:34:14.524557+00:00",
+  "last_updated": "2026-11-01T09:13:39.289825+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
