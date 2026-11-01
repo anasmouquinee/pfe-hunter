@@ -6224,9 +6224,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-01T09:13:39.289825+00:00"
+    },
+    "fa41621d019302d4": {
+      "title": "Sécurisation et automatisation des infrastructures IT Windows/Linux, bases de données et solutions ITSM grâce à l’IA",
+      "company": "Inetum",
+      "url": "https://ma.linkedin.com/jobs/view/s%C3%A9curisation-et-automatisation-des-infrastructures-it-windows-linux-bases-de-donn%C3%A9es-et-solutions-itsm-gr%C3%A2ce-%C3%A0-l%E2%80%99ia-at-inetum-4483598261",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/s%C3%A9curisation-et-automatisation-des-infrastructures-it-windows-linux-bases-de-donn%C3%A9es-et-solutions-itsm-gr%C3%A2ce-%C3%A0-l%E2%80%99ia-at-inetum-4483598261",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-11-01T21:14:26.489980+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-01T21:14:26.489980+00:00"
     }
   },
-  "last_updated": "2026-11-01T09:13:39.289825+00:00",
+  "last_updated": "2026-11-01T21:14:26.489980+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
