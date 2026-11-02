@@ -6270,9 +6270,51 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-02T00:29:24.782113+00:00"
+    },
+    "b593d25a90450e40": {
+      "title": "Stagiaire en Business Intelligence & Power BI H/F",
+      "company": "Sothema",
+      "url": "https://www.rekrute.com/offre-emploi-stagiaire-en-business-intelligence-power-bi-hf-recrutement-sothema-casablanca-188104.html",
+      "source": "rekrute",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-02T12:20:13.704669+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-02T12:20:13.704669+00:00"
+    },
+    "0ea6f2715149556e": {
+      "title": "(Fluent English) L2 Backend Developer and Support Engineer (Remote)",
+      "company": "SupportYourApp",
+      "url": "https://ma.linkedin.com/jobs/view/fluent-english-l2-backend-developer-and-support-engineer-remote-at-supportyourapp-4486141230",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/fluent-english-l2-backend-developer-and-support-engineer-remote-at-supportyourapp-4486141230",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Backend"
+      ],
+      "first_seen": "2026-11-02T12:20:18.947345+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-02T12:20:18.947345+00:00"
     }
   },
-  "last_updated": "2026-11-02T00:29:24.782113+00:00",
+  "last_updated": "2026-11-02T12:20:18.947345+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
