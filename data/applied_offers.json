@@ -6360,9 +6360,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-02T18:17:03.778291+00:00"
+    },
+    "bd7115ea51d0c7c0": {
+      "title": "KPMG Maroc recrute des stagiaires et juniors à Casablanca",
+      "company": "KPMG Maroc",
+      "url": "https://joblia.ma/offres-emploi/kpmg-maroc-recrute-des-stagiaires-et-juniors-a-casablanca",
+      "source": "joblia",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-11-02T21:15:37.590173+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-02T21:15:37.590173+00:00"
     }
   },
-  "last_updated": "2026-11-02T18:17:03.778291+00:00",
+  "last_updated": "2026-11-02T21:15:37.590173+00:00",
   "total_applied": 94,
   "total_simulated": 4
 }
