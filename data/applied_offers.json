@@ -6312,9 +6312,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-02T12:20:18.947345+00:00"
+    },
+    "ac963a77f4febae2": {
+      "title": "Stagiaire marketing",
+      "company": "Master Check Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-marketing-at-master-check-maroc-4484929250",
+      "source": "linkedin_guest",
+      "contact_email": "marketing@mastercheck.ma",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-marketing-at-master-check-maroc-4484929250",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-02T15:16:09.549704+00:00",
+      "applied": true,
+      "applied_at": "2026-11-02T15:16:09.549704+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-02T15:16:09.549704+00:00"
     }
   },
-  "last_updated": "2026-11-02T12:20:18.947345+00:00",
-  "total_applied": 93,
+  "last_updated": "2026-11-02T15:16:09.549704+00:00",
+  "total_applied": 94,
   "total_simulated": 4
 }
