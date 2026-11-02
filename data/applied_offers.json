@@ -6246,9 +6246,33 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-01T21:14:26.489980+00:00"
+    },
+    "abe6c4b493d8028a": {
+      "title": "Maersk Maroc recrute 8 profils dont 6 stagiaires PFE",
+      "company": "Maersk Maroc",
+      "url": "https://joblia.ma/offres-emploi/maersk-maroc-recrute-8-profils-dont-6-stagiaires-pfe",
+      "source": "joblia",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 84,
+      "matched_skills": [
+        "Data Science",
+        "Python",
+        "SQL"
+      ],
+      "first_seen": "2026-11-02T00:29:24.782113+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-02T00:29:24.782113+00:00"
     }
   },
-  "last_updated": "2026-11-01T21:14:26.489980+00:00",
+  "last_updated": "2026-11-02T00:29:24.782113+00:00",
   "total_applied": 93,
   "total_simulated": 4
 }
