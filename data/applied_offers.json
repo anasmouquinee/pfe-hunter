@@ -6332,9 +6332,37 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-02T15:16:09.549704+00:00"
+    },
+    "f93d4a25e10dc2c6": {
+      "title": "OFFRE DE STAGE – INGÉNIEUR MOBILE EDGE AI / ON-DEV",
+      "company": "Entreprise Partenaire (MarocAnnonces)",
+      "url": "https://www.marocannonces.com/categorie/309/Offres-emploi/annonce/10484735/OFFRE-DE-STAGE-–-INGÉNIEUR-MOBILE-EDGE-AI-ON-DEV.html",
+      "source": "marocannonces",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 100,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "AI",
+        "Machine Learning",
+        "LLM",
+        "Data Science",
+        "TensorFlow"
+      ],
+      "first_seen": "2026-11-02T18:17:03.778291+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-02T18:17:03.778291+00:00"
     }
   },
-  "last_updated": "2026-11-02T15:16:09.549704+00:00",
+  "last_updated": "2026-11-02T18:17:03.778291+00:00",
   "total_applied": 94,
   "total_simulated": 4
 }
