@@ -6380,9 +6380,51 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-02T21:15:37.590173+00:00"
+    },
+    "c1952812491417ea": {
+      "title": "Software Engineer Java",
+      "company": "Société Générale",
+      "url": "https://ma.linkedin.com/jobs/view/software-engineer-java-at-societe-generale-4484628135",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement@socgen.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/software-engineer-java-at-societe-generale-4484628135",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Java"
+      ],
+      "first_seen": "2026-11-03T00:28:44.898928+00:00",
+      "applied": true,
+      "applied_at": "2026-11-03T00:28:44.898928+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-03T00:28:44.898928+00:00"
+    },
+    "6ed6f57b8550d667": {
+      "title": "MTA Morocco recrute des stagiaires à Kénitra",
+      "company": "MTA Morocco",
+      "url": "https://joblia.ma/offres-emploi/mta-morocco-recrute-des-stagiaires-a-kenitra",
+      "source": "joblia",
+      "contact_email": "hrmorocco@mta.it",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-11-03T00:28:47.915019+00:00",
+      "applied": true,
+      "applied_at": "2026-11-03T00:28:47.915019+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-03T00:28:47.915019+00:00"
     }
   },
-  "last_updated": "2026-11-02T21:15:37.590173+00:00",
-  "total_applied": 94,
+  "last_updated": "2026-11-03T00:28:47.915019+00:00",
+  "total_applied": 96,
   "total_simulated": 4
 }
