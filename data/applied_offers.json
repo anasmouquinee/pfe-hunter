@@ -6555,9 +6555,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-03T21:15:16.822533+00:00"
+    },
+    "a000f8b677599cd6": {
+      "title": "Delivery AI Software Engineer",
+      "company": "Boston Consulting Group (BCG)",
+      "url": "https://ma.linkedin.com/jobs/view/delivery-ai-software-%E2%80%8Bengineer%E2%80%8B-at-boston-consulting-group-bcg-4434173605",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/delivery-ai-software-%E2%80%8Bengineer%E2%80%8B-at-boston-consulting-group-bcg-4434173605",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "AI"
+      ],
+      "first_seen": "2026-11-04T03:16:29.467703+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-04T03:16:29.467703+00:00"
     }
   },
-  "last_updated": "2026-11-03T21:15:16.822533+00:00",
+  "last_updated": "2026-11-04T03:16:29.467703+00:00",
   "total_applied": 98,
   "total_simulated": 4
 }
