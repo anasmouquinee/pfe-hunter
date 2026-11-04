@@ -4040,12 +4040,12 @@
       "score": 50,
       "matched_skills": [],
       "first_seen": "2026-10-23T17:25:56.720369+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-11-04T15:21:10.661735+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-24T09:28:42.594072+00:00"
+      "notified_at": "2026-11-04T15:21:10.661735+00:00"
     },
     "c2ceef378158e9f2": {
       "title": "Tractafric lance un stage en RH et un poste Senior",
@@ -4560,12 +4560,12 @@
       "score": 50,
       "matched_skills": [],
       "first_seen": "2026-10-23T17:26:28.898560+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-11-04T15:21:15.202725+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-10-24T09:28:42.673471+00:00"
+      "notified_at": "2026-11-04T15:21:15.202725+00:00"
     },
     "563338b674fd894e": {
       "title": "DATAPROTECT recrute des Stagiaires Création de Contenu",
@@ -6805,9 +6805,51 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-04T09:16:55.211319+00:00"
+    },
+    "b2c18c7ebb96b1de": {
+      "title": "Stage bureautique et saisie",
+      "company": "Entreprise Partenaire (MarocAnnonces)",
+      "url": "https://www.marocannonces.com/categorie/309/Offres-emploi/annonce/10486157/Stage-bureautique-et-saisie.html",
+      "source": "marocannonces",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-11-04T15:21:00.887591+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-04T15:21:00.887591+00:00"
+    },
+    "1b963d73d55a86f1": {
+      "title": "AXA Global Business Services lance une campagne de recrutement de stagiaires PFE",
+      "company": "AXA Global Business Services",
+      "url": "https://www.dreamjob.ma/stage/axa-global-business-services-lance-une-campagne-de-recrutement-de-stagiaires-pfe",
+      "source": "dreamjob",
+      "contact_email": "agbs-internship2026@axa.com",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Intelligence Artificielle"
+      ],
+      "first_seen": "2026-11-04T15:21:05.857789+00:00",
+      "applied": true,
+      "applied_at": "2026-11-04T15:21:05.857789+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-04T15:21:05.857789+00:00"
     }
   },
-  "last_updated": "2026-11-04T09:16:55.211319+00:00",
-  "total_applied": 108,
+  "last_updated": "2026-11-04T15:21:15.202725+00:00",
+  "total_applied": 111,
   "total_simulated": 4
 }
