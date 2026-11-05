@@ -6913,9 +6913,73 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-05T18:18:10.885632+00:00"
+    },
+    "3a6cc19ac5cb3025": {
+      "title": "📱 Stage à distance | 2 mois | Opportunité de collaboration  DÉVELOPPEUR MOBILE FLUTTER (H/F)",
+      "company": "S B SOLUTIONS MA",
+      "url": "https://ma.linkedin.com/jobs/view/%F0%9F%93%B1-stage-%C3%A0-distance-2-mois-opportunit%C3%A9-de-collaboration-d%C3%A9veloppeur-mobile-flutter-h-f-at-s-b-solutions-ma-4488049075",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/%F0%9F%93%B1-stage-%C3%A0-distance-2-mois-opportunit%C3%A9-de-collaboration-d%C3%A9veloppeur-mobile-flutter-h-f-at-s-b-solutions-ma-4488049075",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Flutter"
+      ],
+      "first_seen": "2026-11-05T21:13:53.713228+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-05T21:13:53.713228+00:00"
+    },
+    "db6516548bef7f78": {
+      "title": "Ingénieur Etudes et Développement C#/.Net",
+      "company": "Société Générale",
+      "url": "https://ma.linkedin.com/jobs/view/ing%C3%A9nieur-etudes-et-d%C3%A9veloppement-c%23-net-at-societe-generale-4485515681",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement@socgen.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/ing%C3%A9nieur-etudes-et-d%C3%A9veloppement-c%23-net-at-societe-generale-4485515681",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-05T21:14:01.778998+00:00",
+      "applied": true,
+      "applied_at": "2026-11-05T21:14:01.778998+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-05T21:14:01.778998+00:00"
+    },
+    "7937e53f26719546": {
+      "title": "Développeur IA Générative / Power Platform",
+      "company": "Néosoft",
+      "url": "https://ma.linkedin.com/jobs/view/d%C3%A9veloppeur-ia-g%C3%A9n%C3%A9rative-power-platform-at-neosoft-4479385789",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/d%C3%A9veloppeur-ia-g%C3%A9n%C3%A9rative-power-platform-at-neosoft-4479385789",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-11-05T21:14:04.700199+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-05T21:14:04.700199+00:00"
     }
   },
-  "last_updated": "2026-11-05T18:18:10.885632+00:00",
-  "total_applied": 112,
+  "last_updated": "2026-11-05T21:14:04.700199+00:00",
+  "total_applied": 113,
   "total_simulated": 4
 }
