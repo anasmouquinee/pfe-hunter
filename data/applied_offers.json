@@ -6847,9 +6847,55 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-04T15:21:05.857789+00:00"
+    },
+    "36dbfebe5becd26e": {
+      "title": "AXA GBS lance sa campagne de stages PFE à Rabat",
+      "company": "AXA GBS",
+      "url": "https://joblia.ma/offres-emploi/axa-gbs-lance-sa-campagne-de-stages-pfe-a-rabat",
+      "source": "joblia",
+      "contact_email": "agbs-internship2026@axa.com",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 76,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA"
+      ],
+      "first_seen": "2026-11-05T00:28:55.207633+00:00",
+      "applied": true,
+      "applied_at": "2026-11-05T00:28:55.207633+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-05T00:28:55.207633+00:00"
+    },
+    "ea1f116105fc1996": {
+      "title": "VINCI Energies recrute des stagiaires PFE à Casablanca",
+      "company": "VINCI Energies",
+      "url": "https://joblia.ma/offres-emploi/vinci-energies-recrute-des-stagiaires-pfe-a-casablanca",
+      "source": "joblia",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 76,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "Cloud"
+      ],
+      "first_seen": "2026-11-05T00:29:01.088529+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-05T00:29:01.088529+00:00"
     }
   },
-  "last_updated": "2026-11-04T15:21:15.202725+00:00",
-  "total_applied": 111,
+  "last_updated": "2026-11-05T00:29:01.088529+00:00",
+  "total_applied": 112,
   "total_simulated": 4
 }
