@@ -6977,9 +6977,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-05T21:14:04.700199+00:00"
+    },
+    "78ea6dc323bbafe8": {
+      "title": "Technicien spécialisé en Développement informatique – Casablanca",
+      "company": "Maroc Emploi",
+      "url": "https://ma.linkedin.com/jobs/view/technicien-sp%C3%A9cialis%C3%A9-en-d%C3%A9veloppement-informatique-%E2%80%93-casablanca-at-maroc-emploi-4486907738",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/technicien-sp%C3%A9cialis%C3%A9-en-d%C3%A9veloppement-informatique-%E2%80%93-casablanca-at-maroc-emploi-4486907738",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-06T00:40:40.283308+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-06T00:40:40.283308+00:00"
     }
   },
-  "last_updated": "2026-11-05T21:14:04.700199+00:00",
+  "last_updated": "2026-11-06T00:40:40.283308+00:00",
   "total_applied": 113,
   "total_simulated": 4
 }
