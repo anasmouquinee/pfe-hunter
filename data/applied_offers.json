@@ -7079,9 +7079,57 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-06T12:19:29.026213+00:00"
+    },
+    "8c5cd997eb0adba4": {
+      "title": "Orange Maroc recrute ses stagiaires PFE 2027",
+      "company": "Orange Maroc",
+      "url": "https://joblia.ma/offres-emploi/orange-maroc-recrute-ses-stagiaires-pfe-2027",
+      "source": "joblia",
+      "contact_email": "recrutement.maroc@sofrecom.com",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 92,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "Machine Learning",
+        "Data Science"
+      ],
+      "first_seen": "2026-11-06T15:15:51.135252+00:00",
+      "applied": true,
+      "applied_at": "2026-11-06T15:15:51.135252+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-06T15:15:51.135252+00:00"
+    },
+    "b1a8c529f7518b57": {
+      "title": "Stage PFE : Développeur(se) Full Stack IA",
+      "company": "Candilia",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pfe-d%C3%A9veloppeur-se-full-stack-ia-at-candilia-4477161148",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pfe-d%C3%A9veloppeur-se-full-stack-ia-at-candilia-4477161148",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 66,
+      "matched_skills": [
+        "IA",
+        "Full Stack"
+      ],
+      "first_seen": "2026-11-06T15:15:56.573401+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-06T15:15:56.573401+00:00"
     }
   },
-  "last_updated": "2026-11-06T12:19:29.026213+00:00",
-  "total_applied": 113,
+  "last_updated": "2026-11-06T15:15:56.573401+00:00",
+  "total_applied": 114,
   "total_simulated": 4
 }
