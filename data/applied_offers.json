@@ -7147,9 +7147,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-07T12:17:33.322550+00:00"
+    },
+    "5c41913f978e0262": {
+      "title": "Artificial Intelligence Engineer",
+      "company": "Talent Performer",
+      "url": "https://ma.linkedin.com/jobs/view/artificial-intelligence-engineer-at-talent-performer-4488829622",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/artificial-intelligence-engineer-at-talent-performer-4488829622",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-09T09:19:18.537060+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-09T09:19:18.537060+00:00"
     }
   },
-  "last_updated": "2026-11-07T12:17:33.322550+00:00",
+  "last_updated": "2026-11-09T09:19:18.537060+00:00",
   "total_applied": 114,
   "total_simulated": 4
 }
