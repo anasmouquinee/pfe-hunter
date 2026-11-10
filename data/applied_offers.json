@@ -7343,9 +7343,51 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-10T15:13:51.702176+00:00"
+    },
+    "15f5d3e90fc4a028": {
+      "title": "Stage pré-embauche non rémunéré — Tests d’applications web et mobiles / Expérience utilisateurResponsable Veille Stratégique & Insights (H/F)",
+      "company": "Agilteem",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pr%C3%A9-embauche-non-r%C3%A9mun%C3%A9r%C3%A9-%E2%80%94-tests-d%E2%80%99applications-web-et-mobiles-exp%C3%A9rience-utilisateurresponsable-veille-strat%C3%A9gique-insights-h-f-at-agilteem-4489620376",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pr%C3%A9-embauche-non-r%C3%A9mun%C3%A9r%C3%A9-%E2%80%94-tests-d%E2%80%99applications-web-et-mobiles-exp%C3%A9rience-utilisateurresponsable-veille-strat%C3%A9gique-insights-h-f-at-agilteem-4489620376",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-11-10T18:15:25.535747+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-10T18:15:25.535747+00:00"
+    },
+    "09558c5e0986d9c9": {
+      "title": "Stage PFE - Développeur DevOps / Pega",
+      "company": "Société Générale",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pfe-d%C3%A9veloppeur-devops-pega-at-societe-generale-4489619259",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement@socgen.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pfe-d%C3%A9veloppeur-devops-pega-at-societe-generale-4489619259",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "DevOps"
+      ],
+      "first_seen": "2026-11-10T18:15:34.510578+00:00",
+      "applied": true,
+      "applied_at": "2026-11-10T18:15:34.510578+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-10T18:15:34.510578+00:00"
     }
   },
-  "last_updated": "2026-11-10T15:13:51.702176+00:00",
-  "total_applied": 119,
+  "last_updated": "2026-11-10T18:15:34.510578+00:00",
+  "total_applied": 120,
   "total_simulated": 4
 }
