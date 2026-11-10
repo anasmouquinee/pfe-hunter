@@ -7299,9 +7299,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-09T18:18:12.319046+00:00"
+    },
+    "9d4f6dae4ef74db4": {
+      "title": "Stage de fin d’études (PFE) – Performance Numérique - ESCA Talent Day",
+      "company": "Cossette Media",
+      "url": "https://ma.linkedin.com/jobs/view/stage-de-fin-d%E2%80%99%C3%A9tudes-pfe-%E2%80%93-performance-num%C3%A9rique-esca-talent-day-at-cossette-media-4487903659",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-de-fin-d%E2%80%99%C3%A9tudes-pfe-%E2%80%93-performance-num%C3%A9rique-esca-talent-day-at-cossette-media-4487903659",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-11-10T06:19:41.499003+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-10T06:19:41.499003+00:00"
     }
   },
-  "last_updated": "2026-11-09T18:18:12.319046+00:00",
+  "last_updated": "2026-11-10T06:19:41.499003+00:00",
   "total_applied": 119,
   "total_simulated": 4
 }
