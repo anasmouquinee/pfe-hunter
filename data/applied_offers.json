@@ -7321,9 +7321,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-10T06:19:41.499003+00:00"
+    },
+    "165387487696af0b": {
+      "title": "AI Automation & Workflow Intern",
+      "company": "Evobike Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/ai-automation-workflow-intern-at-evobike-maroc-4489460020",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/ai-automation-workflow-intern-at-evobike-maroc-4489460020",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "AI"
+      ],
+      "first_seen": "2026-11-10T15:13:51.702176+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-10T15:13:51.702176+00:00"
     }
   },
-  "last_updated": "2026-11-10T06:19:41.499003+00:00",
+  "last_updated": "2026-11-10T15:13:51.702176+00:00",
   "total_applied": 119,
   "total_simulated": 4
 }
