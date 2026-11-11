@@ -7385,9 +7385,60 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-10T18:15:34.510578+00:00"
+    },
+    "7ce5f889e0b6fca4": {
+      "title": "Data & AI Stagiaire PFE",
+      "company": "Capgemini Engineering",
+      "url": "https://ma.linkedin.com/jobs/view/data-ai-stagiaire-pfe-at-capgemini-engineering-4489908448",
+      "source": "linkedin_guest",
+      "contact_email": "recrutementmaroc.ceg@capgemini.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/data-ai-stagiaire-pfe-at-capgemini-engineering-4489908448",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 90,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "AI",
+        "Machine Learning",
+        "Data Science",
+        "Python",
+        "SQL",
+        "Cloud"
+      ],
+      "first_seen": "2026-11-11T09:16:08.334060+00:00",
+      "applied": true,
+      "applied_at": "2026-11-11T09:16:08.334060+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-11T09:16:08.334060+00:00"
+    },
+    "7740a309aacb3cc5": {
+      "title": "CONSULTOR/A DATA SCIENCE CASABLANCA",
+      "company": "Management Solutions",
+      "url": "https://ma.linkedin.com/jobs/view/consultor-a-data-science-casablanca-at-management-solutions-4485884377",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/consultor-a-data-science-casablanca-at-management-solutions-4485884377",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Data Science"
+      ],
+      "first_seen": "2026-11-11T09:16:12.907089+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-11T09:16:12.907089+00:00"
     }
   },
-  "last_updated": "2026-11-10T18:15:34.510578+00:00",
-  "total_applied": 120,
+  "last_updated": "2026-11-11T09:16:12.907089+00:00",
+  "total_applied": 121,
   "total_simulated": 4
 }
