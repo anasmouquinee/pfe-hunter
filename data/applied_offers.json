@@ -7534,9 +7534,38 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-11T18:15:26.299376+00:00"
+    },
+    "882f7a58f1d05bfb": {
+      "title": "Bertrandt recrute 16 stagiaires et juniors à Rabat",
+      "company": "Bertrandt",
+      "url": "https://joblia.ma/offres-emploi/bertrandt-recrute-16-stagiaires-et-juniors-a-rabat",
+      "source": "joblia",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 100,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "AI",
+        "Data Science",
+        "Python",
+        "Java",
+        "DevOps",
+        "Cloud"
+      ],
+      "first_seen": "2026-11-12T00:29:48.820218+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-12T00:29:48.820218+00:00"
     }
   },
-  "last_updated": "2026-11-11T18:15:26.299376+00:00",
+  "last_updated": "2026-11-12T00:29:48.820218+00:00",
   "total_applied": 123,
   "total_simulated": 4
 }
