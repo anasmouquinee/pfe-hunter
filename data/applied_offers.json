@@ -7586,9 +7586,32 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-12T06:21:05.148193+00:00"
+    },
+    "5eeea210415fcc9a": {
+      "title": "Développeur Python Cloud (F/H)",
+      "company": "Sofrecom Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/d%C3%A9veloppeur-python-cloud-f-h-at-sofrecom-maroc-4461086902",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement.maroc@sofrecom.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/d%C3%A9veloppeur-python-cloud-f-h-at-sofrecom-maroc-4461086902",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 66,
+      "matched_skills": [
+        "Python",
+        "Cloud"
+      ],
+      "first_seen": "2026-11-12T12:19:28.571550+00:00",
+      "applied": true,
+      "applied_at": "2026-11-12T12:19:28.571550+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-12T12:19:28.571550+00:00"
     }
   },
-  "last_updated": "2026-11-12T06:21:05.148193+00:00",
-  "total_applied": 123,
+  "last_updated": "2026-11-12T12:19:28.571550+00:00",
+  "total_applied": 124,
   "total_simulated": 4
 }
