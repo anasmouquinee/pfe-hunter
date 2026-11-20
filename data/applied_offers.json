@@ -8535,9 +8535,53 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-20T15:18:35.845932+00:00"
+    },
+    "d89e59d6722ce2a2": {
+      "title": "Stage PFE 2027 – Relation Client",
+      "company": "Payment Center For Africa - PCA",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pfe-2027-%E2%80%93-relation-client-at-payment-center-for-africa-pca-4492954585",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pfe-2027-%E2%80%93-relation-client-at-payment-center-for-africa-pca-4492954585",
+      "hr_name": "Chris Reed",
+      "hr_linkedin_url": "https://www.linkedin.com/in/chrisreedstl",
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "SQL"
+      ],
+      "first_seen": "2026-11-20T18:23:12.939100+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-20T18:23:12.939100+00:00"
+    },
+    "2fe39cb5f6039abf": {
+      "title": "Consultant Risk & Compliance Corporate - TECH | Stage PFE | F/H",
+      "company": "KPMG Maroc",
+      "url": "https://ma.linkedin.com/jobs/view/consultant-risk-compliance-corporate-tech-stage-pfe-f-h-at-kpmg-au-maroc-4491945691",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/consultant-risk-compliance-corporate-tech-stage-pfe-f-h-at-kpmg-au-maroc-4491945691",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Cloud"
+      ],
+      "first_seen": "2026-11-20T18:23:17.722857+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-20T18:23:17.722857+00:00"
     }
   },
-  "last_updated": "2026-11-20T15:18:35.845932+00:00",
+  "last_updated": "2026-11-20T18:23:17.722857+00:00",
   "total_applied": 156,
   "total_simulated": 4
 }
