@@ -8623,9 +8623,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-21T06:20:37.234093+00:00"
+    },
+    "0704281cb0177bc7": {
+      "title": "Stage PFE 2027 –  Risques et Fraudes Monériques",
+      "company": "Payment Center For Africa - PCA",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pfe-2027-%E2%80%93-risques-et-fraudes-mon%C3%A9riques-at-payment-center-for-africa-pca-4492970558",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pfe-2027-%E2%80%93-risques-et-fraudes-mon%C3%A9riques-at-payment-center-for-africa-pca-4492970558",
+      "hr_name": "Chris Reed",
+      "hr_linkedin_url": "https://www.linkedin.com/in/chrisreedstl",
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "SQL"
+      ],
+      "first_seen": "2026-11-21T12:17:21.179772+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-21T12:17:21.179772+00:00"
     }
   },
-  "last_updated": "2026-11-21T06:20:37.234093+00:00",
+  "last_updated": "2026-11-21T12:17:21.179772+00:00",
   "total_applied": 157,
   "total_simulated": 4
 }
