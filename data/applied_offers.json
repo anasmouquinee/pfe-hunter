@@ -8601,9 +8601,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-21T00:28:28.030225+00:00"
+    },
+    "bf3997937e564b94": {
+      "title": "Intermediate DevOps Engineer",
+      "company": "Leyton",
+      "url": "https://ma.linkedin.com/jobs/view/intermediate-devops-engineer-at-leyton-4492972343",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement-maroc@leyton.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/intermediate-devops-engineer-at-leyton-4492972343",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "DevOps"
+      ],
+      "first_seen": "2026-11-21T06:20:37.234093+00:00",
+      "applied": true,
+      "applied_at": "2026-11-21T06:20:37.234093+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-21T06:20:37.234093+00:00"
     }
   },
-  "last_updated": "2026-11-21T00:28:28.030225+00:00",
-  "total_applied": 156,
+  "last_updated": "2026-11-21T06:20:37.234093+00:00",
+  "total_applied": 157,
   "total_simulated": 4
 }
