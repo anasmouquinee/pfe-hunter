@@ -8645,9 +8645,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-21T12:17:21.179772+00:00"
+    },
+    "68e09f19f15479fb": {
+      "title": "Stage PFE 2027 –  Reporting Réglementaire",
+      "company": "Payment Center For Africa - PCA",
+      "url": "https://ma.linkedin.com/jobs/view/stage-pfe-2027-%E2%80%93-reporting-r%C3%A9glementaire-at-payment-center-for-africa-pca-4492971294",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stage-pfe-2027-%E2%80%93-reporting-r%C3%A9glementaire-at-payment-center-for-africa-pca-4492971294",
+      "hr_name": "Chris Reed",
+      "hr_linkedin_url": "https://www.linkedin.com/in/chrisreedstl",
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "SQL"
+      ],
+      "first_seen": "2026-11-21T21:13:04.125415+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-21T21:13:04.125415+00:00"
     }
   },
-  "last_updated": "2026-11-21T12:17:21.179772+00:00",
+  "last_updated": "2026-11-21T21:13:04.125415+00:00",
   "total_applied": 157,
   "total_simulated": 4
 }
