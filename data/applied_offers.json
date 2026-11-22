@@ -8667,9 +8667,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-21T21:13:04.125415+00:00"
+    },
+    "2e354c8c40004000": {
+      "title": "MARKETING INTERN - PFE (convention de stage obligatoire)",
+      "company": "JTI",
+      "url": "https://ma.linkedin.com/jobs/view/marketing-intern-pfe-convention-de-stage-obligatoire-at-jti-4491429486",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/marketing-intern-pfe-convention-de-stage-obligatoire-at-jti-4491429486",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-22T15:13:27.232974+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-22T15:13:27.232974+00:00"
     }
   },
-  "last_updated": "2026-11-21T21:13:04.125415+00:00",
+  "last_updated": "2026-11-22T15:13:27.232974+00:00",
   "total_applied": 157,
   "total_simulated": 4
 }
