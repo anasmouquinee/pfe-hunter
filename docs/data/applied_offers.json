@@ -8709,9 +8709,51 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-22T18:14:48.972174+00:00"
+    },
+    "15eeb3c608accc41": {
+      "title": "STAGES PFE 2027 - PROFILS INGÉNIEURS",
+      "company": "Saham Bank (Officiel)",
+      "url": "https://ma.linkedin.com/jobs/view/stages-pfe-2027-profils-ing%C3%A9nieurs-at-saham-bank-officiel-4492378973",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stages-pfe-2027-profils-ing%C3%A9nieurs-at-saham-bank-officiel-4492378973",
+      "hr_name": "Chris Reed",
+      "hr_linkedin_url": "https://www.linkedin.com/in/chrisreedstl",
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "SQL"
+      ],
+      "first_seen": "2026-11-23T12:19:42.150020+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-23T12:19:42.150020+00:00"
+    },
+    "ca4d5144b0d41c67": {
+      "title": "Stagiaire - Data Engineer - F/H - MAROC",
+      "company": "Onepoint",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-data-engineer-f-h-maroc-at-onepoint-4492601551",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-data-engineer-f-h-maroc-at-onepoint-4492601551",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-23T12:19:45.234481+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-23T12:19:45.234481+00:00"
     }
   },
-  "last_updated": "2026-11-22T18:14:48.972174+00:00",
+  "last_updated": "2026-11-23T12:19:45.234481+00:00",
   "total_applied": 157,
   "total_simulated": 4
 }
