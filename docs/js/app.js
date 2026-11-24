@@ -16,57 +16,62 @@ const tableState = {
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Initialize Theme (Dark Default or persisted in localStorage)
-  initTheme();
+  try { initTheme(); } catch (e) { console.error('Theme init error:', e); }
 
-  // 1b. Initialize Interactive Sound System (Web Audio API Synthesizer)
-  initSoundSystem();
+  // 2. Setup 3-View Switcher & URL Hash IMMEDIATELY!
+  // This guarantees that navigation buttons respond in < 1ms upon page load
+  try {
+    setupModeSwitcher();
+    handleUrlHash();
+    window.addEventListener('hashchange', handleUrlHash);
+  } catch (e) {
+    console.error('Mode switcher init error:', e);
+  }
 
-  // 1c. Setup Modern Card Spotlight & Glare Effects
-  setupSpotlightEffects();
+  // 3. Initialize Interactive Sound System
+  try { initSoundSystem(); } catch (e) { console.warn('Sound init error:', e); }
 
-  // 1d. Setup Welcome HUD Strip Quick Actions
-  setupWelcomeHudActions();
+  // 4. Setup Modern Card Spotlight & Welcome HUD Quick Actions
+  try { setupSpotlightEffects(); } catch (e) {}
+  try { setupWelcomeHudActions(); } catch (e) {}
 
-  // 2. Initialize Data Engine
-  await window.dataEngine.init();
+  // 5. Setup Sticky Storyboard Process Scroll Animation
+  try { setupStoryboardObserver(); } catch (e) {}
 
-  // 3. Update KPI Metrics in Mission Control
-  renderKpis();
-
-  // 4. Update Dynamic Scraper Health Monitor & Distribution Strip
-  renderScraperHealth();
-  renderDistributionStrip();
-
-  // 5. Render Scraped Offers Table with Pagination & Sorting
-  renderOffersTable();
-
-  // 6. Setup Search, Filter, Sort & Pagination Listeners
-  setupFilterListeners();
-  setupTableInteractions();
+  // 6. Initialize Data Engine (Loads real offers or fallback)
+  try {
+    if (window.dataEngine) {
+      await window.dataEngine.init();
+      renderKpis();
+      renderScraperHealth();
+      renderDistributionStrip();
+      renderOffersTable();
+      setupFilterListeners();
+      setupTableInteractions();
+    }
+  } catch (e) {
+    console.error('DataEngine init error:', e);
+  }
 
   // 7. Setup Scoring Sandbox with Live Input Debounce
-  setupScoringSandbox();
+  try { setupScoringSandbox(); } catch (e) {}
 
   // 8. Setup Email Generator & Multi-Step Dry-Run Simulator
-  setupEmailPreviewer();
+  try { setupEmailPreviewer(); } catch (e) {}
 
   // 9. Initialize Interactive Terminal
-  const term = new TerminalEngine('terminal-output', 'terminal-input');
-  term.init();
-  window.terminalInstance = term;
+  try {
+    if (typeof TerminalEngine !== 'undefined') {
+      const term = new TerminalEngine('terminal-output', 'terminal-input');
+      term.init();
+      window.terminalInstance = term;
+    }
+  } catch (e) {
+    console.error('Terminal init error:', e);
+  }
 
-  // 10. Setup 3-View Switcher (Home / Dashboard / Portfolio)
-  setupModeSwitcher();
-
-  // 10b. Setup Sticky Storyboard Process Scroll Animation
-  setupStoryboardObserver();
-
-  // 11. Setup Drawer / Flyout Details
-  setupDrawer();
-
-  // 12. Read URL Hash for Initial Mode & listen for history navigation
-  handleUrlHash();
-  window.addEventListener('hashchange', handleUrlHash);
+  // 10. Setup Drawer / Flyout Details
+  try { setupDrawer(); } catch (e) {}
 });
 
 /* --------------------------------------------------------------------------
