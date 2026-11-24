@@ -340,18 +340,22 @@
 }
 
 .storyboard-hud-icon {
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-cyan);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
 }
 
 .storyboard-hud-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .storyboard-hud-title {
@@ -455,20 +459,15 @@
   gap: var(--space-4);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
-}
-
-.storyboard-step-card:not(.active) {
-  border-color: var(--border-subtle);
-}
-
-.storyboard-step-card:not(.active) .step-card-desc {
-  color: var(--text-muted);
+  opacity: 0.55;
+  transform: translateY(12px);
 }
 
 .storyboard-step-card.active {
+  opacity: 1;
+  transform: translateY(0);
   border-color: var(--border-accent);
-  box-shadow: var(--shadow-lg), var(--card-inset-highlight);
-  background: var(--bg-surface-elevated);
+  box-shadow: var(--shadow-md), 0 0 24px rgba(99, 102, 241, 0.15);
 }
 
 .step-card-number-row {
@@ -493,7 +492,7 @@
 }
 
 .step-status-tag {
-  font-size: var(--text-xs);
+  font-size: 11px;
   font-family: var(--font-mono);
 }
 
