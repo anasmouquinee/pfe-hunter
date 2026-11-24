@@ -8751,9 +8751,54 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-23T12:19:45.234481+00:00"
+    },
+    "87925ac6a23f48ca": {
+      "title": "Commerciaux, finance et stages PFE: JTI recrute 10 profils dans 5 villes",
+      "company": "Entreprise Maroc",
+      "url": "https://www.dreamjob.ma/emploi/commerciaux-finance-et-stages-pfe-jti-recrute-10-profils-dans-5-villes",
+      "source": "dreamjob",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 60,
+      "matched_skills": [],
+      "first_seen": "2026-11-24T00:32:39.482040+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-24T00:32:39.482040+00:00"
+    },
+    "b837f9928affaf13": {
+      "title": "Élèves ingénieurs: Saham Bank recrute des stagiaires PFE en IT, data et risques",
+      "company": "Saham Bank",
+      "url": "https://www.dreamjob.ma/stage/eleves-ingenieurs-saham-bank-recrute-des-stagiaires-pfe-en-it-data-et-risques",
+      "source": "dreamjob",
+      "contact_email": null,
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 82,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "NLP",
+        "DevOps"
+      ],
+      "first_seen": "2026-11-24T00:32:42.215021+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-24T00:32:42.215021+00:00"
     }
   },
-  "last_updated": "2026-11-23T12:19:45.234481+00:00",
+  "last_updated": "2026-11-24T00:32:42.215021+00:00",
   "total_applied": 157,
   "total_simulated": 4
 }
