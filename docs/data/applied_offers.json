@@ -7866,22 +7866,23 @@
       "company": "Cognitive Machines Technologies",
       "url": "https://ma.linkedin.com/jobs/view/internship-ai-business-development-technology-strategy-at-cognitive-machines-technologies-4491095898",
       "source": "linkedin_guest",
-      "contact_email": null,
+      "contact_email": "contacts@cmxarchi.com",
       "linkedin_url": "https://ma.linkedin.com/jobs/view/internship-ai-business-development-technology-strategy-at-cognitive-machines-technologies-4491095898",
       "hr_name": null,
       "hr_linkedin_url": null,
-      "is_remunerated": false,
-      "score": 58,
+      "is_remunerated": true,
+      "score": 76,
       "matched_skills": [
-        "AI"
+        "AI",
+        "Data Engineering"
       ],
       "first_seen": "2026-11-16T18:17:31.529119+00:00",
-      "applied": false,
-      "applied_at": null,
+      "applied": true,
+      "applied_at": "2026-11-24T03:17:05.138625+00:00",
       "simulated": false,
       "simulated_at": null,
       "notified": true,
-      "notified_at": "2026-11-16T18:17:31.529119+00:00"
+      "notified_at": "2026-11-24T03:17:05.138625+00:00"
     },
     "21c5e691bd4c1438": {
       "title": "Stagiaire en Data (F/H) - Disponible immédiatement -",
@@ -8798,7 +8799,7 @@
       "notified_at": "2026-11-24T00:32:42.215021+00:00"
     }
   },
-  "last_updated": "2026-11-24T00:32:42.215021+00:00",
-  "total_applied": 157,
+  "last_updated": "2026-11-24T03:17:05.138625+00:00",
+  "total_applied": 158,
   "total_simulated": 4
 }
