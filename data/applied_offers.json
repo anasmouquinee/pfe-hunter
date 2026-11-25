@@ -8897,9 +8897,29 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-24T21:14:43.372314+00:00"
+    },
+    "69c3df55e3690c0c": {
+      "title": "Offre de stage pré-embauche: Développeur(se) informatique",
+      "company": "MAROC FER",
+      "url": "https://ma.linkedin.com/jobs/view/offre-de-stage-pr%C3%A9-embauche-d%C3%A9veloppeur-se-informatique-at-maroc-fer-4494630249",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/offre-de-stage-pr%C3%A9-embauche-d%C3%A9veloppeur-se-informatique-at-maroc-fer-4494630249",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-25T12:19:34.083731+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-25T12:19:34.083731+00:00"
     }
   },
-  "last_updated": "2026-11-24T21:14:43.372314+00:00",
+  "last_updated": "2026-11-25T12:19:34.083731+00:00",
   "total_applied": 160,
   "total_simulated": 4
 }
