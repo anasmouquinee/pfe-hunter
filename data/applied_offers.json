@@ -8937,9 +8937,74 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-26T00:28:41.918778+00:00"
+    },
+    "0d8589fc2b0f34ef": {
+      "title": "Java Full stack Engineer Intern",
+      "company": "inyad",
+      "url": "https://ma.linkedin.com/jobs/view/java-full-stack-engineer-intern-at-inyad-4495283584",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/java-full-stack-engineer-intern-at-inyad-4495283584",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 66,
+      "matched_skills": [
+        "Java",
+        "Full Stack"
+      ],
+      "first_seen": "2026-11-26T12:18:33.582953+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-26T12:18:33.582953+00:00"
+    },
+    "a02adad86a361288": {
+      "title": "Stagiaire PFE - Gateway IA avec modules DLP  (H/F)",
+      "company": "Banque Centrale Populaire - BCP",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-gateway-ia-avec-modules-dlp-h-f-at-banque-centrale-populaire-bcp-4495278524",
+      "source": "linkedin_guest",
+      "contact_email": "recrutement@cpm.ma",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-gateway-ia-avec-modules-dlp-h-f-at-banque-centrale-populaire-bcp-4495278524",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-11-26T12:18:41.390308+00:00",
+      "applied": true,
+      "applied_at": "2026-11-26T12:18:41.390308+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-26T12:18:41.390308+00:00"
+    },
+    "4a912784f6f943d5": {
+      "title": "Stagiaire en informatique",
+      "company": "Radisson Hotel Casablanca Gauthier La Citadelle",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-en-informatique-at-radisson-hotel-casablanca-gauthier-la-citadelle-4495295319",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-en-informatique-at-radisson-hotel-casablanca-gauthier-la-citadelle-4495295319",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 50,
+      "matched_skills": [],
+      "first_seen": "2026-11-26T12:18:44.808619+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-26T12:18:44.808619+00:00"
     }
   },
-  "last_updated": "2026-11-26T00:28:41.918778+00:00",
-  "total_applied": 160,
+  "last_updated": "2026-11-26T12:18:44.808619+00:00",
+  "total_applied": 161,
   "total_simulated": 4
 }
