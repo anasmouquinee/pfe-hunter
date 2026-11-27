@@ -9026,9 +9026,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-26T15:16:43.173842+00:00"
+    },
+    "17a87bcfb51399d7": {
+      "title": "Ingénieur d'études et développement Angular / Next.js",
+      "company": "LOGIGROUP",
+      "url": "https://ma.linkedin.com/jobs/view/ing%C3%A9nieur-d-%C3%A9tudes-et-d%C3%A9veloppement-angular-next-js-at-logigroup-4495519136",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/ing%C3%A9nieur-d-%C3%A9tudes-et-d%C3%A9veloppement-angular-next-js-at-logigroup-4495519136",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "Angular"
+      ],
+      "first_seen": "2026-11-27T00:30:15.740145+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-27T00:30:15.740145+00:00"
     }
   },
-  "last_updated": "2026-11-26T15:16:43.173842+00:00",
+  "last_updated": "2026-11-27T00:30:15.740145+00:00",
   "total_applied": 162,
   "total_simulated": 4
 }
