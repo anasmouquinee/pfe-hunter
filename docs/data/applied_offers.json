@@ -9220,9 +9220,60 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-27T18:17:16.392544+00:00"
+    },
+    "37f205158cc952bb": {
+      "title": "Hertz Maroc recrute des stagiaires PFE Bac+4/5 rémunérés à partir de janvier 2027",
+      "company": "Hertz Maroc",
+      "url": "https://joblia.ma/offres-emploi/hertz-maroc-recrute-des-stagiaires-pfe-bac4-5-remuneres-a-partir-de-janvier-2027",
+      "source": "joblia",
+      "contact_email": "recrutement.hertz-maroc@gbh.fr",
+      "linkedin_url": null,
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": true,
+      "score": 100,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "IA",
+        "Machine Learning",
+        "Data Science",
+        "Python",
+        "SQL"
+      ],
+      "first_seen": "2026-11-27T21:13:35.650503+00:00",
+      "applied": true,
+      "applied_at": "2026-11-27T21:13:35.650503+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-27T21:13:35.650503+00:00"
+    },
+    "7388f1f6a6255fcb": {
+      "title": "Stagiaire PFE Supply Chain (H/F)",
+      "company": "Danone",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-supply-chain-h-f-at-danone-4495860045",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-supply-chain-h-f-at-danone-4495860045",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 74,
+      "matched_skills": [
+        "Data Science",
+        "Python",
+        "SQL"
+      ],
+      "first_seen": "2026-11-27T21:13:41.400823+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-27T21:13:41.400823+00:00"
     }
   },
-  "last_updated": "2026-11-27T18:17:16.392544+00:00",
-  "total_applied": 165,
+  "last_updated": "2026-11-27T21:13:41.400823+00:00",
+  "total_applied": 166,
   "total_simulated": 4
 }
