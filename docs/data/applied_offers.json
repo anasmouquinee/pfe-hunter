@@ -9293,9 +9293,34 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-28T00:27:26.726432+00:00"
+    },
+    "f987851d0633f465": {
+      "title": "Stagiaire PFE Supply Chain (H/F)",
+      "company": "Danone",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-supply-chain-h-f-at-danone-4495841800",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-supply-chain-h-f-at-danone-4495841800",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 82,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "Data Science",
+        "Python",
+        "SQL"
+      ],
+      "first_seen": "2026-11-28T03:15:51.760553+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-28T03:15:51.760553+00:00"
     }
   },
-  "last_updated": "2026-11-28T00:27:26.726432+00:00",
+  "last_updated": "2026-11-28T03:15:51.760553+00:00",
   "total_applied": 167,
   "total_simulated": 4
 }
