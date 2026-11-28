@@ -9271,9 +9271,31 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-27T21:13:41.400823+00:00"
+    },
+    "fb2eee4b68a75cd0": {
+      "title": "Stagiaire PFE – Systèmes Embarqués, Automobile & IA (H/F)",
+      "company": "CGI",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-%E2%80%93-syst%C3%A8mes-embarqu%C3%A9s-automobile-ia-h-f-at-cgi-4495822934",
+      "source": "linkedin_guest",
+      "contact_email": "carrieres.maroc@cgi.com",
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-%E2%80%93-syst%C3%A8mes-embarqu%C3%A9s-automobile-ia-h-f-at-cgi-4495822934",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 58,
+      "matched_skills": [
+        "IA"
+      ],
+      "first_seen": "2026-11-28T00:27:26.726432+00:00",
+      "applied": true,
+      "applied_at": "2026-11-28T00:27:26.726432+00:00",
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-28T00:27:26.726432+00:00"
     }
   },
-  "last_updated": "2026-11-27T21:13:41.400823+00:00",
-  "total_applied": 166,
+  "last_updated": "2026-11-28T00:27:26.726432+00:00",
+  "total_applied": 167,
   "total_simulated": 4
 }
