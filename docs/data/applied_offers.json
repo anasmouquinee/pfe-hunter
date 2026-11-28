@@ -9318,9 +9318,36 @@
       "simulated_at": null,
       "notified": true,
       "notified_at": "2026-11-28T03:15:51.760553+00:00"
+    },
+    "012bf26bc432109d": {
+      "title": "Stagiaire PFE Logistique (H/F)",
+      "company": "Danone",
+      "url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-logistique-h-f-at-danone-4495847438",
+      "source": "linkedin_guest",
+      "contact_email": null,
+      "linkedin_url": "https://ma.linkedin.com/jobs/view/stagiaire-pfe-logistique-h-f-at-danone-4495847438",
+      "hr_name": null,
+      "hr_linkedin_url": null,
+      "is_remunerated": false,
+      "score": 90,
+      "matched_skills": [
+        "Intelligence Artificielle",
+        "Machine Learning",
+        "Deep Learning",
+        "Data Science",
+        "Python",
+        "SQL"
+      ],
+      "first_seen": "2026-11-28T06:19:52.989594+00:00",
+      "applied": false,
+      "applied_at": null,
+      "simulated": false,
+      "simulated_at": null,
+      "notified": true,
+      "notified_at": "2026-11-28T06:19:52.989594+00:00"
     }
   },
-  "last_updated": "2026-11-28T03:15:51.760553+00:00",
+  "last_updated": "2026-11-28T06:19:52.989594+00:00",
   "total_applied": 167,
   "total_simulated": 4
 }
